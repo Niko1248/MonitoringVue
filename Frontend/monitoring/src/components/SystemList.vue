@@ -1,69 +1,62 @@
 <template lang="">
 	<div class="wrapper">
-		<SystemItem
-		v-for="(system,index) in systems"
-		:system = system
-		:key = system._id
-		:index=index
-		:stateSystems=stateSystems
-	/>
-	</div>
+		<transition-group name='systemList'>
+			<SystemItem
+				v-for="(system,index) in systems"
+				:system = system
+				:key = system._id
+				:index=index
+				:stateSystems=stateSystems
+			/>
+		</transition-group>
 
+	</div>
 </template>
 
 
 <script>
 import SystemItem from './SystemItem.vue';
-import axios from 'axios'
 
 export default {
 	components: {
 		SystemItem
 	},
-	data(){
-		return{
-			systems: [],
-			stateSystems: []
+	props: {
+		systems:{
+			type: Array,
+			required: true
+		},
+		stateSystems:{
+			type: Array
+		},
+		inputValue:{
+			type: String
 		}
-	},
-	methods: {
-		async fetchSystems() {
-			try{
-				const response = await axios.get('http://192.168.0.108:80/api/router/systems')
-				this.systems = response.data
-			}catch(e){
-				console.log(e.message);
-			}
-		},
-		async readPinInfo() {
-			try{
-				const response = await axios.get('http://192.168.0.108:80/readPinInfo') //Надо посмотреть про Computed
-				this.stateSystems = response.data
-			}catch(e){
-				console.log(e);
-			}
-		},
-	},
-	mounted() {
-		this.fetchSystems()
-		this.readPinInfo()
-		this.interval = setInterval(() => {
-			this.readPinInfo()
-		}, 3000)
-	},
-	beforeDestroy() {
-		clearInterval(this.interval)
-	},
-
+	}
 }
 </script>
 
 
-
 <style scoped>
-	.wrapper{
-		padding: 20px;
-		display: grid;
-		gap: 15px;
-	}
+.wrapper{
+	padding: 20px;
+	display: grid;
+	gap: 15px;
+}
+.systemList-item {
+display: inline-block;
+margin-right: 10px;
+}
+.systemList-enter-active,
+.systemList-leave-active {
+  transition: all 0.4s ease;
+}
+.systemList-enter-from,
+.systemList-leave-to {
+  opacity: 0;
+  transform: translateX(130px);
+}
+.systemList-move {
+  transition: transform 0.6s ease;
+}
 </style>

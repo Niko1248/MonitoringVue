@@ -10,7 +10,21 @@
 	</div>
 </template>
 <script>
+import sound from '../assets/alert.mp3'
+
+const audio = new Audio(sound)
+audio.loop = true
+
+
 export default {
+	data(){
+		return{
+			
+		}
+	},
+	methods:{
+
+	},
 	props: {
 		system:{
 			type: Object,
@@ -21,7 +35,30 @@ export default {
 		},
 		stateSystems:{
 			type: Array
+		},
+	},
+	computed: {
+		systemStatus() {
+			return this.stateSystems[this.index]
+		},
+		sound() {
+			return this.$store.state.soundEnable
 		}
+	},
+	watch:{
+		systemStatus(newVal){
+			if(newVal === 1 && this.$store.state.soundEnable === false){
+				this.$store.commit('enableSound')
+			}
+		},
+		sound(newVal){
+			if(newVal === false){
+				audio.pause()
+			}else{
+				audio.play()
+			}
+		}
+		
 	},
 }
 

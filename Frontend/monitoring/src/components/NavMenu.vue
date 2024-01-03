@@ -5,10 +5,17 @@
 			<p class="logo_text">ониторинг</p>
 		</div>
 		<div class="menu">
-			<img class="search" src="../assets/SEARCH.svg" alt="">
-			<a class="log_text">Log</a>
+			<img class="search" src="../assets/SEARCH.svg" @click="showSearch" alt="Поиск">
+			<input 
+				v-if="isSearch" 
+				type="text" 
+				v-model="searchQuery"
+				@input = updateInput
+			>
+			<div class="log_text">Log</div>
 			<img class="settings" src="../assets/SETTINGS.svg" alt="">
 			<img src="../assets/PRINT.svg" alt="">
+			<div class='test' @click="$store.commit('disableSound')">Сброс</div>
 		</div>
 		<div class="auth">
 			<a class="auth_text" href="">user</a>
@@ -18,7 +25,23 @@
 </template>
 <script>
 export default {
-	
+	data() {
+		return {
+			isSearch: false,
+			searchQuery: ''
+		}
+	},
+	props:{
+
+	},
+	methods: {
+		showSearch() {
+			this.isSearch = !this.isSearch
+		},
+		updateInput() {
+			this.$emit('input-change', this.searchQuery)
+		}
+	}
 }
 </script>
 <style scoped>
@@ -58,5 +81,9 @@ export default {
 	color: white;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+.test{
+	color: white;
+	cursor: pointer;
 }
 </style>

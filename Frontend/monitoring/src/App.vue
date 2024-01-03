@@ -1,11 +1,11 @@
 <script setup>
-import NavMenu from './components/NavMenu.vue';
-import SystemList from './components/SystemList.vue';
+
+import UserPage from './pages/UserPage.vue';
+
 </script>
 
 <template>
-	<NavMenu></NavMenu>
-	<SystemList></SystemList>
+	<UserPage/>
 </template>
 
 <style>
