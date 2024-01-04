@@ -31,7 +31,7 @@ export default {
 			searchQuery: ''
 		}
 	},
-	props:{
+	props: {
 
 	},
 	methods: {
@@ -44,45 +44,59 @@ export default {
 	}
 }
 </script>
-<style scoped>
-	.nav{
+<style scoped lang="scss">
+.nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background-color: #0E1621;
 	padding: 5px 20px;
 }
-.logo{
+
+.logo {
 	display: flex;
 	align-items: center;
+
+	img {
+		width: 40px;
+	}
 }
-.logo_text{
+
+.logo_text {
 	font-size: 20px;
 	text-decoration: none;
 	color: white;
 }
-.menu{
+
+.menu {
 	display: flex;
 	align-items: center;
 }
-.log_text{
+
+.log_text {
 	color: white;
 	font-size: 24px;
 }
-.search, .log_text, .settings{
+
+.search,
+.log_text,
+.settings {
 	margin-right: 2vw;
 }
-.auth{
+
+.auth {
 	display: flex;
 	align-items: center;
 }
-.auth_text{
+
+.auth_text {
 	margin-right: 10px;
 	color: white;
 	text-decoration: none;
 	text-transform: uppercase;
 }
-.test{
+
+.test {
 	color: white;
 	cursor: pointer;
 }
