@@ -14,7 +14,7 @@
 			>
 			<div class="log_text">Log</div>
 			<img class="settings" src="../assets/SETTINGS.svg" alt="">
-			<img src="../assets/PRINT.svg" alt="">
+			<img class="printPage" src="../assets/PRINT.svg" alt="">
 			<div class='test' @click="$store.commit('disableSound')">Сброс</div>
 		</div>
 		<div class="auth">
@@ -51,6 +51,9 @@ export default {
 	align-items: center;
 	background-color: #0E1621;
 	padding: 5px 20px;
+	font-family: Wix Madefor Display;
+
+
 }
 
 .logo {
@@ -59,18 +62,23 @@ export default {
 
 	img {
 		width: 40px;
+		height: 40px;
 	}
+
 }
 
 .logo_text {
 	font-size: 20px;
 	text-decoration: none;
 	color: white;
+
 }
 
 .menu {
 	display: flex;
 	align-items: center;
+	justify-content: space-around;
+	width: 30%;
 }
 
 .log_text {
@@ -80,8 +88,9 @@ export default {
 
 .search,
 .log_text,
-.settings {
-	margin-right: 2vw;
+.settings,
+.printPage {
+	width: 20px;
 }
 
 .auth {
