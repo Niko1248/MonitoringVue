@@ -36,7 +36,6 @@ class SystemController {
       res.status(500).json(e.message)
     }
   }
-
   async delete(req, res) {
     try {
       const system = await SystemService.delete(req.params.id)

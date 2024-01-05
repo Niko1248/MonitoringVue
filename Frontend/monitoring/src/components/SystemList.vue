@@ -6,7 +6,6 @@
 				:system = system
 				:key = system._id
 				:index=index
-				:stateSystems=stateSystems
 			/>
 		</transition-group>
 
@@ -25,9 +24,6 @@ export default {
 		systems:{
 			type: Array,
 			required: true
-		},
-		stateSystems:{
-			type: Array
 		},
 		inputValue:{
 			type: String

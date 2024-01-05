@@ -1,5 +1,5 @@
 <template>
-	<div class="system" :style="{backgroundColor: stateSystems[index] == 1 ? 'green' : 'red'}">
+	<div class="system" :style="{backgroundColor: system.state == 'В работе' ? 'green' : 'red'}">
 		<div class="system__number">{{ system.number }}</div>
 		<div class="system__correspondent">{{ system.correspondent }}</div>
 		<div class="system__KMU">
@@ -33,13 +33,10 @@ export default {
 		index:{
 			type: Number
 		},
-		stateSystems:{
-			type: Array
-		},
 	},
 	computed: {
 		systemStatus() {
-			return this.stateSystems[this.index]
+			return this.system.state
 		},
 		sound() {
 			return this.$store.state.soundEnable
@@ -47,7 +44,7 @@ export default {
 	},
 	watch:{
 		systemStatus(newVal){
-			if(newVal === 1 && this.$store.state.soundEnable === false){
+			if(newVal === 'Авария' && this.$store.state.soundEnable === false){
 				this.$store.commit('enableSound')
 			}
 		},

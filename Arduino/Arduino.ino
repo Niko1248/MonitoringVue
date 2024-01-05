@@ -2,7 +2,7 @@
 #include <Ethernet.h>
 #define REQ_BUF_SZ 128
 #define FIRST_PIN 2
-#define LAST_PIN 7
+#define LAST_PIN 13
 #define FREE_SOCKETS 1
 
 EthernetClient client;
@@ -26,7 +26,7 @@ void setup()
   Ethernet.begin(mac, ip);
   server.begin();
   digitalWrite(10, HIGH);
-  Serial.begin(9600);
+
 }
 void loop()
 {
@@ -45,7 +45,6 @@ void serverWorks2(EthernetClient sclient)
       if (sclient.available())
       {
         char c = sclient.read(); // присваиваем реквесты переменной с
-        Serial.write(c);
         if (req_index < (REQ_BUF_SZ - 1))
         {
           HTTP_req[req_index] = c; // читаем посимвольно запрос
@@ -60,7 +59,7 @@ void serverWorks2(EthernetClient sclient)
             String pinStates = "[";
             for (int i = FIRST_PIN; i <= LAST_PIN; i++) {
               bool pinState = digitalRead(i);
-              pinStates += String(pinState);
+              pinStates += "{\"pin\":" + String(i) + ",\"state\":" + String(pinState ? "\"Авария\"" : "\"В работе\"") + "}";
               if (i < LAST_PIN) {
                 pinStates += ", ";
               }
