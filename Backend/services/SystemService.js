@@ -23,7 +23,7 @@ class SystemService {
     if (!system._id) {
       throw new Error("Не указан ID")
     }
-    const updatedSystem = await System.findByIdAndUpdate()
+    const updatedSystem = await System.findByIdAndUpdate(system._id, system, { new: true })
     return updatedSystem
   }
   async delete(id) {
