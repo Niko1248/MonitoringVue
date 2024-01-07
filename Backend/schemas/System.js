@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 const SystemSchema = new mongoose.Schema({
-  pin: { type: String, required: true },
+  pin: { type: String, required: true, unique: true },
   number: { type: String, required: true },
   correspondent: { type: String, required: true },
   KMU: { type: String, required: true },

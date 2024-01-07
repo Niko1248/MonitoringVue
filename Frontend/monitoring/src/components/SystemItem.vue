@@ -10,10 +10,10 @@
 	</div>
 </template>
 <script>
-import sound from '../assets/alert.mp3'
+import Config from '../../config/index.js'
+import axios from 'axios'
+import {convertDate, convertTime} from '../utils/convertDate.js'
 
-const audio = new Audio(sound)
-audio.loop = true
 
 
 export default {
@@ -23,39 +23,42 @@ export default {
 		}
 	},
 	methods:{
-
+		async sendLog(){
+			await axios.post(`${Config.SERVER_URL}/api/logs/addLog`, {
+				message: `Система передачи ${this.system.number} ${this.system.state}`
+			})
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((e) => {
+				console.log(e);
+			})
+		},
+		// async getLog(){
+		// 	const response = await axios.get(`${Config.SERVER_URL}/api/logs/getLogs`)
+		// 	const data = response.data[0]
+		// 	console.log(`${convertDate(data.createdAt)} ${convertTime(data.createdAt)} ${data.message}`);
+		// }
 	},
 	props: {
 		system:{
 			type: Object,
 			required: true
 		},
-		index:{
-			type: Number
-		},
 	},
 	computed: {
 		systemStatus() {
 			return this.system.state
 		},
-		sound() {
-			return this.$store.state.soundEnable
-		}
 	},
 	watch:{
 		systemStatus(newVal){
 			if(newVal === 'Авария' && this.$store.state.soundEnable === false){
 				this.$store.commit('enableSound')
 			}
+			this.sendLog()
+			// this.getLog()
 		},
-		sound(newVal){
-			if(newVal === false){
-				audio.pause()
-			}else{
-				audio.play()
-			}
-		}
-		
 	},
 }
 

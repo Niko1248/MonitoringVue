@@ -5,6 +5,10 @@
 			<p class="logo_text">ониторинг</p>
 		</div>
 		<div class="menu">
+			<input type="checkbox" id='workSorted' v-model="workSorted">
+			<label for="workSorted">Исправные</label>
+			<input type="checkbox" id='alarmSorted' v-model="alarmSorted">
+			<label for="alarmSorted">Неисправные</label>
 			<img class="search" src="../assets/SEARCH.svg" @click="showSearch" alt="Поиск">
 			<input 
 				v-if="isSearch" 
@@ -28,7 +32,7 @@ export default {
 	data() {
 		return {
 			isSearch: false,
-			searchQuery: ''
+			searchQuery: '',
 		}
 	},
 	props: {
@@ -41,7 +45,25 @@ export default {
 		updateInput() {
 			this.$emit('input-change', this.searchQuery)
 		}
-	}
+	},
+	computed: {
+    workSorted: {
+      get() {
+        return this.$store.state.workSorted;
+      },
+      set(value) {
+        this.$store.commit('disableWorkSorted', value);
+      }
+    },
+    alarmSorted: {
+      get() {
+        return this.$store.state.alarmSorted;
+      },
+      set(value) {
+        this.$store.commit('disableAlarmSorted', value);
+      }
+    }
+  }
 }
 </script>
 <style scoped lang="scss">

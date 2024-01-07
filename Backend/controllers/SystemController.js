@@ -4,6 +4,7 @@ class SystemController {
   async create(req, res) {
     try {
       const system = await SystemService.create(req.body)
+      console.log(req.body)
       res.json(system)
     } catch (e) {
       res.status(500).json(e.message)

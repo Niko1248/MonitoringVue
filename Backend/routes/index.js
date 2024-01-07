@@ -1,8 +1,9 @@
 import { Router } from "express"
 import systemRouter from "./systemRouter.js"
+import logsRouter from "./logsRoutes.js"
 
 const router = new Router()
 
-router.use("/router", systemRouter)
-
+router.use("/systems", systemRouter)
+router.use("/logs", logsRouter)
 export default router
