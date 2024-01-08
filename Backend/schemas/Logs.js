@@ -1,6 +1,6 @@
-import mongoose from "mongoose"
+import { Schema, model } from "mongoose"
 
-const LogsSchema = new mongoose.Schema(
+const LogsSchema = new Schema(
   {
     message: { type: String, required: true },
   },
@@ -9,6 +9,6 @@ const LogsSchema = new mongoose.Schema(
   }
 )
 
-const Logs = mongoose.model("Logs", LogsSchema)
+const Logs = model("Logs", LogsSchema)
 
 export default Logs

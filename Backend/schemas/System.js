@@ -1,6 +1,6 @@
-import mongoose from "mongoose"
+import { Schema, model } from "mongoose"
 
-const SystemSchema = new mongoose.Schema({
+const SystemSchema = new Schema({
   pin: { type: String, required: true, unique: true },
   number: { type: String, required: true },
   correspondent: { type: String, required: true },
@@ -10,6 +10,6 @@ const SystemSchema = new mongoose.Schema({
   reserveList: { type: Array },
 })
 
-const System = mongoose.model("System", SystemSchema)
+const System = model("System", SystemSchema)
 
 export default System

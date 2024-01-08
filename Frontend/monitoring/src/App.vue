@@ -5,7 +5,9 @@ import UserPage from './pages/UserPage.vue';
 </script>
 
 <template>
-	<UserPage/>
+	<div class="app">
+		<router-view></router-view>
+	</div>
 </template>
 
 <style>

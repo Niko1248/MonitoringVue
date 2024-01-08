@@ -24,15 +24,22 @@ export default {
 	},
 	methods:{
 		async sendLog(){
-			await axios.post(`${Config.SERVER_URL}/api/logs/addLog`, {
-				message: `Система передачи ${this.system.number} ${this.system.state}`
-			})
-			.then((response) => {
-				console.log(response);
-			})
-			.catch((e) => {
-				console.log(e);
-			})
+			await axios.post(
+				`${Config.SERVER_URL}/api/logs/addLog`,
+				{
+					message: `Система передачи ${this.system.number} ${this.system.state}`
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`
+					}
+				})
+				.then((response) => {
+					console.log(response);
+				})
+				.catch((e) => {
+					console.log(e);
+				})
 		},
 		// async getLog(){
 		// 	const response = await axios.get(`${Config.SERVER_URL}/api/logs/getLogs`)

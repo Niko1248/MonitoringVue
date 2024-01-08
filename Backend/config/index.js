@@ -6,6 +6,7 @@ const Config = {
   PORT,
   DB_URL,
   ARDUINO_URL,
+  secret: "SECRET_KEY_RANDOM",
 }
 
 export default Config
