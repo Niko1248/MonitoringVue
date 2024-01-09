@@ -4,11 +4,8 @@
 			<img src="../assets/LOGO.svg" alt="">
 			<p class="logo_text">ониторинг</p>
 		</div>
-		<div class="menu">
-			<input type="checkbox" id='workSorted' v-model="workSorted">
-			<label for="workSorted">Исправные</label>
-			<input type="checkbox" id='alarmSorted' v-model="alarmSorted">
-			<label for="alarmSorted">Неисправные</label>
+		<div class="nav__item">
+			
 			<div class="search">
 				<transition name="fade">
 					<input 
@@ -22,25 +19,35 @@
 				<img class="search_ico ico" src="../assets/SEARCH.svg" @click="showSearch" alt="Поиск">
 			</div>
 			<div class="log_text ico">Log</div>
-			<img class="settings ico" src="../assets/SETTINGS.svg" alt="">
+			
+			<NavSettings/>
+
 			<img class="printPage ico" src="../assets/PRINT.svg" alt="">
+		</div>
+		<div class="nav__item">
 			<div class='reset' @click="$store.commit('disableSound')">
 				<img class="reset_ico ico" src="../assets/RESET.svg" alt="">
 			</div>
-		</div>
-		<div class="auth">
-			<a class="auth_text" href="">user</a>
-			<img class="auth_ico ico" src="../assets/USER.svg" alt="">
+			<div class="auth">
+				<a class="auth_text" href="">user</a>
+				<img class="auth_ico ico" src="../assets/USER.svg" alt="">
+			</div>
 		</div>
 	</div>
 </template>
 <script>
+import NavSettings from './NavSettings.vue';
+
 export default {
 	data() {
 		return {
 			isSearch: false,
 			searchQuery: '',
+			isSettingItems: false,
 		}
+	},
+	components: {
+		NavSettings,
 	},
 	props: {
 
@@ -48,6 +55,9 @@ export default {
 	methods: {
 		showSearch() {
 			this.isSearch = !this.isSearch
+		},
+		showSettingItems() {
+			this.isSettingItems = !this.isSettingItems
 		},
 		updateInput() {
 			this.$emit('input-change', this.searchQuery)
@@ -147,7 +157,7 @@ export default {
 	width: 18px;
 }
 
-.menu {
+.nav__item {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -184,7 +194,7 @@ export default {
 }
 
 @media (max-width:768px) {
-	.menu {
+	.nav__item {
 		margin-left: 35%;
 	}
 }
