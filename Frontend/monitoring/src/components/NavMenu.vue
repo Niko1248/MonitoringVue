@@ -24,15 +24,10 @@
 
 			<img class="printPage ico" src="../assets/PRINT.svg" alt="">
 		</div>
-		<div class="nav__item">
-			<div class='reset' @click="$store.commit('disableSound')">
-				<img class="reset_ico ico" src="../assets/RESET.svg" alt="">
-			</div>
-			<div class="auth">
+		<div class="auth">
 				<a class="auth_text" href="">user</a>
 				<img class="auth_ico ico" src="../assets/USER.svg" alt="">
 			</div>
-		</div>
 	</div>
 </template>
 <script>
@@ -63,24 +58,7 @@ export default {
 			this.$emit('input-change', this.searchQuery)
 		}
 	},
-	computed: {
-		workSorted: {
-			get() {
-				return this.$store.state.workSorted;
-			},
-			set(value) {
-				this.$store.commit('disableWorkSorted', value);
-			}
-		},
-		alarmSorted: {
-			get() {
-				return this.$store.state.alarmSorted;
-			},
-			set(value) {
-				this.$store.commit('disableAlarmSorted', value);
-			}
-		}
-	}
+
 }
 </script>
 <style scoped lang="scss">
@@ -91,13 +69,12 @@ export default {
 	background-color: #0E1621;
 	padding: 5px 20px;
 	font-family: Wix Madefor Display;
-
+	z-index: 1;
 
 }
 
 
 .search_ico,
-.settings,
 .printPage,
 .reset_ico {
 	margin-right: 25px;

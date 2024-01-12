@@ -7,6 +7,7 @@ const SystemSchema = new Schema({
   KMU: { type: String, required: true },
   state: { type: String, default: "В работе" },
   payload: { type: Array },
+  tract: { type: String, required: true },
   reserveList: { type: Array },
 })
 

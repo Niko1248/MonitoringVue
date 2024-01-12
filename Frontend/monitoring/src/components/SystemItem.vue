@@ -1,29 +1,29 @@
 <template>
-	<div class="system" :style="{backgroundColor: system.state == 'В работе' ? 'green' : 'red'}">
+	<div class="system" :style="{ backgroundColor: system.state == 'В работе' ? '#278547' : '#7E1313' }">
 		<div class="system__number">{{ system.number }}</div>
 		<div class="system__correspondent">{{ system.correspondent }}</div>
 		<div class="system__KMU">
 			<div>КМУ</div>
-			<div>{{ system.KMU }}</div>
+			<div class="KMU">{{ system.KMU }}</div>
 		</div>
-		<div class="OLT">ОЛТ</div>
+		<div class="traces">{{ system.tract }}</div>
 	</div>
 </template>
 <script>
 import Config from '../../config/index.js'
 import axios from 'axios'
-import {convertDate, convertTime} from '../utils/convertDate.js'
+import { convertDate, convertTime } from '../utils/convertDate.js'
 
 
 
 export default {
-	data(){
-		return{
-			
+	data() {
+		return {
+
 		}
 	},
-	methods:{
-		async sendLog(){
+	methods: {
+		async sendLog() {
 			await axios.post(
 				`${Config.SERVER_URL}/api/logs/addLog`,
 				{
@@ -48,7 +48,7 @@ export default {
 		// }
 	},
 	props: {
-		system:{
+		system: {
 			type: Object,
 			required: true
 		},
@@ -58,9 +58,9 @@ export default {
 			return this.system.state
 		},
 	},
-	watch:{
-		systemStatus(newVal){
-			if(newVal === 'Авария' && this.$store.state.soundEnable === false){
+	watch: {
+		systemStatus(newVal) {
+			if (newVal === 'Авария' && this.$store.state.soundEnable === false) {
 				this.$store.commit('enableSound')
 			}
 			this.sendLog()
@@ -70,21 +70,49 @@ export default {
 }
 
 </script>
-<style scoped>
-	.system{
-		color: white;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		width: 15vw;
+<style lang="scss" scoped>
+.system {
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 15vw;
+	font-family: Wix Madefor Display;
+	padding: 5px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.2s;
 
-		padding: 5px 15px;
-		border-radius: 5px;
+	&:hover {
+		transform: scale(0.99);
+		transition: 0.2s;
+		opacity: 0.89;
 	}
-	.ok{
-		background-color: green;
-	}
-	.crash{
-		background-color: red;
-	}
+}
+
+.system__number {
+	font-family: Viga Regular;
+	font-size: 23px;
+}
+
+.system__correspondent {
+	font-size: 19px;
+	text-align: left;
+}
+
+.ok {
+	background-color: #278547;
+}
+
+.crash {
+	background-color: #7E1313;
+}
+
+.traces {
+	border: 1px solid #fff;
+	border-radius: 5px;
+	padding: 4px;
+	min-width: 30px;
+	text-align: center;
+}
 </style>
