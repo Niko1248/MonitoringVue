@@ -120,7 +120,7 @@ export default {
 
 	&:hover {
 		transform: scale(0.99);
-		transition: 0.05s;
+		transition: 0.05пше s;
 		opacity: 0.89;
 	}
 }

@@ -177,14 +177,17 @@ export default {
     textarea {
         background: #2E3541;
         border: none;
-        min-width: 100%;
-        max-width: 100%;
+        min-width: calc(100% - 20px);
+        max-width: calc(100% - 20px);
         border-radius: 5px;
         max-height: 47%;
         outline: none;
+        color: #F2F1F1;
+        padding: 10px;
+        font-size: 18px;
 
         &::placeholder {
-            padding: 0px 20px;
+            padding: 0px 10px;
             font-size: 18px;
             color: #F2F1F1;
             font-family: Wix Madefor Display;
