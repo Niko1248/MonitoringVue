@@ -111,13 +111,13 @@ export default {
 
 .sound__items {
     position: absolute;
-    bottom: -99px;
+    bottom: -95px;
     width: 16px;
-    left: -12px;
+    left: -6px;
     background: #0E1621;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 10px 20px 10px 20px;
+    padding: 13px 20px 10px 20px;
     border-radius: 0px 0px 10px 10px;
     color: #fff;
     display: flex;
@@ -131,7 +131,7 @@ export default {
         width: 13px;
         height: 13px;
         left: -13px;
-        bottom: 80px;
+        bottom: 76px;
         background-image: url(./../assets/img/nav/left.png);
     }
 
@@ -142,7 +142,7 @@ export default {
         width: 13px;
         height: 13px;
         right: -13px;
-        bottom: 80px;
+        bottom: 76px;
         background-image: url(./../assets/img/nav/right.png);
     }
 }
@@ -150,7 +150,6 @@ export default {
 .sound__item {
     margin-bottom: 15px;
     width: 36px;
-    margin-left: 2px;
 
     &:last-child {
         margin-bottom: 5px;
