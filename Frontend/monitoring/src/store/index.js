@@ -5,11 +5,14 @@ export default createStore({
     soundEnable: false,
     workSorted: false,
     alarmSorted: false,
-    showPopupAddSP: false,
+    popupAddSP: false,
   },
   mutations: {
     enableSound(state) {
       state.soundEnable = true
+    },
+    showPopupAddSp(state) {
+      state.popupAddSP = !state.popupAddSP
     },
     disableSound(state) {
       state.soundEnable = false

@@ -1,7 +1,7 @@
 <template lang="html">
-    <div class="outspace" v-if="ShowPopup">
+    <div class="outspace">
         <div class="addSP__wrapper">
-            <div class="close">
+            <div class="close" @click="showPopupAddSP">
                 <img src="./../assets/img/nav/close.svg" alt="закрыть" width="20px">
             </div>
             <h1>Добавление системы передачи</h1>
@@ -33,12 +33,10 @@ export default {
     },
     components: {},
     methods: {
-        ShowPopup() {
-            this.ShowPopup = !this.ShowPopup
-        },
-
+        showPopupAddSP() {
+            this.$store.commit('showPopupAddSp');
+        }
     },
-
 
 }
 </script>

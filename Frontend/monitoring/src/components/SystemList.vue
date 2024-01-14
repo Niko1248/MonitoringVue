@@ -8,8 +8,13 @@
 				:inputValue = inputValue
 			/>
 		</transition-group>
+		<transition-group name='addSP'>
+			<AddSystem
+		v-if="this.$store.state.popupAddSP"
+		/>
+		</transition-group>
 		<AddSystem
-		v-if="this.$store.state.showPopupAddSP"
+		v-if="this.$store.state.popupAddSP"
 		/>
 	</div>
 </template>
@@ -43,8 +48,12 @@ export default {
 <style scoped>
 .wrapper {
 	padding: 20px;
-	display: grid;
-	gap: 15px;
+	display: flex;
+	gap: 14px;
+	flex-direction: column;
+	flex-wrap: wrap;
+	max-height: 90vh;
+	align-content: flex-start
 }
 
 .systemList-item {
@@ -64,6 +73,22 @@ export default {
 }
 
 .systemList-move {
+	transition: transform 0.6s ease;
+}
+
+
+.addSP-enter-active,
+.addSP-leave-active {
+	transition: all 0.4s ease;
+}
+
+.addSP-enter-from,
+.addSP-leave-to {
+	opacity: 0;
+	transition: all 0.2s ease;
+}
+
+.addSP-move {
 	transition: transform 0.6s ease;
 }
 </style>

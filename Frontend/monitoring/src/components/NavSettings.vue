@@ -33,7 +33,8 @@ export default {
             this.isSettingItems = !this.isSettingItems
         },
         showPopupAddSP() {
-            this.$store.commit('showPopupAddSP');
+            if (!this.$store.state.popupAddSP === true)
+                this.$store.commit('showPopupAddSp');
         }
     },
     computed: {
