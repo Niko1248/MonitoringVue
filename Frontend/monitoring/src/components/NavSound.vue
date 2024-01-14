@@ -1,54 +1,67 @@
-<template lang="">
-  <div class="sound">
-    <img class="sound__ico ico" src="../assets/SETTINGS.svg" @click="showSoundItems" alt="звук">
-    <transition name="fade">
-      <div class="sound__items" v-if="isSoundItems">
-				<div class='reset' @click="$store.commit('disableSound')">
-					<img class="reset_ico ico" src="../assets/RESET.svg" alt=""> <!-- Кнопка сброса звука -->
-				</div>
-				<div class='reset' @click="muteSound"> <!-- Кнопка отключения звука -->
-					<img class="reset_ico ico" src="../assets/RESET.svg" alt="">
-				</div>
-			</div>
-    </transition>
-  </div>
+<template lang="html">
+    <div class="sound">
+        <component :is="isSoundOn ? 'SoundOn' : 'SoundOff'" class="ico" @click="showSoundItems" />
+        <transition name="fade">
+            <div class="sound__items" v-if="isSoundItems">
+                <component :is="isSoundOn ? 'SoundOff' : 'SoundOn'" class='sound__item ico' @click="toggleSoundState" />
+                <SoundR class='sound__item ico' @click="$store.commit('disableSound')" />
+            </div>
+        </transition>
+    </div>
 </template>
     
 <script>
-import sound from '../assets/alert.mp3'
+import sound from '../assets/alert.mp3';
+import SoundOff from '../assets/img/nav/sound_Off.vue';
+import SoundOn from '../assets/img/nav/sound_On.vue';
+import SoundR from '../assets/img/nav/sound_R.vue';
 const audio = new Audio(sound)
 audio.loop = true
 
 export default {
-	data() {
-			return {
-					isSoundItems: false,
-					muteAudio: false
-			}
-	},
-	methods: {
-			showSoundItems() {
-					this.isSoundItems = !this.isSoundItems
-			},
-			muteSound() {
-				this.muteAudio = !this.muteAudio
-				audio.muted = this.muteAudio
-			}
-	},
-	computed: {
-	sound() {
-		return this.$store.state.soundEnable
-	}
-	},
-	watch:{
-		sound(newVal){
-			if(newVal === false){
-				audio.pause()
-			}else{
-				audio.play()
-			}
-		}
-	},
+    data() {
+        return {
+            isSoundItems: false,
+            muteAudio: false,
+            isSoundOn: false,
+            isSoundItems: false
+        }
+    },
+    components: {
+        SoundOff,
+        SoundOn,
+        SoundR,
+    },
+    methods: {
+
+        toggleSoundState() {
+            this.isSoundOn = !this.isSoundOn; // Переключаем состояние звука
+        },
+        toggleSound() {
+            this.isSoundOn = !this.isSoundOn;
+        },
+        showSoundItems() {
+            this.isSoundItems = !this.isSoundItems
+        },
+        muteSound() {
+            this.muteAudio = !this.muteAudio
+            audio.muted = this.muteAudio
+        }
+    },
+    computed: {
+        sound() {
+            return this.$store.state.soundEnable
+        }
+    },
+    watch: {
+        sound(newVal) {
+            if (newVal === false) {
+                audio.pause()
+            } else {
+                audio.play()
+            }
+        }
+    },
 }
 </script>
     
@@ -78,8 +91,16 @@ export default {
 
 }
 
+.ico {
+    cursor: pointer;
+}
+
 .sound {
     position: relative;
+
+    svg:first-child {
+        width: 36px;
+    }
 }
 
 .sound__ico {
@@ -87,17 +108,21 @@ export default {
     width: 20px;
     cursor: pointer;
 }
+
 .sound__items {
     position: absolute;
-    bottom: -111px;
-    width: 130px;
-    left: -36px;
+    bottom: -99px;
+    width: 16px;
+    left: -12px;
     background: #0E1621;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 10px 20px 10px 20px;
     border-radius: 0px 0px 10px 10px;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &::before {
         content: "";
@@ -106,7 +131,7 @@ export default {
         width: 13px;
         height: 13px;
         left: -13px;
-        bottom: 98px;
+        bottom: 80px;
         background-image: url(./../assets/img/nav/left.png);
     }
 
@@ -117,18 +142,20 @@ export default {
         width: 13px;
         height: 13px;
         right: -13px;
-        bottom: 98px;
+        bottom: 80px;
         background-image: url(./../assets/img/nav/right.png);
     }
+}
 
-    div {
-        display: flex;
-        margin-bottom: 10px;
+.sound__item {
+    margin-bottom: 15px;
+    width: 36px;
+    margin-left: 2px;
 
-        input,
-        .plus__ico {
-            margin-right: 10px;
-        }
+    &:last-child {
+        margin-bottom: 5px;
+        margin-right: 5px;
+        width: 28px;
     }
 }
 </style>

@@ -23,8 +23,8 @@
 			<NavSettings/>
 			
 			<img class="printPage ico" src="../assets/PRINT.svg" alt="">
-			<NavSound/>
 		</div>
+		<NavSound class="nav__sound" />
 		<div class="auth">
 				<a class="auth_text" href="">user</a>
 				<img class="auth_ico ico" src="../assets/USER.svg" alt="">
@@ -43,7 +43,8 @@ export default {
 		}
 	},
 	components: {
-		NavSettings, NavSound
+		NavSettings,
+		NavSound
 	},
 	props: {
 
@@ -71,9 +72,16 @@ export default {
 	padding: 5px 20px;
 	font-family: Wix Madefor Display;
 	z-index: 1;
-
+	position: relative;
 }
 
+.nav__sound {
+	position: absolute;
+	right: 200px;
+	top: 13px;
+	width: 36px;
+	object-position: left;
+}
 
 .search_ico,
 .printPage,

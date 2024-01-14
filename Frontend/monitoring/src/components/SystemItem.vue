@@ -1,5 +1,6 @@
 <template>
-	<div class="system" :style="{ backgroundColor: system.state == 'В работе' ? '#278547' : '#7E1313' }" v-show="sortedFunc(system, inputValue)">
+	<div class="system" :style="{ backgroundColor: system.state == 'В работе' ? '#278547' : '#7E1313' }"
+		v-show="sortedFunc(system, inputValue)">
 		<div class="system__number">{{ system.number }}</div>
 		<div class="system__correspondent">{{ system.correspondent }}</div>
 		<div class="system__KMU">
@@ -41,34 +42,34 @@ export default {
 				})
 		},
 
-		
-		sortedFunc(system, inputValue){
-			if(system.state == 'Авария' && this.$store.state.alarmSorted){
-				if(inputValue.includes(system.number) && inputValue != ''){
+
+		sortedFunc(system, inputValue) {
+			if (system.state == 'Авария' && this.$store.state.alarmSorted) {
+				if (inputValue.includes(system.number) && inputValue != '') {
 					return true
-				}else if (inputValue.toLowerCase().includes(system.correspondent.toLowerCase()) && inputValue != '') {
+				} else if (inputValue.toLowerCase().includes(system.correspondent.toLowerCase()) && inputValue != '') {
 					return true
-				}else if(inputValue == ''){
-					return true
-				}
-			}else if (system.state === 'В работе' && this.$store.state.workSorted){
-				if(inputValue.includes(system.number) && inputValue != ''){
-					return true
-				}else if (inputValue.toLowerCase().includes(system.correspondent.toLowerCase()) && inputValue != '') {
-					return true
-				}else if(inputValue == ''){
+				} else if (inputValue == '') {
 					return true
 				}
-			}else if (this.$store.state.alarmSorted === false && this.$store.state.workSorted === false ){
-				if(inputValue.includes(system.number) && inputValue != ''){
+			} else if (system.state === 'В работе' && this.$store.state.workSorted) {
+				if (inputValue.includes(system.number) && inputValue != '') {
 					return true
-				}else if (inputValue.toLowerCase().includes(system.correspondent.toLowerCase()) && inputValue != '') {
+				} else if (inputValue.toLowerCase().includes(system.correspondent.toLowerCase()) && inputValue != '') {
 					return true
-				}else if(inputValue == ''){
+				} else if (inputValue == '') {
+					return true
+				}
+			} else if (this.$store.state.alarmSorted === false && this.$store.state.workSorted === false) {
+				if (inputValue.includes(system.number) && inputValue != '') {
+					return true
+				} else if (inputValue.toLowerCase().includes(system.correspondent.toLowerCase()) && inputValue != '') {
+					return true
+				} else if (inputValue == '') {
 					return true
 				}
 			}
-			else{
+			else {
 				return false
 			}
 		}

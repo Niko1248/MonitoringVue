@@ -141,7 +141,7 @@ export default {
 
     &:hover {
         transition: 0.2s ease-in-out;
-        text-shadow: 0px 0px 11px #04b6bc;
+        text-shadow: 0px 0px 11px #f9fefe;
     }
 
 }
