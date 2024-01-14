@@ -28,14 +28,10 @@
 export default {
     data() {
         return {
-            ShowPopup: false,
-
+            ShowPopup: true,
         }
     },
     components: {},
-    props: {
-
-    },
     methods: {
         ShowPopup() {
             this.ShowPopup = !this.ShowPopup

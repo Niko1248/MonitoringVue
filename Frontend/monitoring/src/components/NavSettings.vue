@@ -11,9 +11,9 @@
                 <input type="checkbox" id='alarmSorted' v-model="alarmSorted">
                 <label class="setting__item-text" for="alarmSorted">Неисправные</label>
             </div>
-            <div>
+            <div @click="showPopupAddSP">
             <p class="plus__ico">+</p>
-            <p class="setting__item-text">Добавить СП </p>
+            <p class="setting__item-text">Добавить СП</p>
             </div>
         </div> 
     </transition>
@@ -32,6 +32,9 @@ export default {
         showSettingItems() {
             this.isSettingItems = !this.isSettingItems
         },
+        showPopupAddSP() {
+            this.$store.commit('showPopupAddSP');
+        }
     },
     computed: {
         workSorted: {
@@ -50,14 +53,7 @@ export default {
                 this.$store.commit('disableAlarmSorted', value);
             }
         },
-        showPopupAddSP: {
-            get() {
-                return this.$store.state.showPopupAddSP;
-            },
-            set(value) {
-                this.$store.commit('showPopupAddSP', !value);
-            }
-        }
+
 
     }
 }

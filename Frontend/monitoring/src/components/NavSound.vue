@@ -134,7 +134,7 @@ export default {
         width: 13px;
         height: 13px;
         left: -13px;
-        bottom: 76px;
+        bottom: 73px;
         background-image: url(./../assets/img/nav/left.png);
     }
 
@@ -145,7 +145,7 @@ export default {
         width: 13px;
         height: 13px;
         right: -13px;
-        bottom: 76px;
+        bottom: 73px;
         background-image: url(./../assets/img/nav/right.png);
     }
 }

@@ -8,7 +8,9 @@
 				:inputValue = inputValue
 			/>
 		</transition-group>
-		<AddSystem/>
+		<AddSystem
+		v-if="this.$store.state.showPopupAddSP"
+		/>
 	</div>
 </template>
 
