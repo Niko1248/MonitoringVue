@@ -24,7 +24,6 @@ router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
   const targetRole = to.meta.role
   const userToken = localStorage.getItem("token")
-  console.log(userToken)
   if (requiresAuth && !userToken) {
     next("/")
     return

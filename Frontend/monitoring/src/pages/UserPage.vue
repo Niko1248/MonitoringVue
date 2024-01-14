@@ -3,7 +3,8 @@
 		@input-change="updateInputValue"
 	/>
 	<SystemList
-		:systems = searchedSystems
+		:systems = systems
+		:inputValue = inputValue
 	/>
 </template>
 
@@ -37,39 +38,36 @@ export default {
 		}
 	},
 	computed:{
-		searchedSystems() {
-			return this.sortedSystems.filter(system => /^\d*$/.test(this.inputValue) ? system.number.includes(this.inputValue): system.correspondent.toLowerCase().includes(this.inputValue.toLowerCase()))
-		},
-		sortedSystems() {
-			if (this.$store.state.workSorted){
-				return this.systems.filter(system => system.state === "В работе")
-			}else if (this.$store.state.alarmSorted){
-				return this.systems.filter(system => system.state === "Авария")
-			}else{
-				return this.systems
-			}
+		// searchedSystems() {
+		// 	return this.sortedSystems.filter(system => /^\d*$/.test(this.inputValue) ? system.number.includes(this.inputValue): system.correspondent.toLowerCase().includes(this.inputValue.toLowerCase()))
+		// },
+		// sortedSystems() {
+		// 	if (this.$store.state.workSorted){
+		// 		return this.systems.filter(system => system.state === "В работе")
+		// 	}else if (this.$store.state.alarmSorted){
+		// 		return this.systems.filter(system => system.state === "Авария")
+		// 	}else{
+		// 		return this.systems
+		// 	}
 			
-		}
+		// }
 	},
 	watch:{
 		inputValue(value){
 			this.inputValue = value
 		},
-		// stateSystems(newVal){ 								Надо переделать 
-		// 	if(!newVal.includes('Авария')){
-		// 		this.$store.commit('disableSound')
-		// 	}
-		// },
 	},
 	mounted() {
 		const eventSource = new EventSource(`${Config.SERVER_URL}/state`);
-
 		eventSource.onmessage = (event) => {
 			const stateSystemUpdated = JSON.parse(event.data);
 			const systemUpdate = this.systems.find(system => system.pin == stateSystemUpdated.pin)
-				if (systemUpdate) {
-					systemUpdate.state = stateSystemUpdated.state
-				}
+			if (systemUpdate) {
+				systemUpdate.state = stateSystemUpdated.state
+			}
+			if(!this.systems.find(system => system.state == 'Авария')){
+				this.$store.commit('disableSound')
+			}
 		};
 
 		this.fetchSystems()

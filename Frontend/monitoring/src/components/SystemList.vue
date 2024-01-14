@@ -5,6 +5,7 @@
 				v-for="system in systems"
 				:system = system
 				:key = system._id
+				:inputValue = inputValue
 			/>
 		</transition-group>
 
@@ -13,10 +14,8 @@
 
 
 <script>
-import SystemItem from './SystemItem.vue';
-import sound from '../assets/alert.mp3'
-const audio = new Audio(sound)
-audio.loop = true
+import SystemItem from '../components/SystemItem.vue';
+
 
 
 export default {
@@ -32,20 +31,7 @@ export default {
 			type: String
 		}
 	},
-	computed: {
-		sound() {
-			return this.$store.state.soundEnable
-		}
-	},
-	watch:{
-		sound(newVal){
-			if(newVal === false){
-				audio.pause()
-			}else{
-				audio.play()
-			}
-		}
-	},
+	
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-	<div class="system" :style="{ backgroundColor: system.state == 'В работе' ? '#278547' : '#7E1313' }">
+	<div class="system" :style="{ backgroundColor: system.state == 'В работе' ? '#278547' : '#7E1313' }" v-show="sortedFunc(system, inputValue)">
 		<div class="system__number">{{ system.number }}</div>
 		<div class="system__correspondent">{{ system.correspondent }}</div>
 		<div class="system__KMU">
@@ -9,12 +9,11 @@
 		<div class="traces">{{ system.tract }}</div>
 	</div>
 </template>
+
 <script>
+
 import Config from '../../config/index.js'
 import axios from 'axios'
-import { convertDate, convertTime } from '../utils/convertDate.js'
-
-
 
 export default {
 	data() {
@@ -41,6 +40,38 @@ export default {
 					console.log(e);
 				})
 		},
+
+		
+		sortedFunc(system, inputValue){
+			if(system.state == 'Авария' && this.$store.state.alarmSorted){
+				if(inputValue.includes(system.number) && inputValue != ''){
+					return true
+				}else if (inputValue.toLowerCase().includes(system.correspondent.toLowerCase()) && inputValue != '') {
+					return true
+				}else if(inputValue == ''){
+					return true
+				}
+			}else if (system.state === 'В работе' && this.$store.state.workSorted){
+				if(inputValue.includes(system.number) && inputValue != ''){
+					return true
+				}else if (inputValue.toLowerCase().includes(system.correspondent.toLowerCase()) && inputValue != '') {
+					return true
+				}else if(inputValue == ''){
+					return true
+				}
+			}else if (this.$store.state.alarmSorted === false && this.$store.state.workSorted === false ){
+				if(inputValue.includes(system.number) && inputValue != ''){
+					return true
+				}else if (inputValue.toLowerCase().includes(system.correspondent.toLowerCase()) && inputValue != '') {
+					return true
+				}else if(inputValue == ''){
+					return true
+				}
+			}
+			else{
+				return false
+			}
+		}
 		// async getLog(){
 		// 	const response = await axios.get(`${Config.SERVER_URL}/api/logs/getLogs`)
 		// 	const data = response.data[0]
@@ -52,6 +83,9 @@ export default {
 			type: Object,
 			required: true
 		},
+		inputValue: {
+			type: String
+		}
 	},
 	computed: {
 		systemStatus() {

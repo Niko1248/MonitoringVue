@@ -28,10 +28,6 @@ export default {
             isSettingItems: false,
         }
     },
-
-    props: {
-
-    },
     methods: {
         showSettingItems() {
             this.isSettingItems = !this.isSettingItems

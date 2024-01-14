@@ -41,7 +41,6 @@ export default {
 				const response = await axios.post(`${Config.SERVER_URL}/api/auth/login`, this.user)  //Добавить обработчик ошибки на неправильный ввод
 				localStorage.setItem('token', response.data.token)
 				this.$router.push('/user')
-
 			} catch (e) {
 				console.log(e);
 			}

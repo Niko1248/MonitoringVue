@@ -21,8 +21,9 @@
 			<div class="log_text ico">Log</div>
 			
 			<NavSettings/>
-
+			
 			<img class="printPage ico" src="../assets/PRINT.svg" alt="">
+			<NavSound/>
 		</div>
 		<div class="auth">
 				<a class="auth_text" href="">user</a>
@@ -32,7 +33,7 @@
 </template>
 <script>
 import NavSettings from './NavSettings.vue';
-
+import NavSound from './NavSound.vue';
 export default {
 	data() {
 		return {
@@ -42,7 +43,7 @@ export default {
 		}
 	},
 	components: {
-		NavSettings,
+		NavSettings, NavSound
 	},
 	props: {
 
