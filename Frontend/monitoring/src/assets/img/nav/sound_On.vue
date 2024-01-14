@@ -1,6 +1,6 @@
 
 <template>
-    <svg width="35" height="27" viewBox="0 0 35 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="32" height="24" viewBox="0 0 35 27" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M20 3.66334V22.9273C20 23.7089 19.1435 24.1884 18.4772 23.7798L8.88895 17.8995C8.59246 17.7177 8.41174 17.3949 8.41174 17.0471V10.0559C8.41174 9.72557 8.57491 9.41652 8.84772 9.23018L14.5525 5.33363L18.4592 2.82216C19.1247 2.39433 20 2.87217 20 3.66334Z"
             stroke="#B5B2B2" stroke-width="2" />
@@ -39,4 +39,5 @@ svg:active {
     line {
         opacity: 0.2;
     }
-}</style>
+}
+</style>

@@ -1,6 +1,7 @@
 <template lang="html">
     <div class="sound">
         <component :is="isSoundOn ? 'SoundOn' : 'SoundOff'" class="ico" @click="showSoundItems" />
+
         <transition name="fade">
             <div class="sound__items" v-if="isSoundItems">
                 <component :is="isSoundOn ? 'SoundOff' : 'SoundOn'" class='sound__item ico' @click="toggleSoundState" />
@@ -42,11 +43,12 @@ export default {
         },
         showSoundItems() {
             this.isSoundItems = !this.isSoundItems
+
         },
         muteSound() {
             this.muteAudio = !this.muteAudio
             audio.muted = this.muteAudio
-        }
+        },
     },
     computed: {
         sound() {
@@ -94,6 +96,7 @@ export default {
 .ico {
     cursor: pointer;
 }
+
 
 .sound {
     position: relative;

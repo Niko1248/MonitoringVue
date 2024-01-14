@@ -1,5 +1,5 @@
 <template>
-    <svg width="35" height="27" viewBox="0 0 35 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="32" height="24" viewBox="0 0 35 27" fill="none" xmlns="http://www.w3.org/2000/svg">
         <line y1="-0.5" x2="15.2971" y2="-0.5" transform="matrix(0.720578 0.693374 -0.720578 0.693374 22.9772 8)"
             stroke="#B5B2B2" />
         <line y1="-0.5" x2="15.2971" y2="-0.5" transform="matrix(-0.720578 0.693374 -0.720578 -0.693374 34 7)"
@@ -40,4 +40,5 @@ svg:active {
     line {
         opacity: 0.2;
     }
-}</style>
+}
+</style>

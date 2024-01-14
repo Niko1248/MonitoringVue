@@ -49,7 +49,16 @@ export default {
             set(value) {
                 this.$store.commit('disableAlarmSorted', value);
             }
+        },
+        showPopupAddSP: {
+            get() {
+                return this.$store.state.showPopupAddSP;
+            },
+            set(value) {
+                this.$store.commit('showPopupAddSP', !value);
+            }
         }
+
     }
 }
 </script>
