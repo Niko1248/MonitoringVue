@@ -1,21 +1,23 @@
 <template lang="">
-	<div class="wrapper">
-		<transition-group name='systemList'>
-			<SystemItem				
-				v-for="system in systems"
-				:system = system
-				:key = system._id
-				:inputValue = inputValue
+	<div class="container" >
+		<div class="wrapper"ref="scrollContainer" @wheel="onWheel">
+			<transition-group name='systemList'>
+				<SystemItem				
+					v-for="system in systems"
+					:system = system
+					:key = system._id
+					:inputValue = inputValue
+				/>
+			</transition-group>
+			<transition-group name='addSP'>
+				<AddSystem
+			v-if="this.$store.state.popupAddSP"
 			/>
-		</transition-group>
-		<transition-group name='addSP'>
+			</transition-group>
 			<AddSystem
-		v-if="this.$store.state.popupAddSP"
-		/>
-		</transition-group>
-		<AddSystem
-		v-if="this.$store.state.popupAddSP"
-		/>
+			v-if="this.$store.state.popupAddSP"
+			/>
+		</div>
 	</div>
 </template>
 
@@ -25,8 +27,8 @@ import SystemItem from '../components/SystemItem.vue';
 import AddSystem from '../components/AddSystem.vue';
 
 
-
 export default {
+
 	components: {
 		SystemItem,
 		AddSystem
@@ -40,20 +42,38 @@ export default {
 			type: String
 		}
 	},
-
+	methods: {
+		onWheel(e) {
+			e.preventDefault();
+			this.$refs.scrollContainer.scrollLeft += e.deltaY;
+		},
+	},
 }
 </script>
 
 
 <style scoped>
+.container {
+	width: 100%;
+	overflow-x: auto;
+	max-height: 100vh;
+	white-space: nowrap;
+}
+
 .wrapper {
 	padding: 20px;
 	display: flex;
-	gap: 14px;
+	width: auto;
+	gap: 13px;
 	flex-direction: column;
 	flex-wrap: wrap;
 	max-height: 90vh;
-	align-content: flex-start
+	align-content: flex-start;
+	overflow-x: auto;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 .systemList-item {

@@ -20,20 +20,18 @@
 			</div>
 			<div class="log_text ico">Log</div>
 			
-			<NavSettings/>
+			<NavSettings class="NavSettings"/>
 			
 			<img class="printPage ico" src="../assets/PRINT.svg" alt="">
 		</div>
 		<NavSound class="nav__sound" />
-		<div class="auth">
-				<a class="auth_text" href="">user</a>
-				<img class="auth_ico ico" src="../assets/USER.svg" alt="">
-			</div>
+		<NavAuth/>
 	</div>
 </template>
 <script>
 import NavSettings from './NavSettings.vue';
 import NavSound from './NavSound.vue';
+import NavAuth from './NavAuth.vue';
 export default {
 	data() {
 		return {
@@ -44,7 +42,8 @@ export default {
 	},
 	components: {
 		NavSettings,
-		NavSound
+		NavSound,
+		NavAuth
 	},
 	props: {
 
@@ -77,10 +76,10 @@ export default {
 
 .nav__sound {
 	position: absolute;
-	right: 200px;
+	right: 255px;
 	top: 13px;
 	width: 36px;
-	object-position: left;
+	filter: drop-shadow(0px 10px 5px #00000082);
 }
 
 .search_ico,
@@ -177,6 +176,10 @@ export default {
 	color: white;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+
+.NavSettings {
+	filter: drop-shadow(0px 10px 5px #00000082);
 }
 
 @media (max-width:768px) {

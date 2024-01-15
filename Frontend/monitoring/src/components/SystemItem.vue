@@ -111,7 +111,7 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 15vw;
+	width: 17vw;
 	font-family: Wix Madefor Display;
 	padding: 5px 15px;
 	border-radius: 5px;

@@ -1,53 +1,43 @@
 <template lang="html">
     <div class="auth">
-        <a class="auth_text" href="">user</a>
-        <img class="auth_ico ico" src="../assets/USER.svg" alt="">
+        <div class="auth__ico" @click="showAuthItems">
+            <p class=" auth_text">user</p>
+            <img class="auth_ico ico" src="../assets/USER.svg" alt="">
+        </div>
+        <transition name="fade">
+            <div class="auth__items" v-if="isAuthItems">
+                <div>
+                    <Exet />
+                    <p>Выйти</p>
+                </div>
+                <div class="setting__item-text">
+                    <AddUser />
+                    <p>Добавить пользователя</p>
+                </div>
+            </div>
+
+        </transition>
     </div>
 </template>
     
 <script>
-import SoundOff from '../assets/img/nav/sound_Off.vue';
+import Exet from './../assets/img/nav/exet.vue';
+import AddUser from './../assets/img/nav/addUser.vue';
 export default {
     data() {
         return {
-            isSoundItems: false
+            isAuthItems: false
         }
-    },
-    components: {
-        SoundOff,
-        SoundOn,
-        SoundR,
     },
     methods: {
-
-        toggleSoundState() {
-            this.isSoundOn = !this.isSoundOn; // Переключаем состояние звука
-        },
-        toggleSound() {
-            this.isSoundOn = !this.isSoundOn;
-        },
-        showSoundItems() {
-            this.isSoundItems = !this.isSoundItems
+        showAuthItems() {
+            this.isAuthItems = !this.isAuthItems
 
         },
-        muteSound() {
-            this.muteAudio = !this.muteAudio
-            audio.muted = this.muteAudio
-        },
     },
-    computed: {
-        sound() {
-            return this.$store.state.soundEnable
-        }
-    },
-    watch: {
-        sound(newVal) {
-            if (newVal === false) {
-                audio.pause()
-            } else {
-                audio.play()
-            }
-        }
+    components: {
+        Exet,
+        AddUser
     },
 }
 </script>
@@ -78,39 +68,73 @@ export default {
 
 }
 
-.ico {
-    cursor: pointer;
+.auth {
+    font-family: Wix Madefor Display;
+    font-size: 18px;
+    color: #fff;
+    position: relative;
 }
 
+.auth__ico {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
-.sound {
-    position: relative;
+    p {
+        margin-right: 32px;
 
-    svg:first-child {
-        width: 36px;
+        &:hover {
+            transition: 0.1s ease-in-out;
+            text-shadow: 0px 0px 11px #f9fefe;
+        }
+    }
+
+    img {
+        width: 35px;
+        margin-right: 30px;
     }
 }
 
-.sound__ico {
-    margin-right: 25px;
-    width: 20px;
-    cursor: pointer;
-}
-
-.sound__items {
+.auth__items {
     position: absolute;
-    bottom: -95px;
-    width: 16px;
-    left: -6px;
+    bottom: -108px;
+    width: 150px;
+    left: -53px;
     background: #0E1621;
-    background-size: cover;
-    background-repeat: no-repeat;
     padding: 13px 20px 10px 20px;
     border-radius: 0px 0px 10px 10px;
     color: #fff;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+
+    div {
+        display: flex;
+
+        p {
+            margin-left: 10px;
+
+        }
+    }
+
+    p {
+        cursor: pointer;
+        margin-bottom: 10px;
+        transition: 0.4s ease-in-out;
+        cursor: pointer;
+
+        &:last-child {
+            margin-bottom: 5px;
+        }
+
+        &:hover {
+            transition: 0.1s ease-in-out;
+            text-shadow: 0px 0px 11px #f9fefe;
+        }
+
+
+    }
 
     &::before {
         content: "";
@@ -119,7 +143,7 @@ export default {
         width: 13px;
         height: 13px;
         left: -13px;
-        bottom: 73px;
+        bottom: 88px;
         background-image: url(./../assets/img/nav/left.png);
     }
 
@@ -130,19 +154,8 @@ export default {
         width: 13px;
         height: 13px;
         right: -13px;
-        bottom: 73px;
+        bottom: 88px;
         background-image: url(./../assets/img/nav/right.png);
-    }
-}
-
-.sound__item {
-    margin-bottom: 15px;
-    width: 36px;
-
-    &:last-child {
-        margin-bottom: 5px;
-        margin-right: 5px;
-        width: 28px;
     }
 }
 </style>

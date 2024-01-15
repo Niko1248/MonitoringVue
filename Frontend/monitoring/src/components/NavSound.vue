@@ -95,7 +95,10 @@ export default {
 
 .ico {
     cursor: pointer;
+    filter: drop-shadow(0px 0px 0px #00000000);
+
 }
+
 
 
 .sound {

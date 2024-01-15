@@ -94,6 +94,8 @@ export default {
     margin-right: 25px;
     width: 20px;
     cursor: pointer;
+    filter: drop-shadow(0px 0px 0px #00000000);
+
 }
 
 .setting__items {
@@ -142,11 +144,11 @@ export default {
 }
 
 .setting__item-text {
-    transition: 0.2s ease-in-out;
+    transition: 0.4s ease-in-out;
     cursor: pointer;
 
     &:hover {
-        transition: 0.2s ease-in-out;
+        transition: 0.1s ease-in-out;
         text-shadow: 0px 0px 11px #f9fefe;
     }
 
