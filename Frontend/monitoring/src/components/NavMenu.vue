@@ -20,12 +20,12 @@
 			</div>
 			<div class="log_text ico">Log</div>
 			
-			<NavSettings class="NavSettings"/>
+			<NavSettings class="NavSettings shadow"/>
 			
 			<img class="printPage ico" src="../assets/PRINT.svg" alt="">
 		</div>
-		<NavSound class="nav__sound" />
-		<NavAuth/>
+		<NavSound class="nav__sound shadow" />
+		<NavAuth class="shadow"/>
 	</div>
 </template>
 <script>
@@ -79,7 +79,6 @@ export default {
 	right: 255px;
 	top: 13px;
 	width: 36px;
-	filter: drop-shadow(0px 10px 5px #00000082);
 }
 
 .search_ico,
@@ -178,8 +177,10 @@ export default {
 	text-transform: uppercase;
 }
 
-.NavSettings {
+
+.shadow {
 	filter: drop-shadow(0px 10px 5px #00000082);
+
 }
 
 @media (max-width:768px) {
