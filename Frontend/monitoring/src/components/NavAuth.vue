@@ -35,13 +35,13 @@ export default {
 
         },
         showPopupRegistration() {
-            if (!this.$store.state.popupRegistration === true)
+            if (!this.$store.state.popups.popupRegistration)
                 this.$store.commit('showPopupRegistration');
         },
-				userExit() {
-					localStorage.removeItem('token')
-					this.$router.push({path: '/'})
-				}
+        userExit() {
+            localStorage.removeItem('token')
+            this.$router.push({ path: '/' })
+        }
     },
     components: {
         Exit,

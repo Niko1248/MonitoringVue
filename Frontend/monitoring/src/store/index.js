@@ -15,10 +15,10 @@ export default createStore({
       state.soundEnable = true
     },
     showPopupAddSp(state) {
-      state.popupAddSP = !state.popupAddSP
+      state.popups.popupAddSP = !state.popups.popupAddSP
     },
     showPopupRegistration(state) {
-      state.popupRegistration = !state.popupRegistration;
+      state.popups.popupRegistration = !state.popups.popupRegistration;
     },
     disableSound(state) {
       state.soundEnable = false
@@ -36,4 +36,9 @@ export default createStore({
       }
     },
   },
+  getters: {
+    isAnyPopupOpen: state => {
+      return Object.values(state.popups).some(value => value === true);
+    }
+  }
 })

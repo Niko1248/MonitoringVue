@@ -13,14 +13,14 @@
 			<transition-group name='add'>
 				<AddSystem
 				class="popup"
-			v-if="this.$store.state.popupAddSP"
+			v-if="this.$store.state.popups.popupAddSP"
 			/>
 			</transition-group>
 			
 			<transition-group name='add'>
 				<RegistrationForm
 				class="popup"
-			v-if="this.$store.state.popupRegistration"
+			v-if="this.$store.state.popups.popupRegistration"
 			/>
 			</transition-group>
 		</div>
@@ -49,19 +49,19 @@ export default {
 			type: String
 		}
 	},
-	methods: {
+	computed: {
+		isPopupOpen() {
+			return this.$store.getters.isAnyPopupOpen;
+		}
+	}, methods: {
 		onWheel(e) {
-			const isPopupOpen = Object.values(this.$store.state).some(value => value === true);
-			if (!isPopupOpen) {
+			if (!this.isPopupOpen) {
 				this.$refs.scrollContainer.scrollLeft += e.deltaY;
-				console.log("работатет");
-				console.log(this.$store.state.popupRegistration);
 			} else {
 				e.preventDefault();
-				console.log(" не работатет");
 			}
 		},
-	},
+	}
 }
 </script>
 
