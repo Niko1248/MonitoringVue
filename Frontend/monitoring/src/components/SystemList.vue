@@ -51,9 +51,14 @@ export default {
 	},
 	methods: {
 		onWheel(e) {
-			if (!this.$store.state.popupRegistration === true) {
-				e.preventDefault();
+			const isPopupOpen = Object.values(this.$store.state).some(value => value === true);
+			if (!isPopupOpen) {
 				this.$refs.scrollContainer.scrollLeft += e.deltaY;
+				console.log("работатет");
+				console.log(this.$store.state.popupRegistration);
+			} else {
+				e.preventDefault();
+				console.log(" не работатет");
 			}
 		},
 	},
