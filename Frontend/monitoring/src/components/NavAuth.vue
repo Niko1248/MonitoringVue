@@ -10,7 +10,7 @@
                     <Exet />
                     <p>Выйти</p>
                 </div>
-                <div class="setting__item-text">
+                <div class="setting__item-text" @click="showPopupRegistration">
                     <AddUser />
                     <p>Добавить пользователя</p>
                 </div>
@@ -34,6 +34,10 @@ export default {
             this.isAuthItems = !this.isAuthItems
 
         },
+        showPopupRegistration() {
+            if (!this.$store.state.popupRegistration === true)
+                this.$store.commit('showPopupRegistration');
+        }
     },
     components: {
         Exet,
@@ -70,7 +74,7 @@ export default {
 
 .auth {
     font-family: Wix Madefor Display;
-    font-size: 18px;
+    font-size: 20px;
     color: #fff;
     position: relative;
 }
@@ -83,6 +87,8 @@ export default {
 
     p {
         margin-right: 32px;
+        margin-bottom: 4px;
+
 
         &:hover {
             transition: 0.1s ease-in-out;
@@ -98,8 +104,8 @@ export default {
 
 .auth__items {
     position: absolute;
-    bottom: -108px;
-    width: 150px;
+    bottom: -100px;
+    width: 140px;
     left: -53px;
     background: #0E1621;
     padding: 13px 20px 10px 20px;
@@ -114,7 +120,7 @@ export default {
 
         p {
             margin-left: 10px;
-
+            font-size: 16px;
         }
     }
 
@@ -143,7 +149,7 @@ export default {
         width: 13px;
         height: 13px;
         left: -13px;
-        bottom: 88px;
+        bottom: 80px;
         background-image: url(./../assets/img/nav/left.png);
     }
 
@@ -154,7 +160,7 @@ export default {
         width: 13px;
         height: 13px;
         right: -13px;
-        bottom: 88px;
+        bottom: 80px;
         background-image: url(./../assets/img/nav/right.png);
     }
 }

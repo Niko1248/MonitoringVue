@@ -1,23 +1,25 @@
 <template lang="html">
     <div class="outspace">
         <div class="addSP__wrapper">
-            <div class="close" @click="showPopupAddSP">
+            <div class="close" @click="showPopupRegistration">
                 <img src="./../assets/img/nav/close.svg" alt="закрыть" width="20px">
             </div>
-            <h1>Добавление системы передачи</h1>
+            <div class="logo__wrapper">
+                <img class="logo" src="./../assets/img/settings/Logo.png" alt="">
+            </div>
+
+            <h1>Регистрация пользователя</h1>
             <div>
                 <div class="addSP__wrapper-left">
-                    <input type="text" class="Pin" placeholder="Номер Pin +">
-                    <input type="text" class="SP" placeholder="Номер СП +">
-                    <input type="text" class="correspondent" placeholder="Корреспондент +">
-                    <input type="text" class="KMU" placeholder="КМУ / ОМУ +">
-                    <select class="reserve">
-                        <option value="value1">Добавить вариант + </option>
+                    <input type="text" class="" placeholder="Имя пользователя">
+                    <input type="password" class="" placeholder="Пароль">
+                    <select class="">
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
                     </select>
                 </div>
                 <div class="addSP__wrapper-right">
-                    <button>Добавить загрузку СП +</button>
-                    <textarea cols="30" rows="10" placeholder="Примечания"></textarea>
+
                 </div>
             </div>
             <button class="save">Сохранить</button>
@@ -29,12 +31,13 @@
 export default {
     data() {
         return {
+
         }
     },
     components: {},
     methods: {
-        showPopupAddSP() {
-            this.$store.commit('showPopupAddSp');
+        showPopupRegistration() {
+            this.$store.commit('showPopupRegistration');
         }
     },
 
@@ -45,7 +48,7 @@ export default {
 .outspace {
     font-family: Wix Madefor Display;
     width: 100vw;
-    height: calc(100vh);
+    height: 100%;
     background: rgba(0, 0, 0, 0.887);
     position: fixed;
     left: 0px;
@@ -62,6 +65,25 @@ export default {
     padding: 20px 0px 60px 0px;
     position: relative;
     filter: drop-shadow(0px 20px 30px #0000006d);
+    position: relative;
+
+    .logo__wrapper {
+        position: absolute;
+        right: 7%;
+        top: 20px;
+        height: 100%;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        img {
+            width: 100%;
+            opacity: 0.6;
+            transform: translateY(-20px);
+
+        }
+    }
 
     h1 {
         color: #F2F1F1;
@@ -142,68 +164,7 @@ export default {
 }
 
 .addSP__wrapper-right {
-    display: flex;
-    flex-direction: column;
-    width: calc(48% - 20px);
-    margin-right: 20px;
-
-    button {
-        margin: 7px 0;
-        width: 100%;
-        height: 45px;
-        border: none;
-        border-radius: 5px;
-        margin: 7px 0px;
-        background: #2E3541;
-        color: #F2F1F1;
-        padding: 4px 0px 6px 20px;
-        font-size: 18px;
-        color: #F2F1F1;
-        transition: 0.2s ease-in;
-        text-align: left;
-
-        &:hover {
-            filter: drop-shadow(0px 0px 2px #ffffff40);
-            transition: 0.2s;
-        }
-
-        &:focus {
-            filter: drop-shadow(0px 0px 2px #000);
-            transition: 0.2s ease-in;
-
-        }
-    }
-
-    textarea {
-        background: #2E3541;
-        border: none;
-        min-width: calc(100% - 20px);
-        max-width: calc(100% - 20px);
-        border-radius: 5px;
-        max-height: 47%;
-        outline: none;
-        color: #F2F1F1;
-        padding: 10px;
-        font-size: 18px;
-
-        &::placeholder {
-            padding: 0px 10px;
-            font-size: 18px;
-            color: #F2F1F1;
-            font-family: Wix Madefor Display;
-        }
-
-        &:hover {
-            filter: drop-shadow(0px 0px 2px #ffffff40);
-            transition: 0.2s;
-        }
-
-        &:focus {
-            filter: drop-shadow(0px 0px 2px #000);
-            transition: 0.2s ease-in;
-
-        }
-    }
+    width: 50%;
 }
 
 .close {

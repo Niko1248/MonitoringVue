@@ -9,14 +9,20 @@
 					:inputValue = inputValue
 				/>
 			</transition-group>
-			<transition-group name='addSP'>
+
+			<transition-group name='add'>
 				<AddSystem
+				class="popup"
 			v-if="this.$store.state.popupAddSP"
 			/>
 			</transition-group>
-			<AddSystem
-			v-if="this.$store.state.popupAddSP"
+			
+			<transition-group name='add'>
+				<RegistrationForm
+				class="popup"
+			v-if="this.$store.state.popupRegistration"
 			/>
+			</transition-group>
 		</div>
 	</div>
 </template>
@@ -25,13 +31,14 @@
 <script>
 import SystemItem from '../components/SystemItem.vue';
 import AddSystem from '../components/AddSystem.vue';
-
+import RegistrationForm from '../components/RegistrationForm.vue';
 
 export default {
 
 	components: {
 		SystemItem,
-		AddSystem
+		AddSystem,
+		RegistrationForm
 	},
 	props: {
 		systems: {
@@ -44,8 +51,10 @@ export default {
 	},
 	methods: {
 		onWheel(e) {
-			e.preventDefault();
-			this.$refs.scrollContainer.scrollLeft += e.deltaY;
+			if (!this.$store.state.popupRegistration === true) {
+				e.preventDefault();
+				this.$refs.scrollContainer.scrollLeft += e.deltaY;
+			}
 		},
 	},
 }
@@ -67,13 +76,18 @@ export default {
 	gap: 13px;
 	flex-direction: column;
 	flex-wrap: wrap;
-	max-height: 90vh;
+	max-height: calc(100vh - 90px);
 	align-content: flex-start;
 	overflow-x: auto;
+	position: relative;
 
 	&::-webkit-scrollbar {
 		display: none;
 	}
+}
+
+.popup {
+	position: fixed;
 }
 
 .systemList-item {
@@ -97,18 +111,18 @@ export default {
 }
 
 
-.addSP-enter-active,
-.addSP-leave-active {
+.add-enter-active,
+.add-leave-active {
 	transition: all 0.4s ease;
 }
 
-.addSP-enter-from,
-.addSP-leave-to {
+.add-enter-from,
+.add-leave-to {
 	opacity: 0;
 	transition: all 0.2s ease;
 }
 
-.addSP-move {
+.add-move {
 	transition: transform 0.6s ease;
 }
 </style>

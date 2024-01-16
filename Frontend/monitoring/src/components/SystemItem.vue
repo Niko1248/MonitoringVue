@@ -114,6 +114,7 @@ export default {
 	width: 17vw;
 	font-family: Wix Madefor Display;
 	padding: 5px 15px;
+	height: 2.5vw;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: 0.2s;

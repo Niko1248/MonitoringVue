@@ -92,7 +92,8 @@ export default {
 
 .settings__ico {
     margin-right: 25px;
-    width: 20px;
+    width: 22px;
+    margin-top: 3px;
     cursor: pointer;
     filter: drop-shadow(0px 0px 0px #00000000);
 
@@ -100,7 +101,7 @@ export default {
 
 .setting__items {
     position: absolute;
-    bottom: -123px;
+    bottom: -120px;
     width: 130px;
     left: -70px;
     background: #0E1621;
@@ -117,7 +118,7 @@ export default {
         width: 13px;
         height: 13px;
         left: -13px;
-        bottom: 98px;
+        bottom: 97px;
         background-image: url(./../assets/img/nav/left.png);
     }
 
@@ -128,7 +129,7 @@ export default {
         width: 13px;
         height: 13px;
         right: -13px;
-        bottom: 98px;
+        bottom: 97px;
         background-image: url(./../assets/img/nav/right.png);
     }
 
