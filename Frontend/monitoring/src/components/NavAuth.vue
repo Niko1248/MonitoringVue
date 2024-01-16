@@ -6,8 +6,8 @@
         </div>
         <transition name="fade">
             <div class="auth__items" v-if="isAuthItems">
-                <div>
-                    <Exet />
+                <div @click="userExit">
+                    <Exit />
                     <p>Выйти</p>
                 </div>
                 <div class="setting__item-text" @click="showPopupRegistration">
@@ -21,7 +21,7 @@
 </template>
     
 <script>
-import Exet from './../assets/img/nav/exet.vue';
+import Exit from './../assets/img/nav/exit.vue';
 import AddUser from './../assets/img/nav/addUser.vue';
 export default {
     data() {
@@ -37,10 +37,14 @@ export default {
         showPopupRegistration() {
             if (!this.$store.state.popupRegistration === true)
                 this.$store.commit('showPopupRegistration');
-        }
+        },
+				userExit() {
+					localStorage.removeItem('token')
+					this.$router.push({path: '/'})
+				}
     },
     components: {
-        Exet,
+        Exit,
         AddUser
     },
 }
