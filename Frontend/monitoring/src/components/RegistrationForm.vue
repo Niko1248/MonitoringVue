@@ -11,36 +11,77 @@
             <h1>Регистрация пользователя</h1>
             <div>
                 <div class="addSP__wrapper-left">
-                    <input type="text" class="" placeholder="Имя пользователя">
-                    <input type="password" class="" placeholder="Пароль">
-                    <select class="">
-                        <option value="User">User</option>
-                        <option value="Admin">Admin</option>
+                    <input
+											type="text"
+											placeholder="Имя пользователя"
+											v-model="newUser.username"
+										>
+                    <input
+											type="password"
+											placeholder="Пароль"
+											v-model="newUser.password"	
+										>
+                    <select class="" v-model="newUser.role" >
+												<option value="" disabled selected hidden>Роль</option>
+                        <option value="USER">User</option>
+                        <option value="ADMIN">Admin</option>
                     </select>
+										<p class="error" v-if="error">{{ error }}</p>
+										<p class="success" v-if="success">{{ success }}</p>
                 </div>
                 <div class="addSP__wrapper-right">
 
                 </div>
             </div>
-            <button class="save">Сохранить</button>
+            <button class="save" @click="registration">Сохранить</button>
         </div>
     </div>
 </template>
     
 <script>
+import axios from 'axios';
+import Config from '../../config';
+
 export default {
     data() {
         return {
-
+					newUser: {
+						username: ''.toLowerCase(),
+						password: '',
+						role: ''
+					},
+					error: '',
+					success: ''
         }
     },
     components: {},
     methods: {
         showPopupRegistration() {
             this.$store.commit('showPopupRegistration');
-        }
-    },
-
+        },
+				async registration(){
+					this.error = ''
+					this.success = ''
+					try{
+						const response = await axios.post(
+							`${Config.SERVER_URL}/api/auth/registration`,
+							this.newUser,
+							{
+								headers:{
+									Authorization: `Bearer ${localStorage.getItem("token")}`
+								}
+							}
+						);
+						this.success = response.data.message
+					}	catch (e) {
+						if(e.response.data.errors !== undefined){
+							this.error = e.response.data.errors.errors[0].msg
+						}else {
+							this.error = e.response.data.message
+						}
+					}
+				}
+	}
 }
 </script>
     
@@ -254,6 +295,12 @@ export default {
         bottom: 0px;
         background-image: url(./../assets/img/nav/right-down.svg);
     }
+}
+.error {
+	color: red;
+}
+.success {
+	color: green;
 }
 </style>
     
