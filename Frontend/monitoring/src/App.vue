@@ -11,12 +11,13 @@ import UserPage from './pages/UserPage.vue';
 </template>
 
 <style>
-*{
+* {
 	margin: 0;
 	padding: 0;
 
 }
-body{
+
+body {
 	background-color: #040A14;
 }
 </style>

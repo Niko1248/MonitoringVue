@@ -1,11 +1,6 @@
 <template>
-	<NavMenu
-		@input-change="updateInputValue"
-	/>
-	<SystemList
-		:systems = systems
-		:inputValue = inputValue
-	/>
+	<NavMenu @input-change="updateInputValue" />
+	<SystemList :systems=systems :inputValue=inputValue />
 </template>
 
 <script>
@@ -16,9 +11,9 @@ import Config from '../../config/index.js';
 
 
 export default {
-	components: { NavMenu, SystemList},
-	data(){
-		return{
+	components: { NavMenu, SystemList },
+	data() {
+		return {
 			systems: [],
 			enableSound: false,
 			inputValue: ''
@@ -26,18 +21,23 @@ export default {
 	},
 	methods: {
 		async fetchSystems() {
-			try{
+			try {
 				const response = await axios.get(`${Config.SERVER_URL}/api/systems/getSystems`)
 				this.systems = response.data
-			}catch(e){
+			} catch (e) {
 				console.log(e.message);
 			}
 		},
-		updateInputValue(value){
+		updateInputValue(value) {
 			this.inputValue = value
-		}
+		},
+		/* 		handleGlobalClick(event) {
+					if (!event.target.parentsUntil('.popup')) {
+						this.$store.commit('closeAllPopups');
+					}
+				} */
 	},
-	computed:{
+	computed: {
 		// searchedSystems() {
 		// 	return this.sortedSystems.filter(system => /^\d*$/.test(this.inputValue) ? system.number.includes(this.inputValue): system.correspondent.toLowerCase().includes(this.inputValue.toLowerCase()))
 		// },
@@ -49,15 +49,16 @@ export default {
 		// 	}else{
 		// 		return this.systems
 		// 	}
-			
+
 		// }
 	},
-	watch:{
-		inputValue(value){
+	watch: {
+		inputValue(value) {
 			this.inputValue = value
 		},
 	},
 	mounted() {
+		window.addEventListener('click', this.handleGlobalClick);
 		const eventSource = new EventSource(`${Config.SERVER_URL}/state`);
 		eventSource.onmessage = (event) => {
 			const stateSystemUpdated = JSON.parse(event.data);
@@ -65,15 +66,19 @@ export default {
 			if (systemUpdate) {
 				systemUpdate.state = stateSystemUpdated.state
 			}
-			if(!this.systems.find(system => system.state == 'Авария')){
+			if (!this.systems.find(system => system.state == 'Авария')) {
 				this.$store.commit('disableSound')
 			}
 		};
 
 		this.fetchSystems()
+
 	},
+	beforeUnmount() {
+		window.removeEventListener('click', this.handleGlobalClick);
+	},
+
+
 }
 </script>
-<style scoped>
-	
-</style>
+<style scoped></style>

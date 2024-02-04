@@ -2,7 +2,7 @@
 <div class="settings">
     <img class="settings__ico ico" src="../assets/SETTINGS.svg" @click="showSettingItems" alt="Настройки">
     <transition name="fade">
-        <div class="setting__items" v-if="isSettingItems">
+        <div class="setting__items popup" v-if="this.$store.state.popups.settingItems">
             <div>
                 <input type="checkbox" id='workSorted' v-model="workSorted">
                 <label class="setting__item-text" for="workSorted">Исправные</label>
@@ -25,15 +25,14 @@
 export default {
     data() {
         return {
-            isSettingItems: false,
         }
     },
     methods: {
         showSettingItems() {
-            this.isSettingItems = !this.isSettingItems
+            this.$store.commit('showSettingItems');
         },
         showPopupAddSP() {
-            if (!this.$store.state.popupAddSP === true)
+            if (!this.$store.state.popups.popupAddSP === true)
                 this.$store.commit('showPopupAddSp');
         }
     },

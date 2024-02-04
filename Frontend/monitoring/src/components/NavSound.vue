@@ -3,7 +3,7 @@
         <component :is="isSoundOn ? 'SoundOn' : 'SoundOff'" class="ico" @click="showSoundItems" />
 
         <transition name="fade">
-            <div class="sound__items" v-if="isSoundItems">
+            <div class="sound__items popup" v-if="this.$store.state.popups.soundItems">
                 <component :is="isSoundOn ? 'SoundOff' : 'SoundOn'" class='sound__item ico' @click="toggleSoundState" />
                 <SoundR class='sound__item ico' @click="$store.commit('disableSound')" />
             </div>
@@ -22,10 +22,8 @@ audio.loop = true
 export default {
     data() {
         return {
-            isSoundItems: false,
             muteAudio: false,
             isSoundOn: false,
-            isSoundItems: false
         }
     },
     components: {
@@ -42,8 +40,7 @@ export default {
             this.isSoundOn = !this.isSoundOn;
         },
         showSoundItems() {
-            this.isSoundItems = !this.isSoundItems
-
+            this.$store.commit('showSoundItems');
         },
         muteSound() {
             this.muteAudio = !this.muteAudio
