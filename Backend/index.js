@@ -22,4 +22,4 @@ async function startApp() {
 }
 
 startApp()
-setInterval(readPinInfo, 3000)
+/* setInterval(readPinInfo, 3000) */

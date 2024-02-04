@@ -1,6 +1,6 @@
 <template lang="html">
     <div class="outspace">
-        <div class="addSP__wrapper">
+        <div class="addSP__wrapper popup">
             <div class="close" @click="showPopupRegistration">
                 <img src="./../assets/img/nav/close.svg" alt="закрыть" width="20px">
             </div>

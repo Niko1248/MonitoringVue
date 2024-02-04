@@ -7,6 +7,16 @@
 					:system = system
 					:key = system._id
 					:inputValue = inputValue
+					@update-data-in-SP="receiveDataFromItem"
+					@click="showPopupSP"
+				/>
+			</transition-group>
+
+			<transition-group name='add'>
+				<Sp 
+					class="SP"
+					:system-data="systemData"
+					v-if="this.$store.state.popups.popupSP"
 				/>
 			</transition-group>
 
@@ -31,14 +41,20 @@
 <script>
 import SystemItem from '../components/SystemItem.vue';
 import AddSystem from '../components/AddSystem.vue';
+import Sp from '../components/Sp__popup.vue';
 import RegistrationForm from '../components/RegistrationForm.vue';
 
 export default {
-
+	data() {
+		return {
+			systemData: {}
+		}
+	},
 	components: {
 		SystemItem,
 		AddSystem,
-		RegistrationForm
+		RegistrationForm,
+		Sp,
 	},
 	props: {
 		systems: {
@@ -53,7 +69,8 @@ export default {
 		isPopupOpen() {
 			return this.$store.getters.isAnyPopupOpen;
 		}
-	}, methods: {
+	},
+	methods: {
 		onWheel(e) {
 			if (!this.isPopupOpen) {
 				this.$refs.scrollContainer.scrollLeft += e.deltaY;
@@ -61,6 +78,13 @@ export default {
 				e.preventDefault();
 			}
 		},
+		showPopupSP() {
+			if (!this.$store.state.popups.popupSP)
+				this.$store.commit('showPopupSp');
+		},
+		receiveDataFromItem(data) {
+			this.systemData = data;
+		}
 	}
 }
 </script>
@@ -129,5 +153,11 @@ export default {
 
 .add-move {
 	transition: transform 0.6s ease;
+}
+
+.SP {
+	position: absolute;
+
+	z-index: 99;
 }
 </style>

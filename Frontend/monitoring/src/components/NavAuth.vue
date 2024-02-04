@@ -1,11 +1,11 @@
 <template lang="html">
     <div class="auth">
         <div class="auth__ico" @click="showAuthItems">
-            <p class=" auth_text">user</p>
+            <p class="auth_text">user</p>
             <img class="auth_ico ico" src="../assets/USER.svg" alt="">
         </div>
         <transition name="fade">
-            <div class="auth__items" v-if="isAuthItems">
+            <div class="auth__items popup" v-if="this.$store.state.popups.AuthItems">
                 <div @click="userExit">
                     <Exit />
                     <p>Выйти</p>
@@ -26,12 +26,11 @@ import AddUser from './../assets/img/nav/addUser.vue';
 export default {
     data() {
         return {
-            isAuthItems: false
         }
     },
     methods: {
         showAuthItems() {
-            this.isAuthItems = !this.isAuthItems
+            this.$store.commit('showAuthItems');
 
         },
         showPopupRegistration() {

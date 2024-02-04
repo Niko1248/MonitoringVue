@@ -1,7 +1,7 @@
 <template>
 	<div class="system" :style="{ backgroundColor: system.state == 'В работе' ? '#278547' : '#7E1313' }"
-		v-show="sortedFunc(system, inputValue)">
-		<div class="system__number">{{ system.number }}</div>
+		v-show="sortedFunc(system, inputValue)" @click="sendDataToSP">
+		<div class=" system__number">{{ system.number }}</div>
 		<div class="system__correspondent">{{ system.correspondent }}</div>
 		<div class="system__KMU">
 			<div>КМУ</div>
@@ -19,7 +19,10 @@ import axios from 'axios'
 export default {
 	data() {
 		return {
-
+			systemNumber: this.system.number,
+			systemCorrespondent: this.system.correspondent,
+			systemTraces: this.system.tract,
+			systemState: this.system.state
 		}
 	},
 	methods: {
@@ -72,7 +75,18 @@ export default {
 			else {
 				return false
 			}
+		},
+		sendDataToSP() {
+			this.$emit('update-data-in-SP', {
+				systemNumber: this.systemNumber,
+				systemCorrespondent: this.system.correspondent,
+				systemTraces: this.system.tract,
+				systemState: this.system.state
+			}); /* отправляю данные в попап СП через родительский компонент*/
 		}
+
+
+
 		// async getLog(){
 		// 	const response = await axios.get(`${Config.SERVER_URL}/api/logs/getLogs`)
 		// 	const data = response.data[0]
@@ -107,33 +121,64 @@ export default {
 </script>
 <style lang="scss" scoped>
 .system {
+	position: relative;
 	color: white;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 17vw;
 	font-family: Wix Madefor Display;
-	padding: 5px 15px;
-	height: 2.5vw;
+	padding: 0.2vw 0.7vw;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: 0.2s;
 
+	&::before {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		border-radius: 5px;
+		top: 0;
+		left: 0;
+		background-color: #ffffff00;
+		transition: 0.1s;
+	}
+
 	&:hover {
-		transform: scale(0.99);
-		transition: 0.05пше s;
-		opacity: 0.89;
+		&::before {
+			transition: 0.1s;
+			background-color: #00000062;
+		}
+
+		.system__number,
+		.system__correspondent,
+		.traces,
+		.system__KMU {
+			filter: drop-shadow(0px 0px 10px #000);
+			color: #fff;
+			z-index: 2
+		}
+	}
+
+	&:active {
+		&::before {
+			transition: 0s;
+			background-color: #000000bc;
+		}
 	}
 }
 
 .system__number {
 	font-family: Viga Regular;
-	font-size: 23px;
+	font-size: 2vw;
+
 }
 
 .system__correspondent {
-	font-size: 19px;
+	font-size: 1.3vw;
 	text-align: left;
+	margin: 0px 0.5vw;
 }
 
 .ok {
@@ -150,5 +195,17 @@ export default {
 	padding: 4px;
 	min-width: 30px;
 	text-align: center;
+	margin: 0.2vw 0.5vw;
+
+}
+
+.system__KMU {
+	font-size: 1vw;
+
+}
+
+.traces {
+	font-size: 1.2vw;
+
 }
 </style>
