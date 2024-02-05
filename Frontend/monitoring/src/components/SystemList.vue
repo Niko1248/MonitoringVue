@@ -156,8 +156,8 @@ export default {
 }
 
 .SP {
-	position: absolute;
-
+	position: fixed;
+	height: 100vh;
 	z-index: 99;
 }
 </style>

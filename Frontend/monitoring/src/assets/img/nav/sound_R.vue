@@ -23,13 +23,8 @@ export default {
 </script>
 <style scoped lang="scss">
 svg:hover {
-
-    path:first-child {
-        filter: drop-shadow(0 0 1px #fff);
-        stroke: #fff;
-        transition: 0.2s;
-    }
-
+    filter: drop-shadow(0 0 1px #fff);
+    transition: 0.2s;
 }
 
 svg:active {

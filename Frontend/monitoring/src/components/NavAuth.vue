@@ -76,7 +76,7 @@ export default {
 }
 
 .auth {
-    font-family: Wix Madefor Display;
+    font-family: Wix Madefor Display !important;
     font-size: 20px;
     color: #fff;
     position: relative;

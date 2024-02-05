@@ -56,7 +56,7 @@ export default {
 }
 
 .addSP__wrapper {
-    width: 50%;
+    width: 60%;
     background: #0E1621;
     border-radius: 10px;
     padding: 20px 0px 60px 0px;

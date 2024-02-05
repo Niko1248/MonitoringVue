@@ -70,7 +70,7 @@ export default {
 	background-color: #0E1621;
 	padding: 5px 20px;
 	font-family: Wix Madefor Display;
-	z-index: 1;
+	z-index: 3;
 	position: relative;
 }
 
