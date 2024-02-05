@@ -2,6 +2,8 @@ import { createStore } from "vuex"
 
 export default createStore({
   state: {
+    username: "",
+    roles: "",
     soundEnable: false,
     workSorted: false,
     alarmSorted: false,
@@ -14,7 +16,7 @@ export default createStore({
       AuthItems: false,
       soundItems: false,
       settingItems: false,
-    }
+    },
   },
   mutations: {
     /* Звук */
@@ -25,27 +27,26 @@ export default createStore({
       state.soundEnable = false
     },
 
-
     /* Глобальные попапы */
     showPopupAddSp(state) {
       state.popups.popupAddSP = !state.popups.popupAddSP
     },
     showPopupRegistration(state) {
-      state.popups.popupRegistration = !state.popups.popupRegistration;
+      state.popups.popupRegistration = !state.popups.popupRegistration
     },
     showPopupSp(state) {
-      state.popups.popupSP = !state.popups.popupSP;
+      state.popups.popupSP = !state.popups.popupSP
     },
 
     /* Менюшные попапы */
     showAuthItems(state) {
-      state.popups.AuthItems = !state.popups.AuthItems;
+      state.popups.AuthItems = !state.popups.AuthItems
     },
     showSoundItems(state) {
-      state.popups.soundItems = !state.popups.soundItems;
+      state.popups.soundItems = !state.popups.soundItems
     },
     showSettingItems(state) {
-      state.popups.settingItems = !state.popups.settingItems;
+      state.popups.settingItems = !state.popups.settingItems
     },
 
     /* Закрытие всех попапов */
@@ -57,8 +58,6 @@ export default createStore({
             state.NavPopups[key] = false;
           });
         }, */
-
-
 
     disableWorkSorted(state, value) {
       state.workSorted = value
@@ -74,9 +73,8 @@ export default createStore({
     },
   },
   getters: {
-    isAnyPopupOpen: state => {
-      return Object.values(state.popups).some(value => value === true);
-
-    }
-  }
+    isAnyPopupOpen: (state) => {
+      return Object.values(state.popups).some((value) => value === true)
+    },
+  },
 })

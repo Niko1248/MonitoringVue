@@ -21,7 +21,7 @@
 											placeholder="Пароль"
 											v-model="newUser.password"	
 										>
-                    <select class="" v-model="newUser.role" >
+                    <select class="" v-model="newUser.roles" @change="test">
 												<option value="" disabled selected hidden>Роль</option>
                         <option value="USER">User</option>
                         <option value="ADMIN">Admin</option>
@@ -48,7 +48,7 @@ export default {
 					newUser: {
 						username: ''.toLowerCase(),
 						password: '',
-						role: ''
+						roles: ''
 					},
 					error: '',
 					success: ''
@@ -56,6 +56,9 @@ export default {
     },
     components: {},
     methods: {
+			  test() {
+					console.log(this.newUser);
+				},
         showPopupRegistration() {
             this.$store.commit('showPopupRegistration');
         },
@@ -73,6 +76,11 @@ export default {
 							}
 						);
 						this.success = response.data.message
+						this.newUser={
+							username: ''.toLowerCase(),
+							password: '',
+							roles: ''
+						}
 					}	catch (e) {
 						if(e.response.data.errors !== undefined){
 							this.error = e.response.data.errors.errors[0].msg

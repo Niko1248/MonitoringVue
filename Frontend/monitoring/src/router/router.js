@@ -11,7 +11,7 @@ const routes = [
   {
     path: "/user",
     component: UserPage,
-    meta: { requiresAuth: true, role: "USER" },
+    meta: { requiresAuth: true, role: ["USER", "ADMIN"] },
   },
 ]
 
@@ -31,11 +31,11 @@ router.beforeEach((to, from, next) => {
 
   if (userToken) {
     const userRole = parseJwt(userToken).roles
-    if (targetRole && !userRole.includes(targetRole)) {
+    if (targetRole && !targetRole.includes(userRole[0])) {
       next("/")
       return
     } else {
-      if (to.path === "/" && userRole.includes("USER")) {
+      if (to.path === "/" && (userRole.includes("USER") || userRole.includes("ADMIN"))) {
         next("/user")
         return
       }

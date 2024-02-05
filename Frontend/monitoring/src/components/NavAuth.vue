@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="auth">
         <div class="auth__ico" @click="showAuthItems">
-            <p class="auth_text">user</p>
+            <p class="auth_text">{{ this.$store.state.username }}</p>
             <img class="auth_ico ico" src="../assets/USER.svg" alt="">
         </div>
         <transition name="fade">
@@ -10,7 +10,7 @@
                     <Exit />
                     <p>Выйти</p>
                 </div>
-                <div class="setting__item-text" @click="showPopupRegistration">
+                <div class="setting__item-text" @click="showPopupRegistration" v-if="this.$store.state.roles === 'ADMIN'">
                     <AddUser />
                     <p>Добавить пользователя</p>
                 </div>
@@ -23,12 +23,18 @@
 <script>
 import Exit from './../assets/img/nav/exit.vue';
 import AddUser from './../assets/img/nav/addUser.vue';
+import parseJwt from '../utils/parseJwt.js'
 export default {
     data() {
         return {
+					user: {
+						username: '',
+						roles: ''
+					}
         }
     },
     methods: {
+				
         showAuthItems() {
             this.$store.commit('showAuthItems');
 
@@ -46,6 +52,12 @@ export default {
         Exit,
         AddUser
     },
+		mounted() {
+				const token = localStorage.getItem('token')
+				this.$store.state.roles = parseJwt(token).roles[0]
+				this.$store.state.username = parseJwt(token).username
+				}
+		
 }
 </script>
     
