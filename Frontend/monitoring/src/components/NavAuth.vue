@@ -54,8 +54,8 @@ export default {
     },
 		mounted() {
 				const token = localStorage.getItem('token')
-				this.$store.state.roles = parseJwt(token).roles[0]
-				this.$store.state.username = parseJwt(token).username
+				this.$store.commit('parseRoles', parseJwt(token).roles[0]) 
+				this.$store.commit('parseUsername',parseJwt(token).username)
 				}
 		
 }

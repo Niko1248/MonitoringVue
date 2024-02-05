@@ -1,6 +1,6 @@
 <template>
 	<NavMenu @input-change="updateInputValue" />
-	<SystemList :systems=systems :inputValue=inputValue />
+	<SystemList :systems=this.$store.state.systems :inputValue=inputValue />
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
 		async fetchSystems() {
 			try {
 				const response = await axios.get(`${Config.SERVER_URL}/api/systems/getSystems`)
-				this.systems = response.data
+				this.$store.state.systems = response.data
 			} catch (e) {
 				console.log(e.message);
 			}

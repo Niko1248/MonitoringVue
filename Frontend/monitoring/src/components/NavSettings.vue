@@ -11,7 +11,7 @@
                 <input type="checkbox" id='alarmSorted' v-model="alarmSorted">
                 <label class="setting__item-text" for="alarmSorted">Неисправные</label>
             </div>
-            <div @click="showPopupAddSP">
+            <div @click="showPopupAddSP" v-if="this.$store.state.roles === 'ADMIN'">
             <p class="plus__ico">+</p>
             <p class="setting__item-text">Добавить СП</p>
             </div>

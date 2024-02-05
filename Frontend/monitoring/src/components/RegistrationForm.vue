@@ -56,9 +56,6 @@ export default {
     },
     components: {},
     methods: {
-			  test() {
-					console.log(this.newUser);
-				},
         showPopupRegistration() {
             this.$store.commit('showPopupRegistration');
         },

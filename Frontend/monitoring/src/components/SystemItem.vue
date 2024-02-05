@@ -25,7 +25,8 @@ export default {
 			systemNumber: this.system.number,
 			systemCorrespondent: this.system.correspondent,
 			systemTraces: this.system.tract,
-			systemState: this.system.state
+			systemState: this.system.state,
+			systemID: this.system._id
 		}
 	},
 	methods: {
@@ -84,7 +85,8 @@ export default {
 				systemNumber: this.systemNumber,
 				systemCorrespondent: this.system.correspondent,
 				systemTraces: this.system.tract,
-				systemState: this.system.state
+				systemState: this.system.state,
+				systemID: this.system._id
 			}); /* отправляю данные в попап СП через родительский компонент*/
 		}
 

@@ -4,6 +4,7 @@ export default createStore({
   state: {
     username: "",
     roles: "",
+    systems: [],
     soundEnable: false,
     workSorted: false,
     alarmSorted: false,
@@ -19,6 +20,17 @@ export default createStore({
     },
   },
   mutations: {
+    /* Мутация СП */
+    changeSystems(state, value) {
+      state.systems = value
+    },
+    /* Парсинг токена */
+    parseUsername(state, value) {
+      state.username = value
+    },
+    parseRoles(state, value) {
+      state.roles = value
+    },
     /* Звук */
     enableSound(state) {
       state.soundEnable = true
@@ -58,7 +70,7 @@ export default createStore({
             state.NavPopups[key] = false;
           });
         }, */
-
+    /* Сортировка */
     disableWorkSorted(state, value) {
       state.workSorted = value
       if (value) {

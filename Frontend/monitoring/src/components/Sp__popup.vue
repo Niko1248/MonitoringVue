@@ -11,14 +11,14 @@
                     :style="{ backgroundColor: systemData.systemState == 'В работе' ? '#278547' : '#7E1313' }">
                     {{ systemData.systemState }}
                 </p>
-                <div class="remove_wrapper">
+                <div class="remove_wrapper" v-if="this.$store.state.roles === 'ADMIN'">
                     <img class="remove__ico" src="../components/ico/trash_bin_icon-icons.com_67981.svg"
                         @click="showRemoveSp">
                     <transition name="fade">
                         <div v-if="isRemove">
                             <p>Удалить систему передачи?</p>
-                            <p>да</p>
-                            <p>нет</p>
+                            <p @click="removeSystem">Да</p>
+                            <p @click="showRemoveSp">Нет</p>
                         </div>
                     </transition>
                 </div>
@@ -42,6 +42,9 @@
 </template>
     
 <script>
+import axios from 'axios';
+import Config from '../../config';
+
 
 export default {
     data() {
@@ -55,7 +58,13 @@ export default {
         },
         showRemoveSp() {
             this.isRemove = !this.isRemove
-        }
+        },
+				async removeSystem() {
+					 await axios.delete(`${Config.SERVER_URL}/api/systems/removeSystem/${this.systemData.systemID}`)
+					 const newSystems = this.$store.state.systems.filter(el => el._id !== this.systemData.systemID)
+					 this.$store.commit('changeSystems', newSystems)
+					 this.showPopupSP()
+				}
     },
     props: {
         systemData: {
