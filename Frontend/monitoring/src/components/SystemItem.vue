@@ -3,11 +3,14 @@
 		v-show="sortedFunc(system, inputValue)" @click="sendDataToSP">
 		<div class=" system__number">{{ system.number }}</div>
 		<div class="system__correspondent">{{ system.correspondent }}</div>
-		<div class="system__KMU">
-			<div>КМУ</div>
-			<div class="KMU">{{ system.KMU }}</div>
+		<div class="item-left">
+			<div class="system__KMU">
+				<div>КМУ</div>
+				<div class="KMU">{{ system.KMU }}</div>
+			</div>
+			<div class="traces">{{ system.tract }}</div>
 		</div>
-		<div class="traces">{{ system.tract }}</div>
+
 	</div>
 </template>
 
@@ -193,10 +196,10 @@ export default {
 	border: 1px solid #fff;
 	border-radius: 5px;
 	padding: 4px;
-	min-width: 30px;
 	text-align: center;
-	margin: 0.2vw 0.5vw;
-
+	margin: 0.4vw 0.5vw 0.4vw 0.5vw;
+	max-width: 2.2vw;
+	font-size: 0.9vw;
 }
 
 .system__KMU {
@@ -204,8 +207,9 @@ export default {
 
 }
 
-.traces {
-	font-size: 1.2vw;
-
+.item-left {
+	display: flex;
+	width: 29%;
+	justify-content: space-between;
 }
 </style>

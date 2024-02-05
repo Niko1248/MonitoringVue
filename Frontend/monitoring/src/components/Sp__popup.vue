@@ -299,7 +299,7 @@ select {
     p:nth-child(2) {
         margin-bottom: 0.1vw;
         display: block;
-        padding: 0.1vw 0vw;
+        padding: 0.1vw 0vw 0.1vw 0vw;
         height: 90%;
         width: 3vw;
         margin-left: 1vw;
