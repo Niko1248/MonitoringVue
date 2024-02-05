@@ -209,7 +209,7 @@ export default {
 
 .item-left {
 	display: flex;
-	width: 32%;
+	width: 29%;
 	justify-content: space-between;
 }
 </style>
