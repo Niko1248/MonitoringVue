@@ -3,7 +3,7 @@
         <component :is="isSoundOn ? 'SoundOn' : 'SoundOff'" class="ico" @click="showSoundItems" />
 
         <transition name="fade">
-            <div class="sound__items popup" v-if="this.$store.state.popups.soundItems">
+            <div class="sound__items popup" v-if="this.$store.state.NavPopups.soundItems">
                 <component :is="isSoundOn ? 'SoundOff' : 'SoundOn'" class='sound__item ico' @click="toggleSoundState" />
                 <SoundR class='sound__item ico' @click="$store.commit('disableSound')" />
             </div>
@@ -40,7 +40,8 @@ export default {
             this.isSoundOn = !this.isSoundOn;
         },
         showSoundItems() {
-            this.$store.commit('showSoundItems');
+					this.$store.commit('closeAllPopups', 'soundItems');
+            // this.$store.commit('showSoundItems');
         },
         muteSound() {
             this.muteAudio = !this.muteAudio

@@ -5,7 +5,7 @@
             <img class="auth_ico ico" src="../assets/USER.svg" alt="">
         </div>
         <transition name="fade">
-            <div class="auth__items popup" v-if="this.$store.state.popups.AuthItems">
+            <div class="auth__items popup" v-if="this.$store.state.NavPopups.AuthItems">
                 <div @click="userExit">
                     <Exit />
                     <p>Выйти</p>
@@ -36,7 +36,8 @@ export default {
     methods: {
 				
         showAuthItems() {
-            this.$store.commit('showAuthItems');
+						this.$store.commit('closeAllPopups', 'AuthItems');
+            // this.$store.commit('showAuthItems');
 
         },
         showPopupRegistration() {

@@ -31,26 +31,10 @@ export default {
 		updateInputValue(value) {
 			this.inputValue = value
 		},
-		/* 		handleGlobalClick(event) {
-					if (!event.target.parentsUntil('.popup')) {
-						this.$store.commit('closeAllPopups');
-					}
-				} */
+
 	},
 	computed: {
-		// searchedSystems() {
-		// 	return this.sortedSystems.filter(system => /^\d*$/.test(this.inputValue) ? system.number.includes(this.inputValue): system.correspondent.toLowerCase().includes(this.inputValue.toLowerCase()))
-		// },
-		// sortedSystems() {
-		// 	if (this.$store.state.workSorted){
-		// 		return this.systems.filter(system => system.state === "В работе")
-		// 	}else if (this.$store.state.alarmSorted){
-		// 		return this.systems.filter(system => system.state === "Авария")
-		// 	}else{
-		// 		return this.systems
-		// 	}
 
-		// }
 	},
 	watch: {
 		inputValue(value) {

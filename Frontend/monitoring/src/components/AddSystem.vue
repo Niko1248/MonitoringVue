@@ -16,25 +16,30 @@
                     </select>
                 </div>
                 <div class="addSP__wrapper-right">
-                    <button>Добавить загрузку СП +</button>
+                    <button @click="showPopupPayload">Добавить загрузку СП +</button>
                     <textarea cols="30" rows="10" placeholder="Примечания"></textarea>
                 </div>
             </div>
             <button class="save">Сохранить</button>
+						<AddPayload v-if="this.$store.state.popups.popupPayload"/>
         </div>
     </div>
 </template>
     
 <script>
+import AddPayload from './AddPayload.vue';
 export default {
     data() {
         return {
         }
     },
-    components: {},
+    components: {AddPayload},
     methods: {
         showPopupAddSP() {
             this.$store.commit('showPopupAddSp');
+        },
+				showPopupPayload() {
+            this.$store.commit('showPopupPayload');
         }
     },
 
@@ -165,6 +170,7 @@ export default {
         &:hover {
             filter: drop-shadow(0px 0px 2px #ffffff40);
             transition: 0.2s;
+						cursor: pointer;
         }
 
         &:focus {

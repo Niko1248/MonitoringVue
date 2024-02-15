@@ -12,8 +12,10 @@ export default createStore({
       popupRegistration: false,
       popupAddSP: false,
       popupSP: false,
+      popupPayload: false,
     },
     NavPopups: {
+      Open: false,
       AuthItems: false,
       soundItems: false,
       settingItems: false,
@@ -43,6 +45,9 @@ export default createStore({
     showPopupAddSp(state) {
       state.popups.popupAddSP = !state.popups.popupAddSP
     },
+    showPopupPayload(state) {
+      state.popups.popupPayload = !state.popups.popupPayload
+    },
     showPopupRegistration(state) {
       state.popups.popupRegistration = !state.popups.popupRegistration
     },
@@ -51,25 +56,30 @@ export default createStore({
     },
 
     /* Менюшные попапы */
-    showAuthItems(state) {
-      state.popups.AuthItems = !state.popups.AuthItems
-    },
-    showSoundItems(state) {
-      state.popups.soundItems = !state.popups.soundItems
-    },
-    showSettingItems(state) {
-      state.popups.settingItems = !state.popups.settingItems
-    },
+    // showAuthItems(state) {
+    //   state.NavPopups.AuthItems = !state.NavPopups.AuthItems
+    // },
+    // showSoundItems(state) {
+    //   state.NavPopups.soundItems = !state.NavPopups.soundItems
+    // },
+    // showSettingItems(state) {
+    //   state.NavPopups.settingItems = !state.NavPopups.settingItems
+    // },
 
     /* Закрытие всех попапов */
-    /*     closeAllPopups(state) {
-          Object.keys(state.popups).forEach(key => {
-            state.popups[key] = false;
-          });
-          Object.keys(state.NavPopups).forEach(key => {
-            state.NavPopups[key] = false;
-          });
-        }, */
+    closeAllPopups(state, name) {
+      for (const key in state.NavPopups) {
+        if (key == name) {
+          if (state.NavPopups[key] === true) {
+            state.NavPopups[key] = false
+          } else {
+            state.NavPopups[key] = true
+          }
+        } else {
+          state.NavPopups[key] = false
+        }
+      }
+    },
     /* Сортировка */
     disableWorkSorted(state, value) {
       state.workSorted = value
@@ -84,9 +94,9 @@ export default createStore({
       }
     },
   },
-  getters: {
-    isAnyPopupOpen: (state) => {
-      return Object.values(state.popups).some((value) => value === true)
-    },
-  },
+  // getters: {
+  //   isAnyPopupOpen: (state) => {
+  //     return Object.values(state.NavPopups).some((value) => value === true)
+  //   },
+  // },
 })
