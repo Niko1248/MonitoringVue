@@ -1,6 +1,6 @@
 <template>
 	<NavMenu @input-change="updateInputValue" />
-	<SystemList :systems=this.$store.state.systems :inputValue=inputValue />
+	<SystemList :systems=this.$store.state.systems :inputValue=inputValue @click="this.$store.commit('closeAllPopups', 'reset')"/>
 </template>
 
 <script>
@@ -31,6 +31,9 @@ export default {
 		updateInputValue(value) {
 			this.inputValue = value
 		},
+		handleGlobalClick(){
+			// this.$store.commit('closeAllPopups', 'reset')
+		}
 
 	},
 	computed: {
@@ -42,7 +45,7 @@ export default {
 		},
 	},
 	mounted() {
-		window.addEventListener('click', this.handleGlobalClick);
+		// window.addEventListener('click', this.handleGlobalClick);
 		const eventSource = new EventSource(`${Config.SERVER_URL}/state`);
 		eventSource.onmessage = (event) => {
 			const stateSystemUpdated = JSON.parse(event.data);

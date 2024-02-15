@@ -1,5 +1,5 @@
 <template lang="">
-<div class="nav">
+<div class="nav" @click='closeAllPopups'>
 		<div class="logo">
 			<img src="../assets/LOGO.svg" alt="">
 			<p class="logo_text">ониторинг</p>
@@ -57,6 +57,11 @@ export default {
 		},
 		updateInput() {
 			this.$emit('input-change', this.searchQuery)
+		},
+		closeAllPopups(event){
+			if(event.target.className == 'nav' || event.target.className == 'logo_text'){
+				this.$store.commit('closeAllPopups', 'reset');
+			};
 		}
 	},
 

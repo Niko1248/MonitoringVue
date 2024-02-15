@@ -69,6 +69,9 @@ export default createStore({
     /* Закрытие всех попапов */
     closeAllPopups(state, name) {
       for (const key in state.NavPopups) {
+        if (name == "reset") {
+          state.NavPopups[key]
+        }
         if (key == name) {
           if (state.NavPopups[key] === true) {
             state.NavPopups[key] = false
