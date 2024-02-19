@@ -86,7 +86,9 @@ export default {
 				systemCorrespondent: this.system.correspondent,
 				systemTraces: this.system.tract,
 				systemState: this.system.state,
-				systemID: this.system._id
+				systemID: this.system._id,
+				systemNote: this.system.note,
+				systemPayload: this.system.payload
 			}); /* отправляю данные в попап СП через родительский компонент*/
 		}
 

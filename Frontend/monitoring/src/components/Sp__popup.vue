@@ -25,12 +25,15 @@
             </div>
             <div class="Sp__wrapper-content">
                 <div class="Sp__content">
-                    <div class="Sp__content-items">
-                        <!-- сюда впишем загрузку -->
+                    <div v-for="payload in systemData.systemPayload" class="Sp__content-items">
+												<div class="item__wrapper">
+													<img v-if="payload.ico" :src="viewIco(payload.ico)" alt="" class="ico">
+                       		<div class="payload__text">{{ payload.number }} : {{ payload.correspondent }}</div>
+												</div>
                     </div>
                 </div>
                 <div class="Sp__note">
-                    <textarea cols="30" rows="10" placeholder="Примечания"></textarea>
+                    <textarea cols="30" rows="10" placeholder="Примечания">{{ systemData.systemNote }}</textarea>
                 </div>
                 <div class="Sp__tract">
                     <select></select>
@@ -64,6 +67,14 @@ export default {
 					 const newSystems = this.$store.state.systems.filter(el => el._id !== this.systemData.systemID)
 					 this.$store.commit('changeSystems', newSystems)
 					 this.showPopupSP()
+				},
+				viewIco(ico) {
+					switch(ico){
+						case 'Вершина':
+							return '/src/assets/img/payload/Вершина.svg';
+						case 'Монолит':
+							return '/src/assets/img/payload/Монолит.svg';
+					}
 				}
     },
     props: {
@@ -97,7 +108,17 @@ export default {
     border-radius: 10px;
     filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.4274509804));
 }
-
+.ico{
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
+.Sp__content-items{
+	margin-bottom: 5px;
+}
+.payload__text{
+	color: #DBFFDA;
+}
 .close {
     height: 100%;
     width: 3%;
@@ -154,7 +175,9 @@ export default {
     gap: 1vw;
 
 }
-
+.item__wrapper{
+	display: flex;
+}
 .systemNumber {
     font-family: Viga Regular;
     margin-right: 2vw;

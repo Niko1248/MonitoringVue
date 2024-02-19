@@ -13,7 +13,7 @@
             </div>
             <div @click="showPopupAddSP" v-if="this.$store.state.roles === 'ADMIN'">
             <p class="plus__ico">+</p>
-            <p class="setting__item-text">Добавить СП</p>
+            <p class="setting__item-text" @click="showSettingItems">Добавить СП</p>
             </div>
         </div> 
     </transition>
