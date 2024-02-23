@@ -1,17 +1,18 @@
 <template lang="html">
 	<div class="SystemP">
 			<div class="Sp__wrapper popup">
-					<div class="close" @click="showPopupSP">
+					<div class="close" @click="showPopupAddSp">
 							<img src="./../assets/img/nav/close.svg" alt="закрыть" width="20px">
 					</div>
 					<div class="flex__wrap">
 						<div class="form-left">
 							<h1>Добавление системы передачи</h1>
 							<div class="main__form">
-								<input type="text" placeholder="№ СП">
-								<input type="text" placeholder="Корреспондент">
-								<input type="text" placeholder="№ pin">
-								<input type="text" placeholder="КМУ/ОМУ">
+								<input type="text" placeholder="№ СП" required>
+								<input type="text" placeholder="Корреспондент" required>
+								<input type="text" placeholder="№ pin" required>
+								<input type="text" placeholder="КМУ" class="input__kmu" >
+								<input type="text" placeholder="ОМУ" class="input__omu">
 							</div>
 							<h2>Загрузка системы передачи</h2>
 							<div class="payload__form">
@@ -22,13 +23,13 @@
 									<option value="Вершина">Вершина</option>
 									<option value="Монолит">Монолит</option>
 								</select>
-								<img src="../assets/plus.svg" width="25px" height="25px" style="margin-left: 1vw;" alt="">
+								<img src="../assets/plus.svg" width="25px" height="25px" style="margin-left: 1vw; cursor: pointer;" alt="">
 							</div>
 							<div class="payload__list">
 								<p>Добавить нагрузку</p>
 							</div>
 							<h2>Примечания</h2>
-							<div class="note"></div>
+							<textarea class="note"></textarea>
 						</div>
 						<div class="form__right">
 							<img src="../assets/img/settings/Kolibri.png" width="75%" alt="Лого">
@@ -45,8 +46,6 @@
 </template>
 	
 <script>
-import axios from 'axios';
-import Config from '../../config';
 
 
 export default {
@@ -56,18 +55,10 @@ export default {
 			}
 	},
 	methods: {
-			showPopupSP() {
-					this.$store.commit('showPopupSp');
+			showPopupAddSp() {
+					this.$store.commit('showPopupAddSp');
 			},
-			showRemoveSp() {
-					this.isRemove = !this.isRemove
-			},
-			async removeSystem() {
-				 await axios.delete(`${Config.SERVER_URL}/api/systems/removeSystem/${this.systemData.systemID}`)
-				 const newSystems = this.$store.state.systems.filter(el => el._id !== this.systemData.systemID)
-				 this.$store.commit('changeSystems', newSystems)
-				 this.showPopupSP()
-			},
+
 			viewIco(ico) {
 				switch(ico){
 					case 'Вершина':
@@ -133,7 +124,7 @@ h1, h2{
 }
 .main__form{
 	display: grid;
-  grid-template-columns: 20% 40% 20% 20%;
+  grid-template-columns: 20% 40% 20% 10% 10%;
 	margin: 0 0 1vw 0;
 }
 .payload__form{
@@ -148,7 +139,7 @@ h1, h2{
 	background-color: #2E3541;
 	border-radius: 5px;
 	border: 0;
-	height: 30%;
+	height: 35%;
 	color: rgb(217, 217, 217, 17%);
 	padding: 0.7vw;
 	font-size: 18px;
@@ -166,14 +157,27 @@ input {
 	font-size: 16px;
 	padding: 0.7vw;
 	margin-right: 1vw;
+	&::placeholder{
+		color: rgb(217, 217, 217, 17%);
+		text-align: left;
+		font-size: 18px;
+		font-weight: 400;
+	}
+	&:last-child{
+		margin-right: 0;
+	}
 }
-input::placeholder{
-	color: rgb(217, 217, 217, 17%);
-	text-align: left;
-	font-size: 18px;
-	font-weight: 400;
+.input__kmu{
+	margin-right: 0;
+	padding: 0.6vw 0 0.6vw 0.6vw;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
-
+.input__omu{
+	padding: 0.6vw 0.6vw 0.6vw 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
 .close {
 	height: 100%;
 	width: 3%;
@@ -216,7 +220,6 @@ input::placeholder{
 
 	}
 }
-
 .save {
 	background: #053429;
 	outline: none;
@@ -236,9 +239,6 @@ input::placeholder{
 			transition: 0.2s ease-in;
 			color: #fff;
 	}
-
-
-
 	&::before {
 			content: "";
 			display: block;
@@ -250,7 +250,6 @@ input::placeholder{
 			background-image: url(./../assets/img/nav/left-down.svg);
 
 	}
-
 	&::after {
 			content: "";
 			display: block;
@@ -317,6 +316,5 @@ select {
 
 	}
 }
-
 </style>
 	

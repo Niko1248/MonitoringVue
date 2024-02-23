@@ -55,17 +55,6 @@ export default createStore({
       state.popups.popupSP = !state.popups.popupSP
     },
 
-    /* Менюшные попапы */
-    // showAuthItems(state) {
-    //   state.NavPopups.AuthItems = !state.NavPopups.AuthItems
-    // },
-    // showSoundItems(state) {
-    //   state.NavPopups.soundItems = !state.NavPopups.soundItems
-    // },
-    // showSettingItems(state) {
-    //   state.NavPopups.settingItems = !state.NavPopups.settingItems
-    // },
-
     /* Закрытие всех попапов */
     closeAllPopups(state, name) {
       for (const key in state.NavPopups) {
