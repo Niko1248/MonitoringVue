@@ -25,14 +25,15 @@
             </div>
             <div class="Sp__wrapper-content">
                 <div class="Sp__content">
-                    <div v-for="payload in systemData.systemPayload" class="Sp__content-items">
+                    <div v-for="(payload, index) in systemData.systemPayload" :key=index class="Sp__content-items">
+												
 												<div class="item__wrapper">
-													<img v-if="payload.ico" :src="viewIco(payload.ico)" alt="" class="ico">
+													<img v-if="payload.type" :src="viewIco(payload.type)" alt="" class="ico">
                        		<div class="payload__text">{{ payload.number }} : {{ payload.correspondent }}</div>
 												</div>
                     </div>
                 </div>
-                <div class="Sp__note">
+                <div class="Sp__note" @click="console.log(systemData)">
                     <textarea cols="30" rows="10" placeholder="Примечания">{{ systemData.systemNote }}</textarea>
                 </div>
                 <div class="Sp__tract">
@@ -63,9 +64,13 @@ export default {
             this.isRemove = !this.isRemove
         },
 				async removeSystem() {
-					 await axios.delete(`${Config.SERVER_URL}/api/systems/removeSystem/${this.systemData.systemID}`)
+					 await axios.delete(`${Config.SERVER_URL}/api/systems/removeSystem/${this.systemData.systemID}`,
+					 	{headers: {
+							Authorization: `Bearer ${localStorage.getItem('token')}`
+						}}
+					 )
 					 const newSystems = this.$store.state.systems.filter(el => el._id !== this.systemData.systemID)
-					 this.$store.commit('changeSystems', newSystems)
+					 this.$store.commit('removeSystems', newSystems)
 					 this.showPopupSP()
 				},
 				viewIco(ico) {

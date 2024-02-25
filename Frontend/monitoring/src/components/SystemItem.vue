@@ -4,9 +4,13 @@
 		<div class=" system__number">{{ system.number }}</div>
 		<div class="system__correspondent">{{ system.correspondent }}</div>
 		<div class="item-left">
-			<div class="system__KMU">
-				<div>КМУ</div>
-				<div class="KMU">{{ system.KMU }}</div>
+			<div class="system__KMU" v-if="system.KMU.number != ''">
+				<div>{{ system.KMU.type }}</div>
+				<div class="KMU">{{ system.KMU.number }}</div>
+			</div>
+			<div class="system__KMU" v-else>
+				<div>{{ system.OMU.type }}</div>
+				<div class="KMU">{{ system.OMU.number }}</div>
 			</div>
 			<div class="traces">{{ system.tract }}</div>
 		</div>

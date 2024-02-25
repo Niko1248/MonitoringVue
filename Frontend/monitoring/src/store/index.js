@@ -23,8 +23,11 @@ export default createStore({
   },
   mutations: {
     /* Мутация СП */
-    changeSystems(state, value) {
+    removeSystems(state, value) {
       state.systems = value
+    },
+    addSystems(state, value) {
+      state.systems.push(value)
     },
     /* Парсинг токена */
     parseUsername(state, value) {

@@ -8,28 +8,32 @@
 						<div class="form-left">
 							<h1>Добавление системы передачи</h1>
 							<div class="main__form">
-								<input type="text" placeholder="№ СП" required>
-								<input type="text" placeholder="Корреспондент" required>
-								<input type="text" placeholder="№ pin" required>
-								<input type="text" placeholder="КМУ" class="input__kmu" >
-								<input type="text" placeholder="ОМУ" class="input__omu">
+								<input type="text" placeholder="№ СП" v-model="newSystem.number">
+								<input type="text" placeholder="Корреспондент" v-model="newSystem.correspondent">
+								<input type="text" placeholder="№ pin" v-model="newSystem.pin">
+								<input type="text" placeholder="КМУ" class="input__kmu" @click="offInput('KMU')" v-model="newSystem.KMU.number" :disabled="kmuInput">
+								<input type="text" placeholder="ОМУ" class="input__omu" @click="offInput('OMU')" v-model="newSystem.OMU.number" :disabled="omuInput">
 							</div>
 							<h2>Загрузка системы передачи</h2>
 							<div class="payload__form">
-								<input type="text" placeholder="Номер канала">
-								<input type="text" placeholder="Корреспондент">
-								<select name="" id="">
+								<input type="text" placeholder="Номер канала" v-model="payload_obj.number">
+								<input type="text" placeholder="Корреспондент" v-model="payload_obj.correspondent">
+								<select name="" id="" v-model="payload_obj.type">
 									<option value="" disabled selected hidden>Вид связи</option>
 									<option value="Вершина">Вершина</option>
 									<option value="Монолит">Монолит</option>
 								</select>
-								<img src="../assets/plus.svg" width="25px" height="25px" style="margin-left: 1vw; cursor: pointer;" alt="">
+								<img src="../assets/plus.svg" @click="addPayload" width="25px" height="25px" style="margin-left: 1vw; cursor: pointer;" alt="">
 							</div>
 							<div class="payload__list">
-								<p>Добавить нагрузку</p>
+								<p v-if="newSystem.payload.length == 0">Добавить нагрузку</p>
+								<div v-else v-for="payload__item in newSystem.payload" class="payload__item">
+									<img :src="viewIco(payload__item.type)" alt="" class="ico">
+									<div class="payload__text"> {{ payload__item.number }} : {{ payload__item.correspondent }}</div>
+								</div>
 							</div>
 							<h2>Примечания</h2>
-							<textarea class="note"></textarea>
+							<textarea class="note" v-model="newSystem.note"></textarea>
 						</div>
 						<div class="form__right">
 							<img src="../assets/img/settings/Kolibri.png" width="75%" alt="Лого">
@@ -40,31 +44,107 @@
 						</div>
 					</div>
 
-					<button class="save">Сохранить</button>
+					<button class="save" @click="addSystem">Сохранить</button>
 			</div>
 	</div>
 </template>
 	
 <script>
+import axios from 'axios';
+import Config from '../../config';
+
 
 
 export default {
 	data() {
 			return {
+					kmuInput: false,
+					omuInput: false,
 					isRemove: false,
+					newSystem: {
+						pin: '',
+						number: '',
+						correspondent: '',
+						KMU: {
+							type: 'КМУ',
+							number: ''
+						},
+						OMU: {
+							type: 'ОМУ',
+							number: ''
+						},
+						payload: [
+							
+						],
+						note: ''
+					},
+					payload_obj: {
+						number: '',
+						correspondent: '',
+						type: ''
+					}
 			}
 	},
 	methods: {
 			showPopupAddSp() {
 					this.$store.commit('showPopupAddSp');
 			},
-
+			addPayload() {
+				this.newSystem.payload.push(this.payload_obj)
+				this.payload_obj = {
+					number: '',
+					correspondent: '',
+					type: ''
+				}
+			},
 			viewIco(ico) {
 				switch(ico){
 					case 'Вершина':
 						return '/src/assets/img/payload/Вершина.svg';
 					case 'Монолит':
 						return '/src/assets/img/payload/Монолит.svg';
+				}
+			},
+			offInput(inputType){
+				if(inputType == 'KMU'){
+					this.omuInput = false
+					this.newSystem.OMU.number = ''
+				} else {
+					this.kmuInput = false
+					this.newSystem.KMU.number = ''
+				}
+			},
+			async addSystem(){
+				try {
+					const response = await axios.post(
+						`${Config.SERVER_URL}/api/systems/addSystem`,
+						this.newSystem,
+						{
+							headers:{
+								Authorization: `Bearer ${localStorage.getItem('token')}`
+							}
+						}
+					)
+					this.$store.commit('addSystems', this.newSystem)
+					this.newSystem = {
+						pin: '',
+						number: '',
+						correspondent: '',
+						KMU: '',
+						OMU: '',
+						payload: [
+							
+						],
+						note: '',
+						state: 'В работе'
+					},
+					this.payload_obj = {
+						number: '',
+						correspondent: '',
+						type: ''
+					}
+				} catch (e) {
+					console.log(e);
 				}
 			}
 	},
@@ -133,7 +213,10 @@ h1, h2{
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 0 1vw 0;
-
+}
+.payload__item{
+	display: flex;
+	color: white;
 }
 .payload__list, .note{
 	background-color: #2E3541;
@@ -144,6 +227,7 @@ h1, h2{
 	padding: 0.7vw;
 	font-size: 18px;
 	margin-bottom: 1vw;
+	overflow: auto;
 }
 .note{
 	height: 15%;
@@ -177,6 +261,11 @@ input {
 	padding: 0.6vw 0.6vw 0.6vw 0;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
+}
+.ico{
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
 }
 .close {
 	height: 100%;
