@@ -12,7 +12,7 @@
 								<input type="text" placeholder="Корреспондент" v-model="newSystem.correspondent">
 								<input type="text" placeholder="№ pin" v-model="newSystem.pin">
 								<input type="text" placeholder="КМУ" class="input__kmu" @click="offInput('KMU')" v-model="newSystem.KMU.number" :disabled="kmuInput">
-								<input type="text" placeholder="ОМУ" class="input__omu" @click="offInput('OMU')" v-model="newSystem.OMU.number" :disabled="omuInput">
+								<input type="text" placeholder="ОМУ" tabindex="-1" class="input__omu" @click="offInput('OMU')" v-model="newSystem.OMU.number" :disabled="omuInput">
 							</div>
 							<h2>Загрузка системы передачи</h2>
 							<div class="payload__form">
@@ -76,7 +76,8 @@ export default {
 						payload: [
 							
 						],
-						note: ''
+						note: '',
+						state: 'В работе'
 					},
 					payload_obj: {
 						number: '',
@@ -125,7 +126,7 @@ export default {
 							}
 						}
 					)
-					this.$store.commit('addSystems', this.newSystem)
+					this.$store.commit('addSystems', response.data)
 					this.newSystem = {
 						pin: '',
 						number: '',
