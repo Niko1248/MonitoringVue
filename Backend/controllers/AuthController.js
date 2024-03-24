@@ -18,7 +18,7 @@ class AuthController {
     try {
       const errors = validationResult(req)
       if (!errors.isEmpty()) {
-        return res.status(400).json({ message: "Ошибка при регистрации", errors })
+        return res.status(400).json({ message: errors.errors[0].msg, errors })
       }
       const { username, password, roles } = req.body
       const candidate = await User.findOne({ username })
@@ -28,9 +28,8 @@ class AuthController {
       const hashPassword = bcrypt.hashSync(password, 7)
       const user = new User({ username, password: hashPassword, roles })
       await user.save()
-      return res.json({ message: "Пользователь успешно зарегистрирован" })
+      return res.status(200).json({ message: "Пользователь успешно зарегистрирован" })
     } catch (e) {
-      console.log(e)
       res.status(400).json({ message: "Registration error" })
     }
   }

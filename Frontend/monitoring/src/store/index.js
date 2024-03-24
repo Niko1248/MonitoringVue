@@ -1,9 +1,13 @@
-import { createStore } from "vuex"
+import { useToast } from 'vue-toastification'
+import { createStore } from 'vuex'
+
+const toast = useToast()
 
 export default createStore({
   state: {
-    username: "",
-    roles: "",
+    username: '',
+    toast: toast,
+    roles: '',
     systems: [],
     soundEnable: false,
     workSorted: false,
@@ -12,14 +16,14 @@ export default createStore({
       popupRegistration: false,
       popupAddSP: false,
       popupSP: false,
-      popupPayload: false,
+      popupPayload: false
     },
     NavPopups: {
       Open: false,
       AuthItems: false,
       soundItems: false,
-      settingItems: false,
-    },
+      settingItems: false
+    }
   },
   mutations: {
     /* Мутация СП */
@@ -28,6 +32,12 @@ export default createStore({
     },
     addSystems(state, value) {
       state.systems.push(value)
+    },
+    updateSystemState(state, { pin, newState }) {
+      const systemIndex = state.systems.findIndex((system) => system.pin === pin)
+      if (systemIndex !== -1) {
+        state.systems[systemIndex].state = newState
+      }
     },
     /* Парсинг токена */
     parseUsername(state, value) {
@@ -61,7 +71,7 @@ export default createStore({
     /* Закрытие всех попапов */
     closeAllPopups(state, name) {
       for (const key in state.NavPopups) {
-        if (name == "reset") {
+        if (name == 'reset') {
           state.NavPopups[key]
         }
         if (key == name) {
@@ -87,8 +97,8 @@ export default createStore({
       if (value) {
         state.workSorted = false
       }
-    },
-  },
+    }
+  }
   // getters: {
   //   isAnyPopupOpen: (state) => {
   //     return Object.values(state.NavPopups).some((value) => value === true)

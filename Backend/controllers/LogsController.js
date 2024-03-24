@@ -1,4 +1,4 @@
-import Logs from "../schemas/Logs.js"
+import Logs from '../schemas/Logs.js'
 
 class LogsController {
   async create(req, res) {

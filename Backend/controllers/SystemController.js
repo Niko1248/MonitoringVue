@@ -1,12 +1,22 @@
+import { validationResult } from "express-validator"
 import SystemService from "../services/SystemService.js"
 
 class SystemController {
   async create(req, res) {
     try {
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ message: errors.errors[0].msg, errors })
+      }
       const system = await SystemService.create(req.body)
-      res.json(system)
+      res.status(200).json({ message: "Система успешно добавлена", system })
     } catch (e) {
-      res.status(500).json(e.message)
+      if (e.code === 11000) {
+        const value = Object.values(e.keyValue)[0]
+        res.status(409).json({ message: `Pin № ${value} уже используется` })
+      } else {
+        res.status(500).json(e.message)
+      }
     }
   }
 
