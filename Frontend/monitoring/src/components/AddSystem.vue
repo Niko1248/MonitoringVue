@@ -74,8 +74,8 @@
             <img
               src="../assets/plus.svg"
               @click="addPayload"
-              width="25px"
-              height="25px"
+              width="20px"
+              height="20px"
               style="margin-left: 1vw; cursor: pointer"
               alt="" />
           </div>
@@ -113,12 +113,20 @@
             width="80%"
             alt="Лого" />
           <h2>Линейный тракт</h2>
-          <select
-            name=""
-            id="">
-            <option value="">Основной линейный тракт</option>
-            <option value="">Добавить вариант резервирования</option>
-          </select>
+          <div class="select__tract">
+            <select
+              name=""
+              id="">
+              <option value="">Основной линейный тракт</option>
+            </select>
+            <img
+              src="../assets/plus.svg"
+              @click="showAddTract"
+              width="20px"
+              height="20px"
+              style="cursor: pointer"
+              alt="add" />
+          </div>
         </div>
       </div>
 
@@ -170,6 +178,10 @@
       viewIco,
       showPopupAddSp() {
         this.$store.commit('showPopupAddSp')
+      },
+      showAddTract() {
+        if (!this.$store.state.popups.popupAddTract === true) this.$store.commit('showPopupAddTract')
+        document.querySelector('.Sp__wrapper').classList.add('Sp__wrapper--close')
       },
       addPayload() {
         if (
@@ -249,6 +261,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.887);
+    backdrop-filter: blur(2px);
     position: fixed;
     left: 0px;
     top: 0;
@@ -491,5 +504,11 @@
       filter: drop-shadow(0px 0px 2px #000);
       transition: 0.2s ease-in;
     }
+  }
+  .Sp__wrapper--close {
+    opacity: 0.6;
+    transition: 0.2s ease;
+    filter: drop-shadow(0px 0px 20px #000);
+    transform: scale(0.7) translate(-20vw, 10vw);
   }
 </style>

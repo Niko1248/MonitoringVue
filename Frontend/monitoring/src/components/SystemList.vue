@@ -27,6 +27,12 @@
           v-if="this.$store.state.popups.popupAddSP" />
       </transition-group>
 
+      <transition-group name="add-XY">
+        <AddTract
+          class="popup"
+          v-if="this.$store.state.popups.popupAddTract" />
+      </transition-group>
+
       <transition-group name="add">
         <RegistrationForm
           class="popup"
@@ -48,6 +54,7 @@
   import Sp from '../components/Sp__popup.vue'
   import RegistrationForm from '../components/RegistrationForm.vue'
   import LogPopup from '../components/Log__popup.vue'
+  import AddTract from '../components/AddTract.vue'
 
   export default {
     data() {
@@ -60,7 +67,8 @@
       AddSystem,
       RegistrationForm,
       Sp,
-      LogPopup
+      LogPopup,
+      AddTract
     },
     props: {
       systems: {
@@ -148,6 +156,7 @@
   .add-enter-active,
   .add-leave-active {
     transition: all 0.4s ease;
+    animation-delay: 1s;
   }
 
   .add-enter-from,
@@ -160,6 +169,23 @@
     transition: transform 0.6s ease;
   }
 
+  /* addTract animation */
+  .add-XY-enter-active,
+  .add-XY-leave-active {
+    transition: all 0.2s ease;
+    animation-delay: 1s;
+  }
+
+  .add-XY-enter-from,
+  .add-XY-leave-to {
+    transition: all 0.2s ease;
+    transform: translate(20vw, -10vw);
+  }
+
+  .add-XY-move {
+    transition: transform 0.2s ease;
+  }
+  /* log animation */
   .down_up-enter-active,
   .down_up-leave-active {
     transition: all 0.4s ease;

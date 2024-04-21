@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="">
-    <div class="addPayload__wrapper popup">
+  <div class="addTract__wrapper">
+    <div class="addTract popup">
       <div
         class="close"
         @click="showPopupPayload">
@@ -31,15 +31,17 @@
 </script>
 
 <style lang="scss" scoped>
-  .addPayload__wrapper {
-    width: 100%;
-    height: 100%;
+  .addTract__wrapper {
+    width: 70vw;
+    max-height: 60vh;
+    font-family: Wix Madefor Display;
     background: #0e1621;
     border-radius: 10px;
     padding: 20px 0px 60px 0px;
     position: absolute;
-    top: 0;
-    filter: drop-shadow(0px 20px 30px #0000006d);
+    top: 40vh;
+    left: 15vw;
+    filter: drop-shadow(-10px 20px 20px #0000006d);
 
     h1 {
       color: #f2f1f1;

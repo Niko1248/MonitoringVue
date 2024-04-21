@@ -18,7 +18,8 @@ export default createStore({
       popupAddSP: false,
       popupSP: false,
       popupPayload: false,
-      popupLog: false
+      popupLog: false,
+      popupAddTract: false
     },
     NavPopups: {
       Open: false,
@@ -66,8 +67,11 @@ export default createStore({
     showPopupAddSp(state) {
       state.popups.popupAddSP = !state.popups.popupAddSP
     },
-    showPopupPayload(state) {
-      state.popups.popupPayload = !state.popups.popupPayload
+    showPopupAddTract(state) {
+      state.popups.popupAddTract = !state.popups.popupAddTract
+    },
+    PopupPayload(state) {
+      state.popups.popupAddTract = !state.popups.popupAddTract
     },
     showPopupRegistration(state) {
       state.popups.popupRegistration = !state.popups.popupRegistration
