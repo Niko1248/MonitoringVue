@@ -4,10 +4,11 @@
     v-if="!connect">
     <div class="img__wrapper">
       <img
-        src="../assets/img/settings/koibri-white.png"
+        src="../assets/img/settings/koibri.gif"
         alt=""
         class="connect__logo" />
     </div>
+    <p>Связь с сервером потеряна...</p>
   </div>
   <NavMenu @input-change="updateInputValue" />
   <SystemList
@@ -114,32 +115,54 @@
   .connect__wrapper {
     position: fixed;
     width: 100%;
-    background: rgb(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.683);
+    backdrop-filter: blur(2px);
     z-index: 999;
     display: flex;
     height: 100%;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    animation: disconnect 5s infinite;
+    flex-direction: column;
+    font-family: Wix Madefor Display;
+    color: #fff;
+    font-size: 0.9vw;
+  }
+  @keyframes disconnect {
+    0% {
+      backdrop-filter: blur(2px);
+    }
+    50% {
+      backdrop-filter: blur(5px);
+    }
+    100% {
+      backdrop-filter: blur(2px);
+    }
   }
   .img__wrapper {
-    border: 3px solid white;
-    border-radius: 50%;
     padding: 1vw;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    animation: glow 1.5s infinite alternate;
+    transition: 1s ease;
+    animation: glow 5s infinite ease;
+    filter: drop-shadow(0px 0px 30px #000000);
+    margin-bottom: 1vw;
   }
   @keyframes glow {
-    from {
-      box-shadow: 0 0 2px #3498db, 0 0 5px #3498db, 0 0 10px #3498db, 0 0 15px #3498db;
+    0% {
+      transform: translate(0px, 0px);
+    }
+    30% {
+      transform: translate(2px 10px);
+    }
+    70% {
+      transform: translate(15px, 10px);
     }
 
-    to {
-      box-shadow: 0 0 10px #3498db, 0 0 15px #3498db, 0 0 20px #3498db, 0 0 30px #3498db;
+    100% {
+      transform: translate(1px, 2px);
     }
   }
   .connect__logo {
-    width: 4vw;
+    width: 5vw;
   }
 </style>
