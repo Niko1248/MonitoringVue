@@ -1,0 +1,17 @@
+<svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M28.5 14.761C28.5 22.6455 22.2236 29.0219 14.5 29.0219C6.77638 29.0219 0.5 22.6455 0.5 14.761C0.5 6.8764 6.77638 0.5 14.5 0.5C22.2236 0.5 28.5 6.8764 28.5 14.761Z" stroke="white"/>
+<line x1="17.5" y1="4" x2="17.5" y2="11" stroke="white" stroke-width="0.5"/>
+<line x1="15.1768" y1="5.17323" x2="20.1265" y2="10.123" stroke="white" stroke-width="0.5"/>
+<line x1="19.9016" y1="5.20191" x2="14.9519" y2="10.1517" stroke="white" stroke-width="0.5"/>
+<line x1="21" y1="7.75" x2="14" y2="7.75" stroke="white" stroke-width="0.5"/>
+<line x1="6.5" y1="13" x2="6.5" y2="20" stroke="white" stroke-width="0.5"/>
+<line x1="4.17678" y1="14.1732" x2="9.12652" y2="19.123" stroke="white" stroke-width="0.5"/>
+<line x1="8.90163" y1="14.2019" x2="3.95188" y2="19.1517" stroke="white" stroke-width="0.5"/>
+<line x1="10" y1="16.75" x2="3" y2="16.75" stroke="white" stroke-width="0.5"/>
+<line x1="14.5" y1="21" x2="14.5" y2="28" stroke="white" stroke-width="0.5"/>
+<line x1="12.1768" y1="22.1732" x2="17.1265" y2="27.123" stroke="white" stroke-width="0.5"/>
+<line x1="16.9016" y1="22.2019" x2="11.9519" y2="27.1517" stroke="white" stroke-width="0.5"/>
+<line x1="18" y1="24.75" x2="11" y2="24.75" stroke="white" stroke-width="0.5"/>
+<path d="M4.90024 11.0922L7.90027 11.5922L10.4003 12.5922L11.4003 13.5922L12.9003 15.0922L14.9003 18.0922L16.9002 19.5922L18.9002 20.5922L21.4002 21.0922L23.9002 21.0922" stroke="white"/>
+<path d="M5.90024 9.09222L8.90027 9.59222L11.4003 10.5922L12.4003 11.5922L13.9003 13.0922L15.9003 16.0922L17.9002 17.5922L19.9002 18.5922L22.4002 19.0922L24.9002 19.0922" stroke="white"/>
+</svg>

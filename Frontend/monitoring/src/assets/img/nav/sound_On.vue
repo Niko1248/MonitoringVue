@@ -1,0 +1,43 @@
+
+<template>
+    <svg width="32" height="24" viewBox="0 0 35 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M20 3.66334V22.9273C20 23.7089 19.1435 24.1884 18.4772 23.7798L8.88895 17.8995C8.59246 17.7177 8.41174 17.3949 8.41174 17.0471V10.0559C8.41174 9.72557 8.57491 9.41652 8.84772 9.23018L14.5525 5.33363L18.4592 2.82216C19.1247 2.39433 20 2.87217 20 3.66334Z"
+            stroke="#B5B2B2" stroke-width="2" />
+        <path
+            d="M3 9.31818H8.88235V17.5455H3C1.89543 17.5455 1 16.65 1 15.5455V11.3182C1 10.2136 1.89543 9.31818 3 9.31818Z"
+            stroke="#B5B2B2" stroke-width="2" />
+        <line x1="27.5" y1="6" x2="27.5" y2="20" stroke="#B5B2B2" />
+        <line x1="34.5" y1="11" x2="34.5" y2="15" stroke="#B5B2B2" />
+    </svg>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+<style scoped lang="scss">
+svg:hover {
+
+    path,
+    line {
+        filter: drop-shadow(0 0 1px #fff);
+        stroke: #fff;
+        transition: 0.2s;
+    }
+
+}
+
+svg:active {
+
+    path {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+
+    line {
+        opacity: 0.2;
+    }
+}
+</style>
