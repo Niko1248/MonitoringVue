@@ -88,15 +88,11 @@
         this.error = ''
         this.success = ''
         try {
-          const response = await axios.post(
-            `${Config.SERVER_URL}/api/auth/registration`,
-            this.newUser,
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-              }
+          const response = await axios.post(`${Config.SERVER_URL}/api/auth/registration`, this.newUser, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
             }
-          )
+          })
           this.success = response.data.message
           this.newUser = {
             username: ''.toLowerCase(),
@@ -230,7 +226,7 @@
 
   .close {
     height: 100%;
-    width: 4%;
+    width: 2%;
     background: #053429;
     position: absolute;
     right: 0;

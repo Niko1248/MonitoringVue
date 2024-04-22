@@ -179,6 +179,7 @@
   .add-XY-enter-from,
   .add-XY-leave-to {
     transition: all 0.2s ease;
+    opacity: 0;
     transform: translate(20vw, -10vw);
   }
 

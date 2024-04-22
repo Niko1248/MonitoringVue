@@ -3,13 +3,53 @@
     <div class="addTract popup">
       <div
         class="close"
-        @click="showPopupPayload">
+        @click="showAddTract">
         <img
           src="./../assets/img/nav/close.svg"
           alt="закрыть"
           width="20px" />
       </div>
-      <h1>Добавление загрузки</h1>
+
+      <h1>Добавление резервного линейного тракта</h1>
+
+      <div class="content__wrapper">
+        <div class="node">
+          <input
+            type="text"
+            placeholder="595Б" />
+        </div>
+        <img
+          src="../assets/plus.svg"
+          @click="addNondes"
+          width="20px"
+          height="20px"
+          style="cursor: pointer; margin: 0px 10px"
+          alt="add" />
+
+        <div class="addedNode">
+          <div class="line">
+            <div class="line__name">
+              <input type="text" />
+            </div>
+            <div class="line__middle"></div>
+            <div class="line__section">
+              <input type="text" />
+            </div>
+          </div>
+          <div class="node">
+            <input
+              type="text"
+              placeholder="№" />
+          </div>
+          <img
+            src="../assets/plus.svg"
+            @click="aa"
+            width="20px"
+            height="20px"
+            style="cursor: pointer; margin: 0px 10px"
+            alt="add" />
+        </div>
+      </div>
 
       <button class="save">Сохранить</button>
     </div>
@@ -21,11 +61,12 @@
     data() {
       return {}
     },
-    components: {},
     methods: {
-      showPopupPayload() {
-        this.$store.commit('showPopupPayload')
-      }
+      showAddTract() {
+        if (this.$store.state.popups.popupAddTract === true) this.$store.commit('showPopupAddTract')
+        document.querySelector('.Sp__wrapper').classList.remove('Sp__wrapper--close')
+      },
+      addNondes() {}
     }
   }
 </script>
@@ -48,15 +89,70 @@
       font-weight: bold;
       margin-bottom: 30px;
       margin-left: 20px;
+      font-size: 24px;
     }
 
     div {
       display: flex;
     }
   }
+  .addTract {
+    display: flex;
+    flex-direction: column;
+  }
+  .content__wrapper {
+    margin: 0px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .node {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    input {
+      width: 50px;
+      height: 50px;
+      border: none;
+      text-align: center;
+      background: rgba(0, 0, 0, 0);
+      border-radius: 50%;
+      font-weight: 700;
+    }
+  }
+  .line {
+    display: flex;
+    flex-direction: column;
+    input {
+      width: 70px;
+      background-color: #494951;
+      border: none;
+      border-radius: 5px;
+      height: 18px;
+      color: #fff;
+      text-align: center;
+    }
+    .line__name,
+    .line__section {
+      display: flex;
+      justify-content: center;
+    }
+    .line__middle {
+      width: 90px;
+      height: 1px;
+      margin: 2px 0px 3px;
+      background: #fff;
+    }
+  }
+  .addedNode {
+    display: flex;
+    align-items: center;
+  }
   .close {
     height: 100%;
-    width: 4%;
+    width: 2%;
     background: #053429;
     position: absolute;
     right: 0;

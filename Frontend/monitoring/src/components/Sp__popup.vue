@@ -11,9 +11,7 @@
       </div>
       <div class="Sp__wrapper-header">
         <h1 class="systemNumber">{{ systemData.systemNumber }}</h1>
-        <h1 class="systemCorrespondent">
-          Колибри - {{ systemData.systemCorrespondent }}
-        </h1>
+        <h1 class="systemCorrespondent">Колибри - {{ systemData.systemCorrespondent }}</h1>
         <p
           class="systemState"
           :style="{
@@ -62,9 +60,7 @@
                 :src="viewIco(payload.type)"
                 alt=""
                 class="ico" />
-              <div class="payload__text">
-                {{ payload.number }} : {{ payload.correspondent }}
-              </div>
+              <div class="payload__text">{{ payload.number }} : {{ payload.correspondent }}</div>
             </div>
           </div>
         </div>
@@ -128,15 +124,11 @@
         this.error = ''
         this.success = ''
         try {
-          await axios.put(
-            `${Config.SERVER_URL}/api/systems/editSystemInfo`,
-            this.systemInfo,
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-              }
+          await axios.put(`${Config.SERVER_URL}/api/systems/editSystemInfo`, this.systemInfo, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
             }
-          )
+          })
           this.$store.commit('updateSystemNote', {
             _id: this.systemInfo._id,
             value: this.systemInfo.note
@@ -147,17 +139,12 @@
         }
       },
       async removeSystem() {
-        await axios.delete(
-          `${Config.SERVER_URL}/api/systems/removeSystem/${this.systemData.systemID}`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
+        await axios.delete(`${Config.SERVER_URL}/api/systems/removeSystem/${this.systemData.systemID}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
           }
-        )
-        const newSystems = this.$store.state.systems.filter(
-          (el) => el._id !== this.systemData.systemID
-        )
+        })
+        const newSystems = this.$store.state.systems.filter((el) => el._id !== this.systemData.systemID)
         this.$store.commit('removeSystems', newSystems)
         this.showPopupSP()
       }
@@ -206,7 +193,7 @@
   }
   .close {
     height: 100%;
-    width: 3%;
+    width: 2%;
     background: #053429;
     position: absolute;
     right: 0;

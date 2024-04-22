@@ -271,6 +271,7 @@
   }
 
   .Sp__wrapper {
+    transition: 0.2s;
     padding: 1.1vw 1.5vw 2.3vw;
     width: 80vw;
     max-height: 80vh;
@@ -369,7 +370,7 @@
   }
   .close {
     height: 100%;
-    width: 3%;
+    width: 2%;
     background: #053429;
     position: absolute;
     right: 0;
