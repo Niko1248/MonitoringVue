@@ -7,6 +7,15 @@
         width="20px"
         class="close"
         @click="showPopupLog" />
+      <ol class="log__list">
+        <li
+          v-for="({ type, subunit, message, createdAt }, index) in this.$store.state.dataLogs"
+          :key="index"
+          class="log__item">
+          <div class="log__time">{{ createdAt }}</div>
+          <div class="log__message">{{ message }}</div>
+        </li>
+      </ol>
     </div>
   </div>
 </template>
@@ -48,5 +57,16 @@
       filter: drop-shadow(0px 0px 2px #fff);
       transition: 0.2s;
     }
+  }
+  .log__list {
+    padding: 50px;
+    color: white;
+    max-height: 45vh;
+  }
+  .log__item {
+    display: flex;
+  }
+  .log__time {
+    margin-right: 1.5vw;
   }
 </style>

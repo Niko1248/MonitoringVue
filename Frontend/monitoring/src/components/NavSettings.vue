@@ -33,7 +33,7 @@
         </div>
         <div
           @click="showPopupAddSP"
-          v-if="this.$store.state.roles === 'ADMIN'">
+          v-if="this.$store.state.roles !== 'USER'">
           <p class="plus__ico">+</p>
           <p
             class="setting__item-text"

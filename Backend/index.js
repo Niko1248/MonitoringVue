@@ -5,12 +5,24 @@ import router from "./routes/index.js"
 import Config from "./config/index.js"
 import { readPinInfo } from "./routes/ArduinoApi.js"
 import { eventsHandler } from "./events/index.js"
+import path from "path"
+import { fileURLToPath } from "url"
+
 const app = express()
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 app.use(express.json())
 app.use(cors())
 app.use("/api", router)
 app.get("/state", eventsHandler)
+
+app.use(express.static(path.join(__dirname, "dist")))
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"))
+})
 
 async function startApp() {
   try {
@@ -22,4 +34,8 @@ async function startApp() {
 }
 
 startApp()
-setInterval(readPinInfo, 3000)
+setInterval(() => {
+  Config.ARDUINO_URL.map((item) => {
+    readPinInfo(item)
+  })
+}, 5000)

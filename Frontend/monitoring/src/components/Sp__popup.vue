@@ -26,7 +26,7 @@
         </p>
         <div
           class="remove_wrapper"
-          v-if="this.$store.state.roles === 'ADMIN'">
+          v-if="this.$store.state.roles !== 'USER'">
           <img
             class="remove__ico"
             src="../components/ico/trash_bin_icon-icons.com_67981.svg"
@@ -133,20 +133,34 @@
             _id: this.systemInfo._id,
             value: this.systemInfo.note
           })
+          this.$store.dispatch('sendLog', {
+            type: 'Info',
+            subunit: this.$store.state.subunit,
+            message: `СП ${this.systemData.systemNumber} изменено примечание на: ${this.systemInfo.note}`
+          })
           this.success = 'Изменения приняты'
         } catch (e) {
           this.error = 'Ошибка'
         }
       },
       async removeSystem() {
-        await axios.delete(`${Config.SERVER_URL}/api/systems/removeSystem/${this.systemData.systemID}`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-        })
-        const newSystems = this.$store.state.systems.filter((el) => el._id !== this.systemData.systemID)
-        this.$store.commit('removeSystems', newSystems)
-        this.showPopupSP()
+        try {
+          await axios.delete(`${Config.SERVER_URL}/api/systems/removeSystem/${this.systemData.systemID}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          })
+          const newSystems = this.$store.state.systems.filter((el) => el._id !== this.systemData.systemID)
+          this.$store.commit('removeSystems', newSystems)
+          this.$store.dispatch('sendLog', {
+            type: 'Info',
+            subunit: this.$store.state.subunit,
+            message: `СП ${this.systemData.systemNumber} удалена"`
+          })
+          this.showPopupSP()
+        } catch (e) {
+          console.log(e)
+        }
       }
     },
     props: {

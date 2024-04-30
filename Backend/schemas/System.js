@@ -6,6 +6,7 @@ const SystemSchema = new Schema({
   correspondent: { type: String, required: true },
   KMU: { type: Object, required: true },
   OMU: { type: Object, required: true },
+  subunit: { type: String },
   state: { type: String },
   payload: { type: Array },
   tract: { type: String },

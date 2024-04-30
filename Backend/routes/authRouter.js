@@ -11,7 +11,8 @@ authRouter.post(
     check("username", "Имя пользователя не может быть пустым").trim().notEmpty(),
     check("password", "Пароль должен быть больше 4 и меньше 10 символов").trim().isLength({ min: 4, max: 10 }),
     check("roles", "Не выбрана роль").notEmpty(),
-    roleMiddleware(["ADMIN"]),
+    check("subunit", "Не выбрано подразделение").notEmpty(),
+    roleMiddleware(["ADMIN", "SUPERADMIN"]),
   ],
   AuthController.registration
 )

@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import UserPage from '../pages/UserPage.vue'
 import LoginPage from '../pages/LoginPage.vue'
 import parseJwt from '../utils/parseJwt.js'
+import store from '../store/index.js'
+import axios from 'axios'
+import Config from '../../config/index.js'
 
 const routes = [
   {
@@ -11,7 +14,7 @@ const routes = [
   {
     path: '/user',
     component: UserPage,
-    meta: { requiresAuth: true, role: ['USER', 'ADMIN'] }
+    meta: { requiresAuth: true, role: ['USER', 'ADMIN', 'SUPERADMIN'] }
   }
 ]
 
@@ -30,12 +33,16 @@ router.beforeEach((to, from, next) => {
   }
 
   if (userToken) {
-    const userRole = parseJwt(userToken).roles
-    if (targetRole && !targetRole.includes(userRole[0])) {
+    const { roles, username, subunit } = parseJwt(userToken)
+    store.commit('parseRoles', roles[0])
+    store.commit('parseUsername', username)
+    store.commit('parseSubunit', subunit[0])
+    getSubunitList()
+    if (targetRole && !targetRole.includes(roles[0])) {
       next('/')
       return
     } else {
-      if (to.path === '/' && (userRole.includes('USER') || userRole.includes('ADMIN'))) {
+      if (to.path === '/' && (roles.includes('USER') || roles.includes('ADMIN') || roles.includes('SUPERADMIN'))) {
         next('/user')
         return
       }
@@ -43,4 +50,10 @@ router.beforeEach((to, from, next) => {
   }
   next()
 })
+async function getSubunitList() {
+  const response = await axios.get(`${Config.SERVER_URL}/api/getSubunitList`)
+  store.commit('parseSubunitList', response.data)
+  let subunitRu = Object.values(store.state.subunitList.find((el) => el[store.state.subunit]))[0]
+  store.commit('parseSubunitRu', subunitRu)
+}
 export default router

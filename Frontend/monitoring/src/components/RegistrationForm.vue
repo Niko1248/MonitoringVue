@@ -29,8 +29,7 @@
             v-model="newUser.password" />
           <select
             class=""
-            v-model="newUser.roles"
-            @change="test">
+            v-model="newUser.roles">
             <option
               value=""
               disabled
@@ -40,6 +39,24 @@
             </option>
             <option value="USER">User</option>
             <option value="ADMIN">Admin</option>
+            <option value="SUPERADMIN">SuperAdmin</option>
+          </select>
+          <select
+            class=""
+            v-model="newUser.subunit">
+            <option
+              value=""
+              disabled
+              selected
+              hidden>
+              Подразделение
+            </option>
+            <option
+              v-for="(subunit, index) in this.$store.state.subunitList"
+              :key="index"
+              :value="Object.keys(subunit)[0]">
+              {{ Object.values(subunit)[0] }}
+            </option>
           </select>
           <p
             class="error"
@@ -73,7 +90,8 @@
         newUser: {
           username: ''.toLowerCase(),
           password: '',
-          roles: ''
+          roles: '',
+          subunit: ''
         },
         error: '',
         success: ''
@@ -94,10 +112,16 @@
             }
           })
           this.success = response.data.message
+          this.$store.dispatch('sendLog', {
+            type: 'Info',
+            subunit: this.$store.state.subunit,
+            message: `Пользователь ${this.newUser.username} Роль: ${this.newUser.roles} Подразделение: ${this.newUser.subunit} успешно создан"`
+          })
           this.newUser = {
             username: ''.toLowerCase(),
             password: '',
-            roles: ''
+            roles: '',
+            subunit: ''
           }
         } catch (e) {
           this.error = e.response.data.message

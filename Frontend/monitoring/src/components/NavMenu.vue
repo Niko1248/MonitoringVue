@@ -45,6 +45,8 @@
   import NavSettings from './NavSettings.vue'
   import NavSound from './NavSound.vue'
   import NavAuth from './NavAuth.vue'
+  import axios from 'axios'
+  import Config from '../../config'
 
   export default {
     data() {
@@ -68,8 +70,10 @@
         this.isSettingItems = !this.isSettingItems
       },
       showLog() {
-        if (!this.$store.state.popups.popupLog === true) this.$store.commit('showPopupLog')
-        console.log(this.$store.state.popups.popupLog)
+        if (!this.$store.state.popups.popupLog === true) {
+          this.$store.commit('showPopupLog')
+          this.getLogs()
+        }
       },
       updateInput() {
         this.$emit('input-change', this.searchQuery)
@@ -77,6 +81,18 @@
       closeAllPopups(event) {
         if (event.target.className == 'nav' || event.target.className == 'logo_text') {
           this.$store.commit('closeAllPopups', 'reset')
+        }
+      },
+      async getLogs() {
+        try {
+          const response = await axios.get(`${Config.SERVER_URL}/api/logs/getLogs`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          })
+          this.$store.commit('addLogs', response.data)
+        } catch (e) {
+          console.log(e.message)
         }
       }
     }

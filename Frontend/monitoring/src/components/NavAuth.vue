@@ -27,8 +27,7 @@
         </div>
         <div
           class="setting__item-text"
-          @click="showPopupRegistration"
-          v-if="this.$store.state.roles === 'ADMIN'">
+          @click="showPopupRegistration">
           <AddUser />
           <p>Добавить пользователя</p>
         </div>
@@ -66,11 +65,6 @@
     components: {
       Exit,
       AddUser
-    },
-    mounted() {
-      const token = localStorage.getItem('token')
-      this.$store.commit('parseRoles', parseJwt(token).roles[0])
-      this.$store.commit('parseUsername', parseJwt(token).username)
     }
   }
 </script>

@@ -40,6 +40,24 @@
               @click="offInput('OMU')"
               v-model="newSystem.OMU.number"
               :disabled="omuInput" />
+
+            <select
+              v-model="newSystem.subunit"
+              v-if="this.$store.state.subunit === 'cskp'">
+              <option
+                value=""
+                disabled
+                selected
+                hidden>
+                Подразделение
+              </option>
+              <option
+                v-for="(subunit, index) in this.$store.state.subunitList"
+                :key="index"
+                :value="subunit">
+                {{ subunit }}
+              </option>
+            </select>
           </div>
           <h2>Загрузка системы передачи</h2>
           <div class="payload__form">
@@ -51,10 +69,7 @@
               type="text"
               placeholder="Корреспондент"
               v-model="payload_obj.correspondent" />
-            <select
-              name=""
-              id=""
-              v-model="payload_obj.type">
+            <select v-model="payload_obj.type">
               <option
                 value=""
                 disabled
@@ -165,7 +180,8 @@
           },
           payload: [],
           note: '',
-          state: 'Статус не определён'
+          state: 'Статус не определён',
+          subunit: this.$store.state.subunit === 'cskp' ? '' : String(this.$store.state.subunit)
         },
         payload_obj: {
           number: '',
@@ -213,12 +229,18 @@
         this.error = ''
         this.success = ''
         try {
+          this.newSystem.pin = this.newSystem.pin + this.newSystem.subunit
           const response = await axios.post(`${Config.SERVER_URL}/api/systems/addSystem`, this.newSystem, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }
           })
           this.$store.commit('addSystems', response.data.system)
+          this.$store.dispatch('sendLog', {
+            type: 'Info',
+            subunit: this.$store.state.subunit,
+            message: `СП ${this.newSystem.number} успешно добавлена`
+          })
           ;(this.newSystem = {
             pin: '',
             number: '',
@@ -233,7 +255,8 @@
             },
             payload: [],
             note: '',
-            state: 'Не определено'
+            state: 'Статус не определён',
+            subunit: this.$store.state.subunit === 'cskp' ? '' : String(this.$store.state.subunit)
           }),
             (this.payload_obj = {
               number: '',
@@ -305,7 +328,7 @@
   }
   .main__form {
     display: grid;
-    grid-template-columns: 20% 40% 20% 10% 10%;
+    grid-template-columns: 20% 25% 12% 9% 9% 25%;
     margin: 0 0 1vw 0;
   }
   .payload__form {

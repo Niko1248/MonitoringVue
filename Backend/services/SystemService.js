@@ -1,3 +1,4 @@
+import Config from "../config/index.js"
 import System from "../schemas/System.js"
 
 class SystemService {
@@ -6,8 +7,13 @@ class SystemService {
     return createdSystem
   }
 
-  async getAll() {
-    const systems = await System.find()
+  async getAll(token) {
+    const checkSubunit = token.subunit[0]
+    if (checkSubunit === "cskp") {
+      const systems = await System.find()
+      return systems
+    }
+    const systems = await System.find({ subunit: `${checkSubunit}` })
     return systems
   }
 

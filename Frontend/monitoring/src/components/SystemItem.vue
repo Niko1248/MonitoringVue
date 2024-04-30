@@ -27,8 +27,6 @@
 </template>
 
 <script>
-  import Config from '../../config/index.js'
-  import axios from 'axios'
   import convertTime from '../utils/convertTime.js'
   export default {
     data() {
@@ -41,24 +39,24 @@
       }
     },
     methods: {
-      async sendLog() {
-        await axios
-          .post(
-            `${Config.SERVER_URL}/api/logs/addLog`,
-            {
-              message: `Система передачи ${this.system.number} ${this.system.state}`
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-              }
-            }
-          )
-          .then((response) => {})
-          .catch((e) => {
-            console.log(e)
-          })
-      },
+      // async sendLog() {
+      //   await axios
+      //     .post(
+      //       `${Config.SERVER_URL}/api/logs/addLog`,
+      //       {
+      //         message: `Система передачи ${this.system.number} ${this.system.state}`
+      //       },
+      //       {
+      //         headers: {
+      //           Authorization: `Bearer ${localStorage.getItem('token')}`
+      //         }
+      //       }
+      //     )
+      //     .then((response) => {})
+      //     .catch((e) => {
+      //       console.log(e)
+      //     })
+      // },
 
       sortedFunc(system, inputValue) {
         if (system.state == 'Авария' && this.$store.state.alarmSorted) {
@@ -125,17 +123,31 @@
       systemStatus(newVal) {
         if (newVal === 'В работе') {
           this.$store.state.toast.success(
-            `${convertTime()} В работе: СП ${this.system.number} Колибри - ${this.system.correspondent}`
+            `${convertTime()} В работе: СП ${this.system.number} ${this.$store.state.subunitRu} - ${
+              this.system.correspondent
+            }`
           )
+          this.$store.dispatch('sendLog', {
+            type: 'Success',
+            subunit: this.$store.state.subunit,
+            message: `В работе: СП ${this.system.number} ${this.$store.state.subunitRu} - ${this.system.correspondent}`
+          })
         } else if (newVal === 'Авария') {
           this.$store.state.toast.error(
-            `${convertTime()} Авария: СП ${this.system.number} Колибри - ${this.system.correspondent}`
+            `${convertTime()} Авария: СП ${this.system.number} ${this.$store.state.subunitRu} - ${
+              this.system.correspondent
+            }`
           )
+          this.$store.dispatch('sendLog', {
+            type: 'Warning',
+            subunit: this.$store.state.subunit,
+            message: `Авария: СП ${this.system.number} ${this.$store.state.subunitRu} - ${this.system.correspondent}`
+          })
         }
         if (newVal === 'Авария' && this.$store.state.soundEnable === false) {
           this.$store.commit('enableSound')
         }
-        this.sendLog()
+        // this.sendLog()
         // this.getLog()
       }
     }

@@ -22,8 +22,7 @@
   import SystemList from '../components/SystemList.vue'
   import axios from 'axios'
   import Config from '../../config/index.js'
-  import { ref, onMounted } from 'vue'
-  import { useStore } from 'vuex'
+
   export default {
     components: { NavMenu, SystemList },
     data() {
@@ -34,27 +33,15 @@
         connect: true
       }
     },
-    setup() {
-      const handleKeyPress = (event) => {
-        if (event.ctrlKey && event.key === '1') {
-          if (!store.state.popups.popupLog === true) {
-            store.commit('showPopupLog')
-          } else {
-            store.commit('closePopupLog')
-          }
-        }
-      }
-      const store = useStore()
-      onMounted(() => {
-        document.addEventListener('keydown', handleKeyPress)
-      })
 
-      return {}
-    },
     methods: {
       async getSystems() {
         try {
-          const response = await axios.get(`${Config.SERVER_URL}/api/systems/getSystems`)
+          const response = await axios.get(`${Config.SERVER_URL}/api/systems/getSystems`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          })
           this.$store.state.systems = response.data
         } catch (e) {
           console.log(e.message)
@@ -63,9 +50,18 @@
       },
       updateInputValue(value) {
         this.inputValue = value
+      },
+      handleKeyPress(event) {
+        if (event.ctrlKey && event.key === '1') {
+          if (!this.$store.state.popups.popupLog === true) {
+            this.$store.commit('showPopupLog')
+          } else {
+            this.$store.commit('closePopupLog')
+          }
+        }
       }
     },
-    computed: {},
+
     watch: {
       inputValue(value) {
         this.inputValue = value
@@ -106,8 +102,15 @@
       } catch (e) {
         console.log(e)
       }
-
+      document.addEventListener('keydown', this.handleKeyPress)
       this.getSystems()
+    },
+    beforeUnmount() {
+      this.$store.commit('clearSystems')
+      this.$store.commit('clearSubunitList')
+      this.$store.commit('closeAllPopups', 'reset')
+      document.removeEventListener('keydown', this.handleKeyPress)
+      // this.$store.state.toast.clear
     }
   }
 </script>

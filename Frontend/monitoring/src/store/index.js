@@ -1,6 +1,7 @@
 import { useToast } from 'vue-toastification'
 import { createStore } from 'vuex'
-
+import axios from 'axios'
+import Config from '../../config/index.js'
 const toast = useToast()
 
 export default createStore({
@@ -8,7 +9,11 @@ export default createStore({
     username: '',
     toast: toast,
     roles: '',
+    subunit: '',
+    subunitRu: '',
+    subunitList: [],
     systems: [],
+    dataLogs: undefined,
     soundEnable: false,
     workSorted: false,
     alarmSorted: false,
@@ -36,6 +41,9 @@ export default createStore({
     addSystems(state, value) {
       state.systems.push(value)
     },
+    clearSystems(state, value) {
+      state.systems = []
+    },
     updateSystemState(state, { pin, newState }) {
       const systemIndex = state.systems.findIndex((system) => system.pin === pin)
       if (systemIndex !== -1) {
@@ -48,12 +56,28 @@ export default createStore({
         state.systems[systemIndex].note = value
       }
     },
+    // Лог
+    addLogs(state, value) {
+      state.dataLogs = value
+    },
     /* Парсинг токена */
     parseUsername(state, value) {
       state.username = value
     },
     parseRoles(state, value) {
       state.roles = value
+    },
+    parseSubunit(state, value) {
+      state.subunit = value
+    },
+    parseSubunitRu(state, value) {
+      state.subunitRu = value
+    },
+    parseSubunitList(state, value) {
+      state.subunitList = value
+    },
+    clearSubunitList(state) {
+      state.subunitList = []
     },
     /* Звук */
     enableSound(state) {
@@ -119,6 +143,22 @@ export default createStore({
       state.alarmSorted = value
       if (value) {
         state.workSorted = false
+      }
+    }
+  },
+  actions: {
+    async sendLog({ state }, data) {
+      try {
+        if (state.subunit === 'cskp') {
+          data.subunit = 'kolibri'
+        }
+        const response = await axios.post(`${Config.SERVER_URL}/api/logs/addLog`, data, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+      } catch (e) {
+        console.log(e)
       }
     }
   }
