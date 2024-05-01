@@ -155,7 +155,7 @@
           this.$store.dispatch('sendLog', {
             type: 'Info',
             subunit: this.$store.state.subunit,
-            message: `СП ${this.systemData.systemNumber} удалена"`
+            message: `СП ${this.systemData.systemNumber} удалена`
           })
           this.showPopupSP()
         } catch (e) {

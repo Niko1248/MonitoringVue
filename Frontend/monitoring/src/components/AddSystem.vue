@@ -54,8 +54,8 @@
               <option
                 v-for="(subunit, index) in this.$store.state.subunitList"
                 :key="index"
-                :value="subunit">
-                {{ subunit }}
+                :value="Object.keys(subunit)[0]">
+                {{ Object.values(subunit)[0] }}
               </option>
             </select>
           </div>

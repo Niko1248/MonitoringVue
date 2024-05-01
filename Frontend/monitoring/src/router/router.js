@@ -34,6 +34,7 @@ router.beforeEach((to, from, next) => {
 
   if (userToken) {
     const { roles, username, subunit } = parseJwt(userToken)
+    console.log(parseJwt(userToken))
     store.commit('parseRoles', roles[0])
     store.commit('parseUsername', username)
     store.commit('parseSubunit', subunit[0])
