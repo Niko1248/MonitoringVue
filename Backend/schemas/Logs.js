@@ -5,6 +5,7 @@ const LogsSchema = new Schema(
     type: { type: String, required: true },
     subunit: { type: String, required: true },
     message: { type: String, required: true },
+    username: { type: String, required: true },
   },
   {
     timestamps: true,

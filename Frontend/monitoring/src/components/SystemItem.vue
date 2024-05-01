@@ -91,6 +91,10 @@
         this.$emit('update-data-in-SP', {
           systemNumber: this.systemNumber,
           systemCorrespondent: this.system.correspondent,
+          systemPin: this.system.pin,
+          systemSubunit: this.system.subunit,
+          systemKMU: this.system.KMU,
+          systemOMU: this.system.OMU,
           systemTraces: this.system.tract,
           systemState: this.system.state,
           systemID: this.system._id,
@@ -129,7 +133,6 @@
           )
           this.$store.dispatch('sendLog', {
             type: 'Success',
-            subunit: this.$store.state.subunit,
             message: `В работе: СП ${this.system.number} ${this.$store.state.subunitRu} - ${this.system.correspondent}`
           })
         } else if (newVal === 'Авария') {
@@ -140,7 +143,6 @@
           )
           this.$store.dispatch('sendLog', {
             type: 'Warning',
-            subunit: this.$store.state.subunit,
             message: `Авария: СП ${this.system.number} ${this.$store.state.subunitRu} - ${this.system.correspondent}`
           })
         }

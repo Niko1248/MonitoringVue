@@ -9,10 +9,12 @@
         @click="showPopupLog" />
       <ol class="log__list">
         <li
-          v-for="({ type, subunit, message, createdAt }, index) in this.$store.state.dataLogs"
+          v-for="({ type, subunit, username, message, createdAt }, index) in this.$store.state.dataLogs"
           :key="index"
           class="log__item">
           <div class="log__time">{{ createdAt }}</div>
+          <div class="log__subunit">{{ subunit }}</div>
+          <div class="log__username">{{ 'Пользователь: ' + username }}</div>
           <div class="log__message">{{ message }}</div>
         </li>
       </ol>
@@ -66,7 +68,11 @@
   .log__item {
     display: flex;
   }
-  .log__time {
+  .log__time,
+  .log__subunit {
+    margin-right: 0.5vw;
+  }
+  .log__username {
     margin-right: 1.5vw;
   }
 </style>

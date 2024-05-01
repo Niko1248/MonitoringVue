@@ -3,7 +3,7 @@
     <div class="Sp__wrapper popup">
       <div
         class="close"
-        @click="showPopupAddSp">
+        @click="showPopupEditSp">
         <img
           src="./../assets/img/nav/close.svg"
           alt="закрыть"
@@ -11,26 +11,26 @@
       </div>
       <div class="flex__wrap">
         <div class="form-left">
-          <h1>Добавление системы передачи</h1>
+          <h1>Редактирование системы передачи</h1>
           <div class="main__form">
             <input
               type="text"
               placeholder="№ СП"
-              v-model="newSystem.number" />
+              v-model="editSystem.number" />
             <input
               type="text"
               placeholder="Корреспондент"
-              v-model="newSystem.correspondent" />
+              v-model="editSystem.correspondent" />
             <input
               type="text"
               placeholder="№ pin"
-              v-model="newSystem.pin" />
+              v-model="editSystem.pin" />
             <input
               type="text"
               placeholder="КМУ"
               class="input__kmu"
               @click="offInput('KMU')"
-              v-model="newSystem.KMU.number"
+              v-model="newKMU.number"
               :disabled="kmuInput" />
             <input
               type="text"
@@ -38,11 +38,11 @@
               tabindex="-1"
               class="input__omu"
               @click="offInput('OMU')"
-              v-model="newSystem.OMU.number"
+              v-model="newOMU.number"
               :disabled="omuInput" />
 
             <select
-              v-model="newSystem.subunit"
+              v-model="editSystem.subunit"
               v-if="this.$store.state.subunit === 'cskp'">
               <option
                 value=""
@@ -95,10 +95,10 @@
               alt="" />
           </div>
           <div class="payload__list">
-            <p v-if="newSystem.payload.length == 0">Добавить нагрузку</p>
+            <p v-if="editSystem.payload.length == 0">Добавить нагрузку</p>
             <div
               v-else
-              v-for="payload__item in newSystem.payload"
+              v-for="payload__item in payloadArr"
               class="payload__item">
               <img
                 :src="viewIco(payload__item.type)"
@@ -110,7 +110,7 @@
           <h2>Примечания</h2>
           <textarea
             class="note"
-            v-model="newSystem.note"></textarea>
+            v-model="editSystem.note"></textarea>
           <p
             class="error"
             v-if="error">
@@ -147,7 +147,7 @@
 
       <button
         class="save"
-        @click="addSystem">
+        @click="updateSystem">
         Сохранить
       </button>
     </div>
@@ -166,20 +166,18 @@
         kmuInput: false,
         omuInput: false,
         isRemove: false,
-        newSystem: {
-          pin: '',
-          number: '',
-          correspondent: '',
-          KMU: {
-            type: 'КМУ',
-            number: ''
-          },
-          OMU: {
-            type: 'ОМУ',
-            number: ''
-          },
-          payload: [],
-          note: '',
+        payloadArr: [...this.systemData.systemPayload],
+        newKMU: { ...this.systemData.systemKMU },
+        newOMU: { ...this.systemData.systemOMU },
+        editSystem: {
+          _id: this.systemData.systemID,
+          pin: this.systemData.systemPin.replace(/\D/g, ''),
+          number: this.systemData.systemNumber,
+          correspondent: this.systemData.systemCorrespondent,
+          KMU: this.systemData.systemKMU,
+          OMU: this.systemData.systemOMU,
+          payload: this.systemData.systemPayload,
+          note: this.systemData.systemNote,
           state: 'Статус не определён',
           subunit: this.$store.state.subunit === 'cskp' ? '' : String(this.$store.state.subunit)
         },
@@ -192,8 +190,8 @@
     },
     methods: {
       viewIco,
-      showPopupAddSp() {
-        this.$store.commit('showPopupAddSp')
+      showPopupEditSp() {
+        this.$store.commit('showPopupEditSp')
       },
       showAddTract() {
         if (!this.$store.state.popups.popupAddTract === true) this.$store.commit('showPopupAddTract')
@@ -207,7 +205,7 @@
         ) {
           this.error = 'Заполните все поля в загрузке'
         } else {
-          this.newSystem.payload.push(this.payload_obj)
+          this.payloadArr.push(this.payload_obj)
           this.payload_obj = {
             number: '',
             correspondent: '',
@@ -219,28 +217,31 @@
       offInput(inputType) {
         if (inputType == 'KMU') {
           this.omuInput = false
-          this.newSystem.OMU.number = ''
+          this.newOMU.number = ''
         } else {
           this.kmuInput = false
-          this.newSystem.KMU.number = ''
+          this.newKMU.number = ''
         }
       },
-      async addSystem() {
+      async updateSystem() {
         this.error = ''
         this.success = ''
         try {
-          this.newSystem.pin = this.newSystem.pin + this.newSystem.subunit
-          const response = await axios.post(`${Config.SERVER_URL}/api/systems/addSystem`, this.newSystem, {
+          this.editSystem.pin = this.editSystem.pin + this.editSystem.subunit
+          this.editSystem.payload = this.payloadArr
+          this.editSystem.KMU = this.newKMU
+          this.editSystem.OMU = this.newOMU
+          const response = await axios.put(`${Config.SERVER_URL}/api/systems/editSystem`, this.editSystem, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }
           })
-          this.$store.commit('addSystems', response.data.system)
+          this.$store.commit('updateSystem', this.editSystem)
           this.$store.dispatch('sendLog', {
             type: 'Info',
-            message: `СП ${this.newSystem.number} успешно добавлена`
+            message: `СП ${this.editSystem.number} была отредактирована`
           })
-          ;(this.newSystem = {
+          ;(this.editSystem = {
             pin: '',
             number: '',
             correspondent: '',
@@ -262,9 +263,9 @@
               correspondent: '',
               type: ''
             })
-          this.success = response.data.message
+          this.showPopupEditSp()
         } catch (e) {
-          this.error = e.response.data.message
+          console.log(e)
         }
       }
     },

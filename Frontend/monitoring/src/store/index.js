@@ -21,6 +21,7 @@ export default createStore({
     popups: {
       popupRegistration: false,
       popupAddSP: false,
+      popuEditSP: false,
       popupSP: false,
       popupPayload: false,
       popupLog: false,
@@ -43,6 +44,12 @@ export default createStore({
     },
     clearSystems(state, value) {
       state.systems = []
+    },
+    updateSystem(state, value) {
+      const systemIndex = state.systems.findIndex((system) => system._id === value._id)
+      if (systemIndex !== -1) {
+        state.systems.splice(systemIndex, 1, value)
+      }
     },
     updateSystemState(state, { pin, newState }) {
       const systemIndex = state.systems.findIndex((system) => system.pin === pin)
@@ -90,6 +97,9 @@ export default createStore({
     /* Глобальные попапы */
     showPopupAddSp(state) {
       state.popups.popupAddSP = !state.popups.popupAddSP
+    },
+    showPopupEditSp(state) {
+      state.popups.popupEditSP = !state.popups.popupEditSP
     },
     showPopupAddTract(state) {
       state.popups.popupAddTract = !state.popups.popupAddTract
@@ -152,6 +162,8 @@ export default createStore({
         if (state.subunit === 'cskp') {
           data.subunit = 'kolibri'
         }
+        data.subunit = state.subunitRu
+        data.username = state.username
         const response = await axios.post(`${Config.SERVER_URL}/api/logs/addLog`, data, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`

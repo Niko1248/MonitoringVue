@@ -27,6 +27,13 @@
           v-if="this.$store.state.popups.popupAddSP" />
       </transition-group>
 
+      <transition-group name="add">
+        <EditSystem
+          class="popup"
+          :system-data="systemData"
+          v-if="this.$store.state.popups.popupEditSP" />
+      </transition-group>
+
       <transition-group name="add-XY">
         <AddTract
           class="popup"
@@ -55,6 +62,7 @@
   import RegistrationForm from '../components/RegistrationForm.vue'
   import LogPopup from '../components/Log__popup.vue'
   import AddTract from '../components/AddTract.vue'
+  import EditSystem from './EditSystem.vue'
 
   export default {
     data() {
@@ -68,7 +76,8 @@
       RegistrationForm,
       Sp,
       LogPopup,
-      AddTract
+      AddTract,
+      EditSystem
     },
     props: {
       systems: {

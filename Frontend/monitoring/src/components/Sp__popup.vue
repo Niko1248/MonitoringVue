@@ -47,6 +47,14 @@
             </div>
           </transition>
         </div>
+        <div
+          class="remove_wrapper"
+          v-if="this.$store.state.roles !== 'USER'">
+          <img
+            class="edit__ico"
+            src="../components/ico/edit.svg"
+            @click="changePopup" />
+        </div>
       </div>
       <div class="Sp__wrapper-content">
         <div class="Sp__content">
@@ -114,8 +122,15 @@
     },
     methods: {
       viewIco,
+      changePopup() {
+        this.showPopupSP()
+        this.showPopupEditSP()
+      },
       showPopupSP() {
         this.$store.commit('showPopupSp')
+      },
+      showPopupEditSP() {
+        this.$store.commit('showPopupEditSp')
       },
       showRemoveSp() {
         this.isRemove = !this.isRemove
@@ -135,7 +150,6 @@
           })
           this.$store.dispatch('sendLog', {
             type: 'Info',
-            subunit: this.$store.state.subunit,
             message: `СП ${this.systemData.systemNumber} изменено примечание на: ${this.systemInfo.note}`
           })
           this.success = 'Изменения приняты'
@@ -154,7 +168,6 @@
           this.$store.commit('removeSystems', newSystems)
           this.$store.dispatch('sendLog', {
             type: 'Info',
-            subunit: this.$store.state.subunit,
             message: `СП ${this.systemData.systemNumber} удалена`
           })
           this.showPopupSP()
@@ -436,7 +449,8 @@
     }
   }
 
-  .remove__ico {
+  .remove__ico,
+  .edit__ico {
     width: 1.5vw;
     margin-left: 2vw;
     transition: 0.2s;
