@@ -14,7 +14,7 @@
           class="log__item">
           <div class="log__time">{{ createdAt }}</div>
           <div class="log__subunit">{{ subunit }}</div>
-          <div class="log__username">{{ 'Пользователь: ' + username }}</div>
+          <div class="log__username">{{ '/ ' + username + '  :' }}</div>
           <div class="log__message">{{ message }}</div>
         </li>
       </ol>
@@ -39,6 +39,7 @@
 <style lang="scss" scoped>
   .log {
     position: relative;
+    font-family: Wix Madefor Display;
     bottom: 0;
     width: 100%;
     height: 53vh;
@@ -70,9 +71,9 @@
   }
   .log__time,
   .log__subunit {
-    margin-right: 0.5vw;
+    margin-right: 5px;
   }
   .log__username {
-    margin-right: 1.5vw;
+    margin-right: 15px;
   }
 </style>

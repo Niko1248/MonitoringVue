@@ -392,7 +392,7 @@
   }
   .close {
     height: 100%;
-    width: 2%;
+    width: 25px;
     background: #053429;
     position: absolute;
     right: 0;
