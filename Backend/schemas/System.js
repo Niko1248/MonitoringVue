@@ -1,18 +1,23 @@
 import { Schema, model } from "mongoose"
 
-const SystemSchema = new Schema({
-  pin: { type: String, required: true, unique: true },
-  number: { type: String, required: true },
-  correspondent: { type: String, required: true },
-  KMU: { type: Object, required: true },
-  OMU: { type: Object, required: true },
-  subunit: { type: String },
-  state: { type: String },
-  payload: { type: Array },
-  tract: { type: String },
-  reserveList: { type: Array },
-  note: { type: String },
-})
+const SystemSchema = new Schema(
+  {
+    pin: { type: String, required: true, unique: true },
+    number: { type: String, required: true },
+    correspondent: { type: String, required: true },
+    KMU: { type: Object, required: true },
+    OMU: { type: Object, required: true },
+    subunit: { type: String },
+    state: { type: String },
+    payload: { type: Array },
+    tract: { type: String },
+    reserveList: { type: Array },
+    note: { type: String },
+  },
+  {
+    timestamps: true,
+  }
+)
 
 const System = model("System", SystemSchema)
 

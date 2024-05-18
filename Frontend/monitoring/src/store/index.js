@@ -14,6 +14,7 @@ export default createStore({
     subunitList: [],
     systems: [],
     dataLogs: undefined,
+    logFilter: 'Всё',
     soundEnable: false,
     workSorted: false,
     alarmSorted: false,
@@ -66,6 +67,9 @@ export default createStore({
     // Лог
     addLogs(state, value) {
       state.dataLogs = value
+    },
+    pushLog(state, value) {
+      state.dataLogs.push(value)
     },
     /* Парсинг токена */
     parseUsername(state, value) {
@@ -157,7 +161,7 @@ export default createStore({
     }
   },
   actions: {
-    async sendLog({ state }, data) {
+    async sendLog({ state, commit }, data) {
       try {
         if (state.subunit === 'cskp') {
           data.subunit = 'kolibri'
@@ -169,14 +173,12 @@ export default createStore({
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
         })
+        if (response) {
+          commit('pushLog', response.data)
+        }
       } catch (e) {
         console.log(e)
       }
     }
   }
-  // getters: {
-  //   isAnyPopupOpen: (state) => {
-  //     return Object.values(state.NavPopups).some((value) => value === true)
-  //   },
-  // },
 })

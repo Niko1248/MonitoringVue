@@ -95,6 +95,9 @@
           console.log(e.message)
         }
       }
+    },
+    mounted() {
+      this.getLogs()
     }
   }
 </script>

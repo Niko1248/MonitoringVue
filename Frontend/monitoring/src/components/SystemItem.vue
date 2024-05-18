@@ -39,25 +39,6 @@
       }
     },
     methods: {
-      // async sendLog() {
-      //   await axios
-      //     .post(
-      //       `${Config.SERVER_URL}/api/logs/addLog`,
-      //       {
-      //         message: `Система передачи ${this.system.number} ${this.system.state}`
-      //       },
-      //       {
-      //         headers: {
-      //           Authorization: `Bearer ${localStorage.getItem('token')}`
-      //         }
-      //       }
-      //     )
-      //     .then((response) => {})
-      //     .catch((e) => {
-      //       console.log(e)
-      //     })
-      // },
-
       sortedFunc(system, inputValue) {
         if (system.state == 'Авария' && this.$store.state.alarmSorted) {
           if (inputValue.includes(system.number) && inputValue != '') {
@@ -102,12 +83,6 @@
           systemPayload: this.system.payload
         }) /* отправляю данные в попап СП через родительский компонент*/
       }
-
-      // async getLog(){
-      // 	const response = await axios.get(`${Config.SERVER_URL}/api/logs/getLogs`)
-      // 	const data = response.data[0]
-      // 	console.log(`${convertDate(data.createdAt)} ${convertTime(data.createdAt)} ${data.message}`);
-      // }
     },
     props: {
       system: {
