@@ -187,7 +187,7 @@
     margin-right: 5px;
   }
   .log__username {
-    margin-right: 15px;
+    margin-right: 1.5vw;
   }
   .log__time-filter {
     display: flex;
