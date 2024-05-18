@@ -48,13 +48,26 @@
           setTimeout(this.getSystems, 10000)
         }
       },
+      async getLogs() {
+        try {
+          const response = await axios.get(`${Config.SERVER_URL}/api/logs/getLogs`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          })
+          this.$store.commit('addLogs', response.data)
+        } catch (e) {
+          console.log(e.message)
+        }
+      },
       updateInputValue(value) {
         this.inputValue = value
       },
       handleKeyPress(event) {
-        if (event.ctrlKey && event.key === '1') {
+        if ((event.ctrlKey && event.key === '`') || event.key === 'ё') {
           if (!this.$store.state.popups.popupLog === true) {
             this.$store.commit('showPopupLog')
+            this.getLogs()
           } else {
             this.$store.commit('closePopupLog')
           }

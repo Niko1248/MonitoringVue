@@ -1,99 +1,140 @@
 <template lang="html">
-  <div class="addTract__wrapper">
-    <div class="addTract popup">
-      <div
-        class="close"
-        @click="showAddTract">
-        <img
-          src="./../assets/img/nav/close.svg"
-          alt="закрыть"
-          width="20px" />
-      </div>
-
-      <h1>Добавление резервного линейного тракта</h1>
-
-      <div class="content__wrapper">
-        <div class="node">
-          <input
-            type="text"
-            placeholder="595Б" />
+  <div class="addTract--background">
+    <div class="addTract__wrapper">
+      <div class="addTract popup">
+        <div
+          class="close"
+          @click="showAddTract">
+          <img
+            src="./../assets/img/nav/close.svg"
+            alt="закрыть"
+            width="20px" />
         </div>
-        <img
-          src="../assets/plus.svg"
-          @click="addNondes"
-          width="20px"
-          height="20px"
-          style="cursor: pointer; margin: 0px 10px"
-          alt="add" />
 
-        <div class="addedNode">
-          <div class="line">
-            <div class="line__name">
-              <input type="text" />
-            </div>
-            <div class="line__middle"></div>
-            <div class="line__section">
-              <input type="text" />
-            </div>
-          </div>
+        <h1>Добавление резервного линейного тракта</h1>
+        <input
+          type="text"
+          placeholder="Введите название тракта"
+          class="tract__name" />
+        <div class="content__wrapper">
           <div class="node">
             <input
               type="text"
-              placeholder="№" />
+              placeholder="595Б" />
           </div>
+          <transition-group name="add">
+            <div
+              v-for="(id, index) in NodesIds"
+              :key="index">
+              <item
+                :component-id="id"
+                v-model="NodesIds[index]" />
+            </div>
+          </transition-group>
           <img
             src="../assets/plus.svg"
-            @click="aa"
+            @click="addNondes"
+            v-if="plus"
             width="20px"
             height="20px"
-            style="cursor: pointer; margin: 0px 10px"
+            style="cursor: pointer; margin: 0px 10px; transition: 0.2s easy"
             alt="add" />
         </div>
-      </div>
 
-      <button class="save">Сохранить</button>
+        <button
+          class="save"
+          @click="logItems">
+          Сохранить
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import item from './AddTract--item.vue'
+
   export default {
+    components: {
+      item
+    },
     data() {
-      return {}
+      return {
+        plus: true,
+        NodesIds: [],
+        nextNodeId: 1,
+        items: [{ node: '', line_name: '', line_section: '' }]
+      }
     },
     methods: {
       showAddTract() {
         if (this.$store.state.popups.popupAddTract === true) this.$store.commit('showPopupAddTract')
         document.querySelector('.Sp__wrapper').classList.remove('Sp__wrapper--close')
       },
-      addNondes() {}
+      addNondes() {
+        this.NodesIds.push(this.nextNodeId++)
+      },
+      logItems() {
+        this.NodesIds.push({ node: '', line_name: '', line_section: '' })
+        console.log(this.NodesIds)
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  .addTract--background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .addTract__wrapper {
     width: 70vw;
     max-height: 60vh;
     font-family: Wix Madefor Display;
     background: #0e1621;
     border-radius: 10px;
-    padding: 20px 0px 60px 0px;
-    position: absolute;
-    top: 40vh;
-    left: 15vw;
+    padding: 20px 10px 60px 10px;
     filter: drop-shadow(-10px 20px 20px #0000006d);
 
     h1 {
       color: #f2f1f1;
       font-weight: bold;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       margin-left: 20px;
       font-size: 24px;
     }
 
     div {
       display: flex;
+    }
+  }
+  .tract__name {
+    height: 1.5vw;
+    outline: none;
+    border: none;
+    margin: 0px 40px 20px 20px;
+    text-align: left;
+    background: #49495100;
+    border-radius: 5px;
+    font-weight: 700;
+    color: #fff;
+    font-family: Wix Madefor Display;
+    font-size: 17px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    &::placeholder {
+      transition: 0.3s ease;
+    }
+    &:hover {
+      transition: 0.3s ease;
+      color: #02f0fc;
+      &::placeholder {
+        transition: 0.3s ease;
+        color: #02f0fc;
+      }
     }
   }
   .addTract {
@@ -103,6 +144,8 @@
   .content__wrapper {
     margin: 0px 20px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px 0px;
     flex-direction: row;
     align-items: center;
   }
@@ -152,7 +195,7 @@
   }
   .close {
     height: 100%;
-    width: 2%;
+    width: 25px;
     background: #053429;
     position: absolute;
     right: 0;
@@ -232,5 +275,20 @@
       bottom: 0px;
       background-image: url(./../assets/img/nav/right-down.svg);
     }
+  }
+  .add-enter-active,
+  .add-leave-active {
+    transition: all 0.4s ease;
+    animation-delay: 1s;
+  }
+
+  .add-enter-from,
+  .add-leave-to {
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+
+  .add-move {
+    transition: transform 0.6s ease;
   }
 </style>
