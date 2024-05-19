@@ -124,8 +124,6 @@
         if (newVal === 'Авария' && this.$store.state.soundEnable === false) {
           this.$store.commit('enableSound')
         }
-        // this.sendLog()
-        // this.getLog()
       }
     }
   }

@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="sound">
     <component
-      :is="isSoundOn ? 'SoundOn' : 'SoundOff'"
+      :is="isSoundOn ? 'SoundOff' : 'SoundOn'"
       class="ico"
       @click="showSoundItems" />
 
@@ -10,12 +10,12 @@
         class="sound__items popup"
         v-if="this.$store.state.NavPopups.soundItems">
         <component
-          :is="isSoundOn ? 'SoundOff' : 'SoundOn'"
+          :is="isSoundOn ? 'SoundOn' : 'SoundOff'"
           class="sound__item ico"
           @click="toggleSoundState" />
         <SoundR
           class="sound__item ico"
-          @click="$store.commit('disableSound')" />
+          @click="this.$store.commit('disableSound')" />
       </div>
     </transition>
   </div>
@@ -44,16 +44,11 @@
     methods: {
       toggleSoundState() {
         this.isSoundOn = !this.isSoundOn // Переключаем состояние звука
-      },
-      toggleSound() {
-        this.isSoundOn = !this.isSoundOn
+        this.muteAudio = !this.muteAudio
+        audio.muted = this.muteAudio
       },
       showSoundItems() {
         this.$store.commit('closeAllPopups', 'soundItems')
-      },
-      muteSound() {
-        this.muteAudio = !this.muteAudio
-        audio.muted = this.muteAudio
       }
     },
     computed: {

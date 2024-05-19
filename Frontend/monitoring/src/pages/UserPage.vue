@@ -28,7 +28,6 @@
     data() {
       return {
         systems: [],
-        enableSound: false,
         inputValue: '',
         connect: true
       }
@@ -67,7 +66,6 @@
         if ((event.ctrlKey && event.key === '`') || event.key === 'ё') {
           if (!this.$store.state.popups.popupLog === true) {
             this.$store.commit('showPopupLog')
-            this.getLogs()
           } else {
             this.$store.commit('closePopupLog')
           }
@@ -123,7 +121,6 @@
       this.$store.commit('clearSubunitList')
       this.$store.commit('closeAllPopups', 'reset')
       document.removeEventListener('keydown', this.handleKeyPress)
-      // this.$store.state.toast.clear
     }
   }
 </script>
