@@ -98,13 +98,20 @@
             <p v-if="newSystem.payload.length == 0">Добавить нагрузку</p>
             <div
               v-else
-              v-for="payload__item in newSystem.payload"
+              ref="payload"
+              v-for="(payload__item, index) in newSystem.payload"
+              :key="'addPayload' + index"
               class="payload__item">
               <img
                 :src="viewIco(payload__item.type)"
-                alt=""
                 class="ico" />
               <div class="payload__text">{{ payload__item.number }} : {{ payload__item.correspondent }}</div>
+              <img
+                src="../assets/minus.svg"
+                class="payload__remove"
+                alt="remove"
+                :id="'payload' + index"
+                @click="removePayload(index)" />
             </div>
           </div>
           <h2>Примечания</h2>
@@ -215,6 +222,9 @@
           }
           this.error = ''
         }
+      },
+      removePayload(index) {
+        this.newSystem.payload.splice(index, 1)
       },
       offInput(inputType) {
         if (inputType == 'KMU') {
@@ -340,6 +350,7 @@
   .payload__item {
     display: flex;
     color: white;
+    align-items: center;
   }
   .payload__list,
   .note {
@@ -351,6 +362,12 @@
     font-size: 18px;
     margin-bottom: 1vw;
     overflow: auto;
+  }
+  .payload__remove {
+    margin-left: auto;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
   }
   .note {
     height: 15%;

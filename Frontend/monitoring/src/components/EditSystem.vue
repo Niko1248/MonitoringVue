@@ -98,13 +98,20 @@
             <p v-if="editSystem.payload.length == 0">Добавить нагрузку</p>
             <div
               v-else
-              v-for="payload__item in payloadArr"
+              v-for="(payload__item, index) in payloadArr"
+              :key="'editPayload' + index"
               class="payload__item">
               <img
                 :src="viewIco(payload__item.type)"
                 alt=""
                 class="ico" />
               <div class="payload__text">{{ payload__item.number }} : {{ payload__item.correspondent }}</div>
+              <img
+                src="../assets/minus.svg"
+                class="payload__remove"
+                alt="remove"
+                :id="'payload' + index"
+                @click="removePayload(index)" />
             </div>
           </div>
           <h2>Примечания</h2>
@@ -196,6 +203,11 @@
       showAddTract() {
         if (!this.$store.state.popups.popupAddTract === true) this.$store.commit('showPopupAddTract')
         document.querySelector('.Sp__wrapper').classList.add('Sp__wrapper--close')
+      },
+      removePayload(index) {
+        console.log(this.editSystem.payload)
+        console.log(index)
+        this.payloadArr.splice(index, 1)
       },
       addPayload() {
         if (
@@ -352,6 +364,12 @@
     font-size: 18px;
     margin-bottom: 1vw;
     overflow: auto;
+  }
+  .payload__remove {
+    margin-left: auto;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
   }
   .note {
     height: 15%;
