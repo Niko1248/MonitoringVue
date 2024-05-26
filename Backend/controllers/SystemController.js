@@ -1,7 +1,6 @@
 import { validationResult } from "express-validator"
 import SystemService from "../services/SystemService.js"
-import jwt from "jsonwebtoken"
-import Config from "../config/index.js"
+import { parseToken } from "../utils/parseToken.js"
 
 class SystemController {
   async create(req, res) {
@@ -25,9 +24,8 @@ class SystemController {
 
   async getAll(req, res) {
     try {
-      const token = req.headers.authorization.split(" ")[1]
-      const decodedData = jwt.verify(token, Config.secret)
-      const systems = await SystemService.getAll(decodedData)
+      const token = parseToken(req)
+      const systems = await SystemService.getAll(token)
       return res.json(systems)
     } catch (e) {
       res.status(500).json(e.message)

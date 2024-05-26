@@ -102,23 +102,21 @@
       systemStatus(newVal) {
         if (newVal === 'В работе') {
           this.$store.state.toast.success(
-            `${convertTime()} В работе: СП ${this.system.number} ${this.$store.state.subunitRu} - ${
-              this.system.correspondent
-            }`
+            `${convertTime()} В работе: СП ${this.system.number} ${this.system.subunit} - ${this.system.correspondent}`
           )
-          this.$store.dispatch('sendLog', {
+          this.$store.dispatch('sendSystemStatus', {
             type: 'Success',
-            message: `В работе: СП ${this.system.number} ${this.$store.state.subunitRu} - ${this.system.correspondent}`
+            message: `В работе: СП ${this.system.number} ${this.system.subunit} - ${this.system.correspondent}`,
+            subunit: this.system.subunit
           })
         } else if (newVal === 'Авария') {
           this.$store.state.toast.error(
-            `${convertTime()} Авария: СП ${this.system.number} ${this.$store.state.subunitRu} - ${
-              this.system.correspondent
-            }`
+            `${convertTime()} Авария: СП ${this.system.number} ${this.system.subunit} - ${this.system.correspondent}`
           )
-          this.$store.dispatch('sendLog', {
+          this.$store.dispatch('sendSystemStatus', {
             type: 'Warning',
-            message: `Авария: СП ${this.system.number} ${this.$store.state.subunitRu} - ${this.system.correspondent}`
+            message: `Авария: СП ${this.system.number} ${this.system.subunit} - ${this.system.correspondent}`,
+            subunit: this.system.subunit
           })
         }
         if (newVal === 'Авария' && this.$store.state.soundEnable === false) {

@@ -52,9 +52,9 @@
                 Подразделение
               </option>
               <option
-                v-for="(subunit, index) in this.$store.state.subunitList"
+                v-for="(subunit, index) in this.$store.state.subunitList.slice(1)"
                 :key="index"
-                :value="Object.keys(subunit)[0]">
+                :value="Object.values(subunit)[0]">
                 {{ Object.values(subunit)[0] }}
               </option>
             </select>

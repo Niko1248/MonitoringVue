@@ -38,4 +38,4 @@ setInterval(() => {
   Config.ARDUINO_URL.map((item) => {
     readPinInfo(item)
   })
-}, 5000)
+}, Config.ARDUINO_PULLING_TIME)

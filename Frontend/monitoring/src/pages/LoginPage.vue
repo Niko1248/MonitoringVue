@@ -83,7 +83,7 @@
 
   button {
     width: 100%;
-    height: 2.5vw;
+    height: 12.5vw;
     border-radius: 10px;
     margin-top: 10px;
     border: none;

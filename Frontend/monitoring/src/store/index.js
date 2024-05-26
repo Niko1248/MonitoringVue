@@ -71,6 +71,9 @@ export default createStore({
     pushLog(state, value) {
       state.dataLogs.push(value)
     },
+    clearLog(state) {
+      state.dataLogs = undefined
+    },
     /* Парсинг токена */
     parseUsername(state, value) {
       state.username = value
@@ -121,7 +124,7 @@ export default createStore({
       state.popups.popupLog = !state.popups.popupLog
     },
     closePopupLog(state) {
-      state.popups.popupLog = !state.popups.popupLog
+      state.popups.popupLog = false
     },
     disableArduino(state) {
       state.arduino = false
@@ -163,12 +166,24 @@ export default createStore({
   actions: {
     async sendLog({ state, commit }, data) {
       try {
-        if (state.subunit === 'cskp') {
-          data.subunit = 'kolibri'
-        }
         data.subunit = state.subunitRu
         data.username = state.username
         const response = await axios.post(`${Config.SERVER_URL}/api/logs/addLog`, data, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+        if (response) {
+          commit('pushLog', response.data)
+        }
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    async sendSystemStatus({ commit }, data) {
+      try {
+        data.username = ''
+        const response = await axios.post(`${Config.SERVER_URL}/api/logs/addSystemStatus`, data, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }

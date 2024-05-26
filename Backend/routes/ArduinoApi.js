@@ -36,6 +36,7 @@ async function readPinInfo(arduino) {
             { new: true }
           )
           // И отправляем через event эти изменения клиенту
+          console.log(updatedState)
           sendStatesToClients(updatedState)
         })
       )

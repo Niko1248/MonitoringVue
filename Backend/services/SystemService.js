@@ -1,5 +1,5 @@
-import Config from "../config/index.js"
 import System from "../schemas/System.js"
+import { translateSubunit } from "../utils/translateSubunit.js"
 
 class SystemService {
   async create(system) {
@@ -8,13 +8,14 @@ class SystemService {
   }
 
   async getAll(token) {
-    const checkSubunit = token.subunit[0]
-    if (checkSubunit === "cskp") {
+    const checkSubunit = translateSubunit(token.subunit[0])
+    if (checkSubunit === "ЦС (СУС)") {
       const systems = await System.find()
       return systems
+    } else {
+      const systems = await System.find({ subunit: `${checkSubunit}` })
+      return systems
     }
-    const systems = await System.find({ subunit: `${checkSubunit}` })
-    return systems
   }
 
   async getOne(id) {
