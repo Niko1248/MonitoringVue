@@ -28,7 +28,9 @@
               :key="index">
               <item
                 :component-id="id"
-                v-model="NodesIds[index]" />
+                @remove-item="removeNondes"
+                :nodeData="nodesData[id]"
+                @update-node="updateNodeData" />
             </div>
           </transition-group>
           <img
@@ -62,8 +64,8 @@
       return {
         plus: true,
         NodesIds: [],
-        nextNodeId: 1,
-        items: [{ node: '', line_name: '', line_section: '' }]
+        nodesData: {},
+        nextNodeId: 1
       }
     },
     methods: {
@@ -72,11 +74,23 @@
         document.querySelector('.Sp__wrapper').classList.remove('Sp__wrapper--close')
       },
       addNondes() {
-        this.NodesIds.push(this.nextNodeId++)
+        const id = this.nextNodeId
+        this.NodesIds.push(this.nextNodeId)
+        this.nextNodeId += 1
+        this.nodesData[id] = { name: '', section: '', number: '' }
       },
-      logItems() {
-        this.NodesIds.push({ node: '', line_name: '', line_section: '' })
-        console.log(this.NodesIds)
+      removeNondes(id) {
+        this.NodesIds = this.NodesIds.filter((nodeId) => nodeId !== id)
+        delete this.nodesData[id]
+        if (this.NodesIds.length <= 0) {
+          this.nextNodeId = 1
+        }
+        console.log('sss' + this.nextNodeId)
+      },
+      updateNodeData({ id, field, value }) {
+        if (this.nodesData[id]) {
+          this.nodesData[id][field] = value
+        }
       }
     }
   }
@@ -279,7 +293,6 @@
   .add-enter-active,
   .add-leave-active {
     transition: all 0.4s ease;
-    animation-delay: 1s;
   }
 
   .add-enter-from,

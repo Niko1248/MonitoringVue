@@ -138,9 +138,12 @@
 
   .popup {
     position: fixed;
+    top: 0;
   }
   .log_popup {
     width: calc(100% - 40px);
+    top: auto;
+    bottom: 0;
   }
   .systemList-item {
     display: inline-block;
