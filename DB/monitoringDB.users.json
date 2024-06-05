@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "6631315d9f515f2b3a14b9e7"
+  },
+  "username": "dev",
+  "password": "$2a$07$JO7jUizCOpN.RenNzU1EDO9LwtjRMPRfGH/oAKs.04VaSQ51xV0c2",
+  "roles": [
+    "SUPERADMIN"
+  ],
+  "subunit": [
+    "cskp"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "663131859f515f2b3a14b9ec"
+  },
+  "username": "dusttt",
+  "password": "$2a$07$AqyQsj23G8WPV/yBxlQe6..qrwl72pbv44QTRNRSF49cVYfOx9ltm",
+  "roles": [
+    "ADMIN"
+  ],
+  "subunit": [
+    "kolibri"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6631318e9f515f2b3a14b9ef"
+  },
+  "username": "pelikan",
+  "password": "$2a$07$OWl5./4Nc.GvMWH.cDiwSOS8dEq9lVikG.NXbNgebJtEehnfcw.he",
+  "roles": [
+    "ADMIN"
+  ],
+  "subunit": [
+    "pelikan"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "663140779f515f2b3a14ba03"
+  },
+  "username": "test",
+  "password": "$2a$07$iA44EGpEz8BGYnwWJYWjxu/tSCzZx7mGaa87c5mOs6ouxfMS86YlS",
+  "roles": [
+    "ADMIN"
+  ],
+  "subunit": [
+    "unciya"
+  ],
+  "__v": 0
+}]

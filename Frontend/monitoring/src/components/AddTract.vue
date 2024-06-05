@@ -85,7 +85,6 @@
         if (this.NodesIds.length <= 0) {
           this.nextNodeId = 1
         }
-        console.log('sss' + this.nextNodeId)
       },
       updateNodeData({ id, field, value }) {
         if (this.nodesData[id]) {

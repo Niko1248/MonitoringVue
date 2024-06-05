@@ -1,0 +1,240 @@
+[{
+  "_id": {
+    "$oid": "66531a3d2821a586fbbebf7c"
+  },
+  "pin": "1Колибри",
+  "number": "111",
+  "correspondent": "kol111",
+  "KMU": {
+    "type": "КМУ",
+    "number": "111"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Колибри",
+  "state": "Статус не определён",
+  "payload": [
+    {
+      "number": "111",
+      "correspondent": "111",
+      "type": "Бобер"
+    }
+  ],
+  "reserveList": [],
+  "note": "1111",
+  "createdAt": {
+    "$date": "2024-05-26T11:17:17.529Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T11:17:17.529Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531a4f2821a586fbbebf80"
+  },
+  "pin": "2Колибри",
+  "number": "222",
+  "correspondent": "kol222",
+  "KMU": {
+    "type": "КМУ",
+    "number": "22"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Колибри",
+  "state": "Авария",
+  "payload": [
+    {
+      "number": "222",
+      "correspondent": "222",
+      "type": "Отец-одиночка"
+    }
+  ],
+  "reserveList": [],
+  "note": "222222222",
+  "createdAt": {
+    "$date": "2024-05-26T11:17:35.100Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:37.343Z"
+  },
+  "__v": 0,
+  "tract": ""
+},
+{
+  "_id": {
+    "$oid": "66531a612821a586fbbebf84"
+  },
+  "pin": "3Колибри",
+  "number": "333",
+  "correspondent": "kol333",
+  "KMU": {
+    "type": "КМУ",
+    "number": "33"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Колибри",
+  "state": "Авария",
+  "payload": [
+    {
+      "number": "333",
+      "correspondent": "333",
+      "type": "40 градусов"
+    }
+  ],
+  "reserveList": [],
+  "note": "33333",
+  "createdAt": {
+    "$date": "2024-05-26T11:17:53.704Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:37.344Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531a772821a586fbbebf88"
+  },
+  "pin": "4Колибри",
+  "number": "444",
+  "correspondent": "kol444",
+  "KMU": {
+    "type": "КМУ",
+    "number": "44"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Колибри",
+  "state": "В работе",
+  "payload": [
+    {
+      "number": "444",
+      "correspondent": "444",
+      "type": "Васин ёж"
+    }
+  ],
+  "reserveList": [],
+  "note": "44444",
+  "createdAt": {
+    "$date": "2024-05-26T11:18:15.489Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:14:40.771Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531a9f2821a586fbbebf8c"
+  },
+  "pin": "2Пеликан",
+  "number": "222pel",
+  "correspondent": "pel22",
+  "KMU": {
+    "type": "КМУ",
+    "number": "22"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Пеликан",
+  "state": "Авария",
+  "payload": [
+    {
+      "number": "23",
+      "correspondent": "32",
+      "type": "Васин ёж"
+    }
+  ],
+  "reserveList": [],
+  "note": "132124243243",
+  "createdAt": {
+    "$date": "2024-05-26T11:18:55.349Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:56:06.778Z"
+  },
+  "__v": 0,
+  "tract": ""
+},
+{
+  "_id": {
+    "$oid": "66531ab82821a586fbbebf90"
+  },
+  "pin": "3Пеликан",
+  "number": "33pel",
+  "correspondent": "pel333",
+  "KMU": {
+    "type": "КМУ",
+    "number": "33"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Пеликан",
+  "state": "Авария",
+  "payload": [
+    {
+      "number": "33",
+      "correspondent": "33",
+      "type": "Комар"
+    }
+  ],
+  "reserveList": [],
+  "note": "333",
+  "createdAt": {
+    "$date": "2024-05-26T11:19:20.524Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:57.379Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531ac62821a586fbbebf94"
+  },
+  "pin": "4Пеликан",
+  "number": "44pel",
+  "correspondent": "pel444",
+  "KMU": {
+    "type": "КМУ",
+    "number": "44"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Пеликан",
+  "state": "В работе",
+  "payload": [
+    {
+      "number": "44",
+      "correspondent": "444",
+      "type": "Бобер"
+    }
+  ],
+  "reserveList": [],
+  "note": "444",
+  "createdAt": {
+    "$date": "2024-05-26T11:19:34.803Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:12.300Z"
+  },
+  "__v": 0
+}]
