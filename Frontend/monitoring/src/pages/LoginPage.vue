@@ -14,7 +14,11 @@
           placeholder="Введите пароль..."
           v-model="user.password" />
       </div>
-      <button @click.prevent="sendLogin">Войти</button>
+      <button
+        @click.prevent="sendLogin"
+        class="enter">
+        Войти
+      </button>
     </form>
   </div>
 </template>
@@ -45,7 +49,7 @@
     }
   }
 </script>
-<style scoped>
+<style lang="scss" scoped>
   .wrapper {
     height: 100vh;
     display: flex;
@@ -57,6 +61,7 @@
     color: white;
     margin-bottom: 20px;
     letter-spacing: 0.17vw;
+    cursor: default;
   }
 
   .form {
@@ -73,19 +78,26 @@
   }
 
   input {
-    height: 2.5vw;
+    height: 5vh;
     width: 18vw;
     margin-bottom: 10px;
     border-radius: 10px;
     padding: 0px 10px;
     border: none;
+    background: #e1e1e1;
+    font-size: 0.8vw;
   }
 
-  button {
+  .enter {
     width: 100%;
-    height: 12.5vw;
+    height: 5vh;
     border-radius: 10px;
     margin-top: 10px;
     border: none;
+    font-size: 0.8vw;
+    cursor: pointer;
+    &:hover {
+      background: #e1e1e1;
+    }
   }
 </style>
