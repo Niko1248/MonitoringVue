@@ -14,7 +14,7 @@
           class="log__item">
           <div class="log__time">{{ createdAt }}</div>
           <div class="log__subunit">{{ subunit }}</div>
-          <div class="log__username">{{ '/ ' + username + '  :' }}</div>
+          <div class="log__username">{{ ' (' + username + ')  :' }}</div>
           <div class="log__message">{{ message }}</div>
         </li>
       </ol>
@@ -145,6 +145,7 @@
   .log {
     position: relative;
     display: flex;
+    font-family: Wix Madefor Display;
     flex-direction: column;
     bottom: 0;
     width: 100%;
@@ -168,9 +169,11 @@
       transition: 0.2s;
     }
   }
+
   .log__list {
-    padding: 30px;
-    max-height: 65%;
+    padding: 0px 30px;
+    max-height: 78%;
+    margin-top: 20px;
     overflow-x: hidden;
     max-width: 65%;
   }
@@ -178,16 +181,12 @@
   .log__item {
     display: flex;
     div {
-      font-family: 'Roboto';
-      color: #9e9e9e;
+      color: #bdbdbd;
     }
   }
-  .log__time,
-  .log__subunit {
-    margin-right: 5px;
-  }
+
   .log__username {
-    margin-right: 1.5vw;
+    margin-right: 10px;
   }
   .log__time-filter {
     display: flex;
@@ -199,5 +198,17 @@
   }
   .filter__item {
     cursor: pointer;
+  }
+
+  .log__time {
+    color: #8bdfb2 !important;
+    margin-right: 20px;
+  }
+  .log__subunit {
+    margin-right: 5px;
+    color: #d5df8b !important;
+  }
+  .log__username {
+    color: rgb(19, 148, 116) !important;
   }
 </style>
