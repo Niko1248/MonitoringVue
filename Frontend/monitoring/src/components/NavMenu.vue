@@ -61,7 +61,7 @@
       NavSound,
       NavAuth
     },
-    props: {},
+
     methods: {
       showSearch() {
         this.isSearch = !this.isSearch
@@ -115,7 +115,7 @@
 
   .nav__sound {
     position: absolute;
-    right: 255px;
+    right: 320px;
     top: 13px;
     width: 36px;
   }

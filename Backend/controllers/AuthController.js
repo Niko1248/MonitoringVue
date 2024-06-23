@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs"
 import { validationResult } from "express-validator"
 import jwt from "jsonwebtoken"
 import Config from "../config/index.js"
+import moment from "moment-timezone"
 
 const generateAccessToken = (id, roles, username, subunit) => {
   const payload = {
@@ -38,7 +39,6 @@ class AuthController {
     try {
       const { username, password } = req.body
       const user = await User.findOne({ username })
-      console.log(username)
       if (!user) {
         return res.status(400).json({ message: `Пользователь ${username} не найден` })
       }
@@ -51,6 +51,24 @@ class AuthController {
     } catch (e) {
       res.status(400).json({ message: "Login error" })
     }
+  }
+  async heartbeat(req, res) {
+    const username = req.body.username
+    try {
+      const user = await User.findOne({ username })
+      if (user) {
+        const currentTime = moment().tz("Europe/Moscow").toDate()
+        user.lastActive = currentTime
+        await user.save()
+        res.status(200).send(`Активность пользователя ${username} обновлена`)
+      } else {
+        res.status(404).send("Пользователь не найден")
+      }
+    } catch (e) {}
+  }
+  async getActiveUsers(req, res) {
+    const activeUsers = await User.find().select("username subunit roles lastActive")
+    res.json(activeUsers)
   }
 }
 

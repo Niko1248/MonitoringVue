@@ -23,7 +23,7 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
   const targetRole = to.meta.role
   const userToken = localStorage.getItem('token')
@@ -37,7 +37,7 @@ router.beforeEach((to, from, next) => {
     store.commit('parseRoles', roles[0])
     store.commit('parseUsername', username)
     store.commit('parseSubunit', subunit[0])
-    getSubunitList()
+    await getSubunitList()
     if (targetRole && !targetRole.includes(roles[0])) {
       next('/')
       return

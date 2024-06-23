@@ -88,7 +88,7 @@
     data() {
       return {
         newUser: {
-          username: ''.toLowerCase(),
+          username: '',
           password: '',
           roles: '',
           subunit: ''
@@ -106,7 +106,11 @@
         this.error = ''
         this.success = ''
         try {
-          const response = await axios.post(`${Config.SERVER_URL}/api/auth/registration`, this.newUser, {
+          const registrationData = {
+            ...this.newUser,
+            username: this.newUser.username.toLowerCase()
+          }
+          const response = await axios.post(`${Config.SERVER_URL}/api/auth/registration`, registrationData, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -117,7 +121,7 @@
             message: `Пользователь ${this.newUser.username} Роль: ${this.newUser.roles} Подразделение: ${this.newUser.subunit} успешно создан"`
           })
           this.newUser = {
-            username: ''.toLowerCase(),
+            username: '',
             password: '',
             roles: '',
             subunit: ''

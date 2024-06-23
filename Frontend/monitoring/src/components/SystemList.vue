@@ -46,6 +46,19 @@
           v-if="this.$store.state.popups.popupRegistration" />
       </transition-group>
 
+      <transition-group name="add">
+        <ActiveUsers
+          class="popup"
+          v-if="this.$store.state.popups.popupActiveUsers" />
+      </transition-group>
+
+      <transition-group name="add">
+        <ArduinoMenu
+          class="popup"
+          :arduinoStateList="arduinoStateList"
+          v-if="this.$store.state.popups.popupArduinoState" />
+      </transition-group>
+
       <transition-group name="down_up">
         <LogPopup
           class="popup log_popup"
@@ -63,6 +76,8 @@
   import LogPopup from '../components/Log__popup.vue'
   import AddTract from '../components/AddTract.vue'
   import EditSystem from './EditSystem.vue'
+  import ArduinoMenu from './ArduinoMenu.vue'
+  import ActiveUsers from './ActiveUsers.vue'
 
   export default {
     data() {
@@ -77,7 +92,9 @@
       Sp,
       LogPopup,
       AddTract,
-      EditSystem
+      EditSystem,
+      ArduinoMenu,
+      ActiveUsers
     },
     props: {
       systems: {
@@ -86,6 +103,9 @@
       },
       inputValue: {
         type: String
+      },
+      arduinoStateList: {
+        type: Array
       }
     },
     computed: {

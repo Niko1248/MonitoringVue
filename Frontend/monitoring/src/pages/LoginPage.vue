@@ -27,7 +27,7 @@
     data() {
       return {
         user: {
-          username: '',
+          username: ''.toLowerCase(),
           password: ''
         }
       }
@@ -35,7 +35,8 @@
     methods: {
       async sendLogin() {
         try {
-          const response = await axios.post(`${Config.SERVER_URL}/api/auth/login`, this.user) //Добавить обработчик ошибки на неправильный ввод
+          const loginData = { ...this.user, username: this.user.username.toLowerCase() }
+          const response = await axios.post(`${Config.SERVER_URL}/api/auth/login`, loginData) //Добавить обработчик ошибки на неправильный ввод
           localStorage.setItem('token', response.data.token)
           this.$router.push('/user')
         } catch (e) {
@@ -83,7 +84,7 @@
 
   button {
     width: 100%;
-    height: 12.5vw;
+    height: 2.5vw;
     border-radius: 10px;
     margin-top: 10px;
     border: none;

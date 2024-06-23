@@ -1,21 +1,31 @@
 import axios from "axios"
 import { compareState } from "../utils/compareState.js"
-import { sendStatesToClients, sendErrorToClients, sendSuccessToClients } from "../events/index.js"
+import {
+  sendStatesToClients,
+  sendErrorToClients,
+  sendSuccessToClients,
+  sendArduinoStatusToClients,
+} from "../events/index.js"
 import System from "../schemas/System.js"
 
-let arduinoState = undefined
+const arduinoList = {}
 
 async function readPinInfo(arduino) {
   // Адрес ардуины
   const arduinoURL = Object.values(arduino)
   // Подразделение ардуины
   const arduinoSubunit = Object.keys(arduino)
+  if (!arduinoList[arduinoSubunit]) {
+    arduinoList[arduinoSubunit] = false
+  }
   try {
     const response = await axios.get(`${arduinoURL}/readPinInfo`)
-    if (arduinoState != true) {
-      arduinoState = true
-      sendSuccessToClients("Соединение с Ардуино активно.")
-    }
+    // if (!arduinoList[arduinoSubunit]) {
+    //   arduinoList[arduinoSubunit] = true
+    //   sendArduinoStatusToClients("Соединение с Ардуино активно.", arduinoSubunit[0], arduinoURL[0])
+    // }
+    sendSuccessToClients("Соединение с Ардуино активно.", arduinoSubunit[0], arduinoURL[0])
+
     let stateSystems = response.data
     stateSystems.map((system) => {
       // Добавляю к номеру пина подразделение, чтобы пин был уникальный
@@ -43,16 +53,17 @@ async function readPinInfo(arduino) {
     }
   } catch (e) {
     if (e.code === "ETIMEDOUT") {
-      if (arduinoState != false) {
-        arduinoState = false
-        sendErrorToClients(`Соединение с Ардуино по IP-адресу ${e.address}:${e.port} отсутствует.`)
-      }
-
+      // if (arduinoList[arduinoSubunit]) {
+      //   arduinoList[arduinoSubunit] = false
+      //   sendArduinoStatusToClients(`Соединение с Ардуино отсутствует.`, arduinoSubunit[0], arduinoURL[0])
+      // }
+      sendErrorToClients(`Соединение с Ардуино отсутствует.`, arduinoSubunit[0], arduinoURL[0])
       console.log(`Соединение с Ардуино по IP-адресу ${e.address}:${e.port} отсутствует.`)
     } else {
       console.log(e)
     }
   }
+  // console.log(arduinoList)
 }
 
-export { readPinInfo }
+export { readPinInfo, arduinoList }

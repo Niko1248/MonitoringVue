@@ -5,6 +5,7 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
   roles: [{ type: String, required: true }],
   subunit: [{ type: String, required: true }],
+  lastActive: { type: String },
 })
 
 const User = model("User", UserSchema)

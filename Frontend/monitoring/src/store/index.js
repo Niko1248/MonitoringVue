@@ -19,14 +19,17 @@ export default createStore({
     workSorted: false,
     alarmSorted: false,
     arduino: false,
+    arduinoURL: '',
     popups: {
       popupRegistration: false,
       popupAddSP: false,
-      popuEditSP: false,
+      popupEditSP: false,
       popupSP: false,
       popupPayload: false,
       popupLog: false,
-      popupAddTract: false
+      popupAddTract: false,
+      popupArduinoState: false,
+      popupActiveUsers: false
     },
     NavPopups: {
       Open: false,
@@ -93,6 +96,11 @@ export default createStore({
     clearSubunitList(state) {
       state.subunitList = []
     },
+    /* Ардуино */
+    setArduinoURL(state, data) {
+      state.arduinoURL = data
+    },
+
     /* Звук */
     enableSound(state) {
       state.soundEnable = true
@@ -131,6 +139,18 @@ export default createStore({
     },
     enableArduino(state) {
       state.arduino = true
+    },
+    showPopupArduinoState(state) {
+      state.popups.popupArduinoState = !state.popups.popupArduinoState
+    },
+    closePopupArduinoState(state) {
+      state.popups.popupArduinoState = false
+    },
+    showPopupActiveUsers(state) {
+      state.popups.popupActiveUsers = !state.popups.popupActiveUsers
+    },
+    closePopupActiveUsers(state) {
+      state.popups.popupActiveUsers = false
     },
     /* Закрытие всех попапов */
     closeAllPopups(state, name) {

@@ -1,13 +1,30 @@
 <template lang="html">
   <div class="auth">
+    <!-- Этот попап только для суперадмина, отслеживает все ардуины -->
+    <div
+      class=""
+      v-if="this.$store.state.subunit === 'cskp'">
+      <img
+        src="../assets/img/settings/arduino-on.jpg"
+        class="arduino"
+        @click="showPopupArduinoState" />
+    </div>
+    <!-- Здесь иконки меняются в зависимости от статуса ардуино конкретного пользователя -->
     <img
       src="../assets/img/settings/arduino-on.jpg"
-      v-if="this.$store.state.arduino"
-      class="arduino" />
+      v-else-if="this.$store.state.arduino && this.$store.state.subunit != 'cskp'"
+      class="arduino"
+      :title="'Соединение активно.'" />
     <img
       src="../assets/img/settings/arduino-off.png"
       v-else
-      class="arduino" />
+      class="arduino"
+      :title="'Соединение отсутствует.'" />
+    <img
+      src="../assets/userList.png"
+      class="userList"
+      alt="Пользователи"
+      @click="showPopupActiveUsers" />
     <div
       class="auth__ico"
       @click="showAuthItems">
@@ -39,23 +56,26 @@
 <script>
   import Exit from './../assets/img/nav/exit.vue'
   import AddUser from './../assets/img/nav/addUser.vue'
-  import parseJwt from '../utils/parseJwt.js'
+
   export default {
     data() {
       return {
-        user: {
-          username: '',
-          roles: ''
-        }
+        arduinoURL: this.$store.state.arduinoURL
       }
     },
+
     methods: {
       showAuthItems() {
         this.$store.commit('closeAllPopups', 'AuthItems')
-        // this.$store.commit('showAuthItems');
       },
       showPopupRegistration() {
         if (!this.$store.state.popups.popupRegistration) this.$store.commit('showPopupRegistration')
+      },
+      showPopupArduinoState() {
+        this.$store.commit('showPopupArduinoState')
+      },
+      showPopupActiveUsers() {
+        this.$store.commit('showPopupActiveUsers')
       },
       userExit() {
         localStorage.removeItem('token')
@@ -184,5 +204,11 @@
   .arduino {
     width: 30px;
     margin-right: 20px;
+    cursor: pointer;
+  }
+  .userList {
+    width: 30px;
+    margin-right: 20px;
+    cursor: pointer;
   }
 </style>

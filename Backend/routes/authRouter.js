@@ -4,7 +4,7 @@ import AuthController from "../controllers/AuthController.js"
 import roleMiddleware from "../middlewares/roleMiddleware.js"
 
 const authRouter = new Router()
-
+authRouter.get("/activeUsers", roleMiddleware(["SUPERADMIN"]), AuthController.getActiveUsers)
 authRouter.post(
   "/registration",
   [
@@ -17,5 +17,6 @@ authRouter.post(
   AuthController.registration
 )
 authRouter.post("/login", AuthController.login)
+authRouter.post("/heartbeat", AuthController.heartbeat)
 
 export default authRouter

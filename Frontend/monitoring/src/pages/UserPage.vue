@@ -14,6 +14,7 @@
   <SystemList
     :systems="this.$store.state.systems"
     :inputValue="inputValue"
+    :arduinoStateList="arduinoStateList"
     @click="this.$store.commit('closeAllPopups', 'reset')" />
 </template>
 
@@ -29,7 +30,10 @@
       return {
         systems: [],
         inputValue: '',
-        connect: true
+        connect: true,
+        arduinoStateList: [],
+        intervalHeartbeat: null,
+        intervalActiveUsers: null
       }
     },
 
@@ -59,6 +63,14 @@
           console.log(e.message)
         }
       },
+      async heartbeat() {
+        try {
+          await axios.post(`${Config.SERVER_URL}/api/auth/heartbeat`, { username: this.$store.state.username })
+        } catch (e) {
+          console.log(e)
+        }
+      },
+
       updateInputValue(value) {
         this.inputValue = value
       },
@@ -76,12 +88,15 @@
     },
     mounted() {
       try {
-        const eventSource = new EventSource(`${Config.SERVER_URL}/state`)
+        const eventSource = new EventSource(
+          `${Config.SERVER_URL}/state?roles=${this.$store.state.roles}&username=${this.$store.state.subunitRu}`
+        ) //Event для проверки соединения с сервером, при разрыве идем ниже
         eventSource.onopen = (event) => {
           console.log('Соединение установлено')
           this.connect = true
         }
         eventSource.onerror = (event) => {
+          //При остановке сервера соединение разрывается и сообщение об ошибке
           if (eventSource.readyState == EventSource.CLOSED) {
             console.log('Connection was closed')
           } else {
@@ -90,34 +105,54 @@
           }
         }
         eventSource.onmessage = (event) => {
+          //Event по работе с Ардуино...состояние пинов + статус ардуино
           const data = JSON.parse(event.data)
-          if (typeof data === 'string' && data === 'Соединение с Ардуино активно.') {
-            this.$store.commit('enableArduino')
-          } else if (typeof data === 'string') {
-            this.$store.commit('disableArduino')
+          if (data.arduinoStateListFlag) {
+            //это обрабатывает все данные с ардуино, только для Superadmin (На бэке для суперадмина вешается флаг arduinoStateListFlag)
+            let index = this.arduinoStateList.findIndex((el) => el.subunit === data.subunit)
+            if (index === -1) {
+              this.arduinoStateList.push(data)
+            } else if (index !== -1 && this.arduinoStateList[index].message !== data.message) {
+              this.arduinoStateList[index] = data
+            }
           } else {
-            this.$store.commit('updateSystemState', {
-              pin: String(data.pin),
-              newState: data.state
-            })
+            //Если не Superadmin то бэк отправляет только данные по этому пользователю (events/index.js)
+            if (data.message === 'Соединение с Ардуино активно.' && data.subunit === this.$store.state.subunitRu) {
+              this.$store.commit('enableArduino') //Меняю картинку состояния ардуино на активную
+            } else if (
+              data.message === 'Соединение с Ардуино отсутствует.' &&
+              data.subunit === this.$store.state.subunitRu
+            ) {
+              this.$store.commit('disableArduino') //Меняю картинку состояния ардуино на неактивную
+            } else {
+              this.$store.commit('updateSystemState', {
+                // обработка при изменении состояния пинов
+                pin: String(data.pin),
+                newState: data.state
+              })
 
-            if (!this.$store.state.systems.find((system) => system.state == 'Авария')) {
-              this.$store.commit('disableSound')
+              if (!this.$store.state.systems.find((system) => system.state == 'Авария')) {
+                //Работа со звуком
+                this.$store.commit('disableSound')
+              }
             }
           }
         }
       } catch (e) {
         console.log(e)
       }
+      this.intervalHeartbeat = setInterval(this.heartbeat, 5000)
       document.addEventListener('keydown', this.handleKeyPress)
-      this.getSystems()
+      this.getSystems() // Получаю все системы
     },
     beforeUnmount() {
+      //при размонтировании очистить все данные и закрыть попапы, снять слушатели
       this.$store.commit('clearSystems')
       this.$store.commit('clearSubunitList')
       this.$store.commit('clearLog')
       this.$store.commit('closeAllPopups', 'reset')
       this.$store.commit('closePopupLog')
+      clearInterval(this.intervalHeartbeat)
       document.removeEventListener('keydown', this.handleKeyPress)
     }
   }
