@@ -7,31 +7,58 @@
         width="20px"
         class="close"
         @click="showPopupLog" />
-      <ol class="log__list">
-        <li
-          v-for="({ type, subunit, username, message, createdAt }, index) in timeFilterArray"
-          :key="'else' + index"
-          class="log__item">
-          <div class="log__time">{{ createdAt }}</div>
-          <div class="log__subunit">{{ subunit }}</div>
-          <div class="log__username">{{ ' (' + username + ')  :' }}</div>
-          <div class="log__message">{{ message }}</div>
-        </li>
-      </ol>
+      <div class="log__flexWrap">
+        <div class="flex-left">
+          <ol class="log__list">
+            <li
+              v-for="({ type, subunit, username, message, createdAt }, index) in timeFilterArray"
+              :key="'else' + index"
+              class="log__item">
+              <div class="log__time">{{ createdAt }}</div>
+              <div class="log__subunit">{{ subunit }}</div>
+              <div class="log__username">{{ ' (' + username + ')  :' }}</div>
+              <div class="log__message">{{ message }}</div>
+            </li>
+          </ol>
+        </div>
+        <div class="flex-right">
+          <form
+            class=""
+            action="">
+            <input
+              type="text"
+              class="type__input"
+              placeholder="Введите № СП" />
+            <input
+              type="text"
+              class="type__input"
+              placeholder="Введите № КМУ/ОМУ" />
 
-      <div class="log__time-filter">
-        <label
-          v-for="item in timeFilterValue"
-          :key="'filter-item-' + item"
-          class="filter__item">
-          <input
-            type="radio"
-            name="timeFilter"
-            :value="item"
-            v-model="selectFilter"
-            @change="sortedTime" />
-          {{ item }}
-        </label>
+            <input
+              type="date"
+              class="type__input date-input"
+              name=""
+              id=""
+              placeholder="Введите дату" />
+          </form>
+          <div class="log__reset">Удалить лог</div>
+        </div>
+      </div>
+      <div class="log__instrument">
+        <div class="log__time-filter">
+          <label
+            v-for="item in timeFilterValue"
+            :key="'filter-item-' + item"
+            class="filter__item">
+            <input
+              type="radio"
+              name="timeFilter"
+              :value="item"
+              v-model="selectFilter"
+              @change="sortedTime" />
+            {{ item }}
+          </label>
+        </div>
       </div>
     </div>
   </div>
@@ -172,10 +199,9 @@
 
   .log__list {
     padding: 0px 30px;
-    max-height: 78%;
+    height: 100%;
     margin-top: 20px;
     overflow-x: hidden;
-    max-width: 65%;
   }
 
   .log__item {
@@ -190,7 +216,7 @@
   }
   .log__time-filter {
     display: flex;
-    padding: 20px 0 20px 30px;
+    padding: 20px 0 10px 30px;
     justify-content: space-between;
     align-items: center;
     height: 10%;
@@ -210,5 +236,57 @@
   }
   .log__username {
     color: rgb(19, 148, 116) !important;
+  }
+  .log__flexWrap {
+    display: flex;
+    height: 78%;
+    gap: 40px;
+  }
+  .flex-left {
+    width: 70%;
+    height: 100%;
+    margin-top: 10px;
+  }
+  .flex-right {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+  }
+  .type__input {
+    background-color: #2e3541;
+    border-radius: 5px;
+    border: 0;
+    width: 75%;
+    color: white;
+    font-size: 16px;
+    padding: 0.7vw;
+    margin-top: 1vw;
+    &::placeholder {
+      color: rgb(217, 217, 217, 17%);
+      text-align: left;
+      font-size: 18px;
+      font-weight: 400;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4vw;
+  }
+  .log__reset {
+    background-color: #2e3541;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+    width: 75%;
+    color: white;
+    font-size: 16px;
+    padding: 0.7vw;
+    margin-top: 3vw;
   }
 </style>

@@ -22,7 +22,7 @@
           class="content-items">
           <div class="content__number">{{ index + 1 }}</div>
           <div class="content__username">{{ item.username }}</div>
-          <div class="content__subunit">{{ item.subunit[0] }}</div>
+          <div class="content__subunit">{{ translateSubunit(item.subunit[0], this.$store.state.subunitList) }}</div>
           <div class="content__roles">{{ item.roles[0] }}</div>
           <div class="content__status">{{ formatLastActive(item.lastActive) }}</div>
         </div>
@@ -41,7 +41,7 @@
   import { formatDistanceToNow } from 'date-fns'
   import { ru } from 'date-fns/locale'
   import Config from '../../config'
-
+  import translateSubunit from '../utils/translateSubunit.js'
   export default {
     data() {
       return {
@@ -49,6 +49,7 @@
       }
     },
     methods: {
+      translateSubunit,
       async getActiveUsers() {
         try {
           const response = await axios.get(`${Config.SERVER_URL}/api/auth/activeUsers`, {

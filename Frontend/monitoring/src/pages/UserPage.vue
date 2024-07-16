@@ -32,8 +32,7 @@
         inputValue: '',
         connect: true,
         arduinoStateList: [],
-        intervalHeartbeat: null,
-        intervalActiveUsers: null
+        intervalHeartbeat: null
       }
     },
 

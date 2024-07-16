@@ -1,4 +1,4 @@
-const SERVER_URL = 'http://127.0.0.1:80'
+const SERVER_URL = 'http://192.168.0.110:80'
 
 const Config = {
   SERVER_URL

@@ -19,6 +19,11 @@
         class="enter">
         Войти
       </button>
+      <p
+        class="error"
+        v-if="error">
+        {{ error }}
+      </p>
     </form>
   </div>
 </template>
@@ -30,6 +35,7 @@
   export default {
     data() {
       return {
+        error: '',
         user: {
           username: ''.toLowerCase(),
           password: ''
@@ -44,7 +50,7 @@
           localStorage.setItem('token', response.data.token)
           this.$router.push('/user')
         } catch (e) {
-          console.log(e)
+          this.error = e.response.data.message
         }
       }
     }
@@ -100,5 +106,9 @@
     &:hover {
       background: #e1e1e1;
     }
+  }
+  .error {
+    color: red;
+    margin-top: 10px;
   }
 </style>

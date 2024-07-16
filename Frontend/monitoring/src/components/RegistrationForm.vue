@@ -118,7 +118,7 @@
           this.success = response.data.message
           this.$store.dispatch('sendLog', {
             type: 'Info',
-            message: `Пользователь ${this.newUser.username} Роль: ${this.newUser.roles} Подразделение: ${this.newUser.subunit} успешно создан"`
+            message: `Пользователь ${this.newUser.username} Роль: ${this.newUser.roles} Подразделение: ${this.newUser.subunit} успешно создан`
           })
           this.newUser = {
             username: '',

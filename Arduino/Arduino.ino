@@ -16,7 +16,7 @@ char HTTP_req[REQ_BUF_SZ] = {0}; // buffered HTTP request stored as null termina
 char req_index = 0;              // index into HTTP_req buffer
 
 byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xEE};
-IPAddress ip(192, 168, 0, 120);
+IPAddress ip(192, 168, 0, 115);
 EthernetServer server(80);
 
 void setup()
