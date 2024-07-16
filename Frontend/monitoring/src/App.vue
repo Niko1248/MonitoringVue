@@ -18,6 +18,7 @@
   body {
     background-color: #040a14;
   }
+
   *::-webkit-scrollbar {
     width: 10px;
   }

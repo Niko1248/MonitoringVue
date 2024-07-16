@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="auth">
     <!-- Этот попап только для суперадмина, отслеживает все ардуины -->
-    <div
+    <!-- <div
       class=""
       v-if="this.$store.state.subunit === 'cskp'">
       <img
@@ -9,7 +9,6 @@
         class="arduino"
         @click="showPopupArduinoState" />
     </div>
-    <!-- Здесь иконки меняются в зависимости от статуса ардуино конкретного пользователя -->
     <img
       src="../assets/img/settings/arduino-on.jpg"
       v-else-if="this.$store.state.arduino && this.$store.state.subunit != 'cskp'"
@@ -24,7 +23,7 @@
       src="../assets/userList.png"
       class="userList"
       alt="Пользователи"
-      @click="showPopupActiveUsers" />
+      @click="showPopupActiveUsers" /> -->
     <div
       class="auth__ico"
       @click="showAuthItems">

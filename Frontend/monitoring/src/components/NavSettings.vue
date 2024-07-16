@@ -13,6 +13,7 @@
           <input
             type="checkbox"
             id="workSorted"
+            style="transform: translateX(-5px); cursor: pointer"
             v-model="workSorted" />
           <label
             class="setting__item-text"
@@ -24,6 +25,7 @@
           <input
             type="checkbox"
             id="alarmSorted"
+            style="transform: translateX(-5px); cursor: pointer"
             v-model="alarmSorted" />
           <label
             class="setting__item-text"
@@ -34,11 +36,39 @@
         <div
           @click="showPopupAddSP"
           v-if="this.$store.state.roles !== 'USER'">
-          <p class="plus__ico">+</p>
+          <p
+            class="plus__ico"
+            style="transform: translateX(-5px); cursor: pointer">
+            +
+          </p>
           <p
             class="setting__item-text"
             @click="showSettingItems">
             Добавить СП
+          </p>
+        </div>
+        <div v-if="this.$store.state.roles !== 'USER'">
+          <img
+            src="./../assets/img/nav/nodes.png"
+            alt="nodes-ico"
+            width="20px"
+            style="transform: translateX(-10px); cursor: pointer" />
+          <p
+            @click="showPopupArduinoState"
+            class="setting__item-text">
+            Узлы сети
+          </p>
+        </div>
+        <div v-if="this.$store.state.roles !== 'USER'">
+          <img
+            src="./../assets/img/nav/users.png"
+            alt="nodes-ico"
+            width="20px"
+            style="transform: translateX(-10px); cursor: pointer" />
+          <p
+            @click="showPopupActiveUsers"
+            class="setting__item-text">
+            Пользователи
           </p>
         </div>
       </div>
@@ -58,6 +88,12 @@
       },
       showPopupAddSP() {
         if (!this.$store.state.popups.popupAddSP === true) this.$store.commit('showPopupAddSp')
+      },
+      showPopupActiveUsers() {
+        this.$store.commit('showPopupActiveUsers')
+      },
+      showPopupArduinoState() {
+        this.$store.commit('showPopupArduinoState')
       }
     },
     computed: {
@@ -118,7 +154,7 @@
 
   .setting__items {
     position: absolute;
-    bottom: -120px;
+    top: 39.5px;
     width: 130px;
     left: -70px;
     background: #0e1621;
@@ -135,7 +171,7 @@
       width: 13px;
       height: 13px;
       left: -13px;
-      bottom: 97px;
+      top: 0;
       background-image: url(./../assets/img/nav/left.png);
     }
 
@@ -146,7 +182,7 @@
       width: 13px;
       height: 13px;
       right: -13px;
-      bottom: 97px;
+      top: 0;
       background-image: url(./../assets/img/nav/right.png);
     }
 

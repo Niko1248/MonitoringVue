@@ -1,15 +1,18 @@
 <template lang="html">
   <div class="UserList">
     <div class="UserList__wrapper popup">
-      <div class="close">
+      <div
+        class="close"
+        @click="closePopupActiveUsers">
         <img
           src="./../assets/img/nav/close.svg"
           alt="закрыть"
-          width="20px"
-          @click="closePopupActiveUsers" />
+          width="20px" />
       </div>
+      <h1 class="title">Пользователи</h1>
+
       <div class="content">
-        <div class="title">
+        <div class="subtitle">
           <div class="title__number">№ п/п</div>
           <div class="title__user">Пользователь</div>
           <div class="title__subunit">Подразделение</div>
@@ -83,16 +86,16 @@
     width: 100vw;
     height: 90svh;
     background: rgba(0, 0, 0, 0.887);
-    position: fixed;
     left: 0px;
-    top: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .UserList__wrapper {
-    padding: 2.5vw;
+    padding: 1.1vw 1.5vw 2.3vw;
     width: 80vw;
     max-height: 80vh;
     background-color: #0e1621;
@@ -104,7 +107,11 @@
     height: 20px;
     margin-right: 5px;
   }
-
+  .title {
+    font-family: Wix Madefor Display;
+    color: #fff;
+    margin-bottom: 1vw;
+  }
   .close {
     height: 100%;
     width: 25px;
@@ -149,18 +156,46 @@
     display: flex;
     gap: 1vw;
   }
-  .title,
+  .subtitle,
   .content-items {
-    display: grid;
-    grid-template-columns: 0.2fr 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    display: flex;
+    width: calc(100% - 25px);
+    justify-content: flex-start;
+    color: #fff;
+    div {
+      display: flex;
+      width: calc(100% / 5);
+      justify-content: flex-start;
+      margin: 5px 0px 5px;
+      &:first-child {
+        transform: translateX(3vw);
+      }
+    }
   }
+
   .content {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5vw;
+  }
+  .subtitle {
     background: #2e3541;
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
+    div {
+      width: calc(100% / 4);
+      display: flex;
+      &:first-child {
+        transform: translateX(1.5vw);
+      }
+    }
+  }
+  .content__number {
+    color: #9d9d9d;
+  }
+  .content__status {
+    color: #66fbf1;
   }
   .refresh {
     background: #053429;

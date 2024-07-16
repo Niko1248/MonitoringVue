@@ -45,7 +45,7 @@
 
         <button
           class="save"
-          @click="logItems">
+          @click="parseData">
           Сохранить
         </button>
       </div>
@@ -65,7 +65,19 @@
         plus: true,
         NodesIds: [],
         nodesData: {},
-        nextNodeId: 1
+        nextNodeId: 1,
+        nodes: [
+          {
+            nodeName: '',
+            lineName: '',
+            lineSection: ''
+          },
+          {
+            nodeName: '',
+            lineName: '',
+            lineSection: ''
+          }
+        ]
       }
     },
     methods: {
@@ -90,6 +102,27 @@
         if (this.nodesData[id]) {
           this.nodesData[id][field] = value
         }
+      },
+      parseData() {
+        let parsedData = []
+        let contentWrapper = document.querySelector('.content__wrapper')
+        let nodeElements = contentWrapper.querySelectorAll('.addedNode')
+
+        nodeElements.forEach((nodeElement, index) => {
+          let lineName = nodeElement.querySelector('.line__name input').value
+          let lineSection = nodeElement.querySelector('.line__section input').value
+          let nodeName = nodeElement.querySelector('.node input').value
+          let tractName = document.querySelector('.tract__name').value
+          parsedData.push({
+            [`node_${index + 1}`]: {
+              name: nodeName,
+              line_name: lineName,
+              line_section: lineSection
+            }
+          })
+        })
+
+        console.log(parsedData)
       }
     }
   }

@@ -177,6 +177,7 @@
           pin: '',
           number: '',
           correspondent: '',
+          tracts: [],
           KMU: {
             type: 'КМУ',
             number: ''
