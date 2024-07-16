@@ -1,56 +1,60 @@
 [{
   "_id": {
-    "$oid": "6631315d9f515f2b3a14b9e7"
+    "$oid": "66771e63a7293385725e1b5e"
   },
-  "username": "dev",
-  "password": "$2a$07$JO7jUizCOpN.RenNzU1EDO9LwtjRMPRfGH/oAKs.04VaSQ51xV0c2",
+  "username": "date",
+  "password": "$2a$07$3QAiffGJH3Jo.q9kRhwRW.BLCace7j4sThaONqirRIO0m9ToihmGu",
   "roles": [
     "SUPERADMIN"
   ],
   "subunit": [
     "cskp"
   ],
+  "lastActive": "Sat Jul 06 2024 23:57:34 GMT+0300 (Москва, стандартное время)",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "663131859f515f2b3a14b9ec"
+    "$oid": "667735aae4a97b37dc91d85b"
+  },
+  "username": "dev",
+  "password": "$2a$07$clFqDWipd03.ItwlfWQ6C.xKZpI9se/eFKocHViKbNQlay8W1WjJq",
+  "roles": [
+    "SUPERADMIN"
+  ],
+  "subunit": [
+    "cskp"
+  ],
+  "lastActive": "Wed Jun 26 2024 22:11:31 GMT+0300 (Москва, стандартное время)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667735b9e4a97b37dc91d869"
   },
   "username": "dusttt",
-  "password": "$2a$07$AqyQsj23G8WPV/yBxlQe6..qrwl72pbv44QTRNRSF49cVYfOx9ltm",
+  "password": "$2a$07$bwmM3pJMnUGdVcsSagjKK.bD7q3EE23UsCrpr/.yRPEJvssiZgMiS",
   "roles": [
     "ADMIN"
   ],
   "subunit": [
     "kolibri"
   ],
+  "lastActive": "Sun Jun 23 2024 00:16:33 GMT+0300 (Москва, стандартное время)",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6631318e9f515f2b3a14b9ef"
+    "$oid": "667735c2e4a97b37dc91d874"
   },
   "username": "pelikan",
-  "password": "$2a$07$OWl5./4Nc.GvMWH.cDiwSOS8dEq9lVikG.NXbNgebJtEehnfcw.he",
+  "password": "$2a$07$9.AYZ609Dxk0d7j.98o.quEQXrPx887JJxfHci3fMEeB97ta5.zse",
   "roles": [
     "ADMIN"
   ],
   "subunit": [
     "pelikan"
   ],
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "663140779f515f2b3a14ba03"
-  },
-  "username": "test",
-  "password": "$2a$07$iA44EGpEz8BGYnwWJYWjxu/tSCzZx7mGaa87c5mOs6ouxfMS86YlS",
-  "roles": [
-    "ADMIN"
-  ],
-  "subunit": [
-    "unciya"
-  ],
+  "lastActive": "Sat Jun 22 2024 23:37:58 GMT+0300 (Москва, стандартное время)",
   "__v": 0
 }]
