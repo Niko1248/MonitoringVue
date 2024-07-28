@@ -28,12 +28,12 @@
             <p
               v-if="item.message == 'Соединение с Ардуино активно.'"
               style="color: #24d34d">
-              активен
+              Активен
             </p>
             <p
               v-else
               style="color: #a22c2c">
-              не доступен
+              Недоступен
             </p>
           </div>
         </div>

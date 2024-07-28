@@ -162,7 +162,7 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.683);
     backdrop-filter: blur(2px);
-    z-index: 999;
+    z-index: 99999;
     display: flex;
     height: 100%;
     justify-content: center;

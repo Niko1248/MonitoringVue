@@ -15,7 +15,7 @@
           @click="toggleSoundState" />
         <SoundR
           class="sound__item ico"
-          @click="this.$store.commit('disableSound')" />
+          @click="resetSound" />
       </div>
     </transition>
   </div>
@@ -49,6 +49,10 @@
       },
       showSoundItems() {
         this.$store.commit('closeAllPopups', 'soundItems')
+      },
+      resetSound() {
+        this.$store.commit('disableSound')
+        this.$store.state.toast.clear()
       }
     },
     computed: {

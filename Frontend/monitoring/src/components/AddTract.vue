@@ -35,7 +35,7 @@
           </transition-group>
           <img
             src="../assets/plus.svg"
-            @click="addNondes"
+            @click="addNodes"
             v-if="plus"
             width="20px"
             height="20px"
@@ -85,7 +85,7 @@
         if (this.$store.state.popups.popupAddTract === true) this.$store.commit('showPopupAddTract')
         document.querySelector('.Sp__wrapper').classList.remove('Sp__wrapper--close')
       },
-      addNondes() {
+      addNodes() {
         const id = this.nextNodeId
         this.NodesIds.push(this.nextNodeId)
         this.nextNodeId += 1

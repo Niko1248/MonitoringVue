@@ -11,7 +11,7 @@
         <div class="flex-left">
           <ol class="log__list">
             <li
-              v-for="({ type, subunit, username, message, createdAt }, index) in timeFilterArray"
+              v-for="({ type, subunit, username, message, createdAt }, index) in filteredLogs"
               :key="'else' + index"
               class="log__item">
               <div class="log__time">{{ createdAt }}</div>
@@ -28,20 +28,33 @@
             <input
               type="text"
               class="type__input"
-              placeholder="Введите № СП" />
-            <input
-              type="text"
-              class="type__input"
-              placeholder="Введите № КМУ/ОМУ" />
+              placeholder="Введите ключевое слово"
+              v-model="searchQuery" />
 
             <input
               type="date"
               class="type__input date-input"
-              name=""
-              id=""
-              placeholder="Введите дату" />
+              v-model="startDate"
+              placeholder="Введите начальную дату" />
+
+            <input
+              type="date"
+              class="type__input date-input"
+              v-model="endDate"
+              placeholder="Введите конечную дату" />
           </form>
-          <div class="log__reset">Удалить лог</div>
+          <div
+            class="log__btn"
+            @click="resetFilters">
+            Сбросить фильтры
+          </div>
+          <!-- Удаление лога только для суперадмина -->
+          <div
+            class="log__btn"
+            v-if="this.$store.state.roles === 'SUPERADMIN'"
+            @click="toggleResetLogPopup">
+            Удалить лог
+          </div>
         </div>
       </div>
       <div class="log__instrument">
@@ -61,11 +74,46 @@
         </div>
       </div>
     </div>
+    <div
+      class="reset__popup"
+      v-if="resetLog__popup">
+      <div class="popup__wrapper">
+        <img
+          src="./../assets/img/nav/close.svg"
+          alt="закрыть"
+          width="20px"
+          class="close"
+          @click="toggleResetLogPopup" />
+        <p>Для удаления лог фаила введите пароль администратора.</p>
+        <input
+          type="password"
+          class="type__input"
+          v-model="activeUser.password" />
+
+        <div
+          class="log__btn"
+          @click="deleteLogs">
+          Удалить лог
+        </div>
+        <p
+          class="error"
+          v-if="error">
+          {{ error }}
+        </p>
+        <p
+          class="success"
+          v-if="success">
+          {{ success }}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
   import { parse, subMinutes, subHours, subDays, subWeeks, subMonths, isWithinInterval } from 'date-fns'
+  import Config from '../../config'
 
   const parseFormat = 'dd.MM.yyyy HH:mm:ss'
 
@@ -84,25 +132,39 @@
           'Месяц',
           'Всё'
         ],
-        timeFilterArray: this.$store.state.dataLogs,
-        selectFilter: ''
+        logs: this.$store.state.dataLogs,
+        startDate: '',
+        endDate: '',
+        selectFilter: '',
+        searchQuery: '',
+        resetLog__popup: false,
+        activeUser: {
+          username: this.$store.state.username,
+          password: ''
+        },
+        error: '',
+        success: ''
       }
     },
     components: {},
     methods: {
+      toggleResetLogPopup() {
+        this.resetLog__popup = !this.resetLog__popup
+      },
       showPopupLog() {
         this.$store.commit('showPopupLog')
       },
-      updateTimeFilterArray(logs) {
+      updateTimeFilterArray(newLogs) {
         if (this.selectFilter) {
           this.sortedTime({ target: { innerText: this.selectFilter } })
         } else {
-          this.timeFilterArray = logs
+          this.logs = newLogs
         }
       },
       sortedTime() {
         let nowDate = new Date()
         let timeInterval
+        // Выставляет правильные интервалы, при выборе их в фильтрах
         switch (this.selectFilter) {
           case '5 мин':
             timeInterval = subMinutes(nowDate, 5)
@@ -132,29 +194,86 @@
             timeInterval = subMonths(nowDate, 1)
             break
           case 'Всё':
-            this.timeFilterArray = []
-            this.timeFilterArray = this.$store.state.dataLogs
+            this.logs = []
+            this.logs = this.$store.state.dataLogs
             return
         }
+        //Если выбран интервал времени, то запускается функция фильтр
         if (timeInterval) {
           this.filterTime(timeInterval, nowDate)
         }
       },
       filterTime(value, nowDate) {
-        this.timeFilterArray = []
+        this.logs = []
+        // Из стора вытягиваем логи
         this.$store.state.dataLogs.filter((time) => {
+          //Преобразует время из логов(time.createdAt), к правильному формату в соответствии с parseFormat..конкретнее смотри библиотеку date-fns
           const date = parse(time.createdAt, parseFormat, new Date())
+          // Здесь выдергивает эту запись, если она попала в интервал
           let formatDate = isWithinInterval(date, {
             start: value,
             end: nowDate
           })
+          //Если такая есть, то добавляет в массив который отображается на экране
           if (formatDate) {
-            this.timeFilterArray.push(time)
+            this.logs.push(time)
           }
         })
+      },
+      resetFilters() {
+        this.searchQuery = ''
+        this.startDate = ''
+        this.endDate = ''
+        this.selectFilter = ''
+      },
+      async deleteLogs() {
+        this.error = ''
+        this.success = ''
+        try {
+          const response = await axios.delete(`${Config.SERVER_URL}/api/logs/deleteLogs`, {
+            data: this.activeUser,
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          })
+          this.$store.state.dataLogs = []
+          this.success = response.data
+          this.activeUser.password = ''
+        } catch (e) {
+          this.error = e.response.data
+          console.log(e)
+        }
+      }
+    },
+    computed: {
+      filteredLogs() {
+        //Проверяем, введена ли в инпут начальная и конечная дата для фильтрации и преобразуем к формату даты
+        const start = this.startDate ? new Date(this.startDate).setHours(0, 0, 0, 0) : null
+        const end = this.endDate ? new Date(this.endDate).setHours(23, 59, 59, 999) : null
+
+        return (
+          this.logs
+            .filter((log) => {
+              //Преобразует время из логов(time.createdAt), к правильному формату в соответствии с parseFormat..конкретнее смотри библиотеку date-fns
+              const logDate = parse(log.createdAt, parseFormat, new Date())
+              // Ищет введенное ключевой слово в логах
+              const matchesSearchQuery = log.message.toLowerCase().includes(this.searchQuery.toLowerCase())
+              // Ищет записи которые попали во временной интервал
+              // Логика записи:
+              // 1. Если начальная дата не установлена, проверить только конечную дату.
+              // 2. Если конечная дата не установлена, проверить только начальную дату.
+              // 3. Если обе даты установлены, проверить, что дата лога находится в указанном диапазоне.
+              const withinDateRange = (!start || logDate >= start) && (!end || logDate <= end)
+              // Возвращает данные которые попали
+              return matchesSearchQuery && withinDateRange
+            })
+            //Инвертирует логи, чтобы свежие были сверху
+            .sort((a, b) => parse(b.createdAt, parseFormat, new Date()) - parse(a.createdAt, parseFormat, new Date()))
+        )
       }
     },
     watch: {
+      //Отслеживает изменения в логах которые лежат в сторе, туда сразу пишутся элементы при их добавлении в БД
       '$store.state.dataLogs': {
         handler(newLogs) {
           this.updateTimeFilterArray(newLogs)
@@ -275,9 +394,9 @@
   form {
     display: flex;
     flex-direction: column;
-    margin-top: 4vw;
+    margin-top: 3vw;
   }
-  .log__reset {
+  .log__btn {
     background-color: #2e3541;
     text-align: center;
     border-radius: 5px;
@@ -287,6 +406,46 @@
     color: white;
     font-size: 16px;
     padding: 0.7vw;
-    margin-top: 3vw;
+    margin-top: 2vw;
+    z-index: 2;
+  }
+  .reset__popup {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(14, 22, 33, 0.2941176471);
+    backdrop-filter: blur(3px);
+    border-radius: 10px 10px 0px 0px;
+  }
+  .popup__wrapper {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    background-color: #2e3541;
+    border: #fff 2px solid;
+    border-radius: 10px;
+  }
+  .popup__wrapper .type__input {
+    border-radius: 5px;
+    border: 1px solid white;
+  }
+
+  .error {
+    color: red;
+    margin-top: 1vw;
+  }
+  .success {
+    color: green;
+    margin-top: 1vw;
   }
 </style>

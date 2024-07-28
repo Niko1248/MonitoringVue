@@ -188,7 +188,7 @@
           },
           payload: [],
           note: '',
-          state: 'Статус не определён',
+          state: 'В работе',
           subunit: this.$store.state.subunit === 'cskp' ? '' : String(this.$store.state.subunit)
         },
         payload_obj: {
@@ -265,7 +265,7 @@
             },
             payload: [],
             note: '',
-            state: 'Статус не определён',
+            state: 'В работе',
             subunit: this.$store.state.subunit === 'cskp' ? '' : String(this.$store.state.subunit)
           }),
             (this.payload_obj = {

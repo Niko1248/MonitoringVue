@@ -34,8 +34,7 @@
       <img
         class="printPage ico"
         src="../assets/PRINT.svg"
-        alt=""
-        @click="this.$store.state.toast.clear" />
+        alt="" />
     </div>
     <NavSound class="nav__sound shadow" />
     <NavAuth class="shadow" />
