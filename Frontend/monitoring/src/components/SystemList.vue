@@ -23,6 +23,7 @@
 
       <transition-group name="add">
         <AddSystem
+          :objTract="objTract"
           class="popup"
           v-if="this.$store.state.popups.popupAddSP" />
       </transition-group>
@@ -36,6 +37,7 @@
 
       <transition-group name="add-XY">
         <AddTract
+          @send-tract="addTractObject"
           class="popup"
           v-if="this.$store.state.popups.popupAddTract" />
       </transition-group>
@@ -82,7 +84,8 @@
   export default {
     data() {
       return {
-        systemData: {}
+        systemData: {},
+        objTract: undefined
       }
     },
     components: {
@@ -114,6 +117,10 @@
       }
     },
     methods: {
+      addTractObject(obj) {
+        this.objTract = obj
+        console.log(this.objTract)
+      },
       onWheel(e) {
         if (!this.isPopupOpen) {
           this.$refs.scrollContainer.scrollLeft += e.deltaY

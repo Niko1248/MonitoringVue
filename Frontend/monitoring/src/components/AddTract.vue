@@ -15,6 +15,7 @@
         <input
           type="text"
           placeholder="Введите название тракта"
+          v-model="tractName"
           class="tract__name" />
         <div class="content__wrapper">
           <div class="node">
@@ -28,7 +29,7 @@
               :key="index">
               <item
                 :component-id="id"
-                @remove-item="removeNondes"
+                @remove-item="removeNodes"
                 :nodeData="nodesData[id]"
                 @update-node="updateNodeData" />
             </div>
@@ -66,6 +67,7 @@
         NodesIds: [],
         nodesData: {},
         nextNodeId: 1,
+        tractName: '',
         nodes: [
           {
             nodeName: '',
@@ -77,7 +79,8 @@
             lineName: '',
             lineSection: ''
           }
-        ]
+        ],
+        sendData: {}
       }
     },
     methods: {
@@ -91,7 +94,7 @@
         this.nextNodeId += 1
         this.nodesData[id] = { name: '', section: '', number: '' }
       },
-      removeNondes(id) {
+      removeNodes(id) {
         this.NodesIds = this.NodesIds.filter((nodeId) => nodeId !== id)
         delete this.nodesData[id]
         if (this.NodesIds.length <= 0) {
@@ -107,12 +110,11 @@
         let parsedData = []
         let contentWrapper = document.querySelector('.content__wrapper')
         let nodeElements = contentWrapper.querySelectorAll('.addedNode')
-
         nodeElements.forEach((nodeElement, index) => {
           let lineName = nodeElement.querySelector('.line__name input').value
           let lineSection = nodeElement.querySelector('.line__section input').value
           let nodeName = nodeElement.querySelector('.node input').value
-          let tractName = document.querySelector('.tract__name').value
+
           parsedData.push({
             [`node_${index + 1}`]: {
               name: nodeName,
@@ -121,8 +123,25 @@
             }
           })
         })
-
-        console.log(parsedData)
+        this.sendData[this.tractName] = parsedData
+        this.$emit('send-tract', this.sendData)
+        this.NodesIds = []
+        this.nodesData = {}
+        this.nextNodeId = 1
+        this.nodes = [
+          {
+            nodeName: '',
+            lineName: '',
+            lineSection: ''
+          },
+          {
+            nodeName: '',
+            lineName: '',
+            lineSection: ''
+          }
+        ]
+        this.tractName = ''
+        this.sendData = {}
       }
     }
   }

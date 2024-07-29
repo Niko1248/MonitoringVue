@@ -139,7 +139,11 @@
             <select
               name=""
               id="">
-              <option value="">Основной линейный тракт</option>
+              <option
+                v-for="item in newSystem.tracts"
+                :value="Object.keys(item)[0]">
+                {{ Object.keys(item)[0] }}
+              </option>
             </select>
             <img
               src="../assets/plus.svg"
@@ -227,6 +231,9 @@
       removePayload(index) {
         this.newSystem.payload.splice(index, 1)
       },
+      addObjTract(objTract) {
+        this.newSystem.tracts.push(objTract)
+      },
       offInput(inputType) {
         if (inputType == 'KMU') {
           this.omuInput = false
@@ -283,6 +290,21 @@
       systemData: {
         type: Object,
         default: () => ({})
+      },
+      objTract: {
+        type: Object,
+        required: false
+      }
+    },
+    watch: {
+      objTract: {
+        immediate: true,
+        handler(obj) {
+          if (obj) {
+            this.addObjTract(obj)
+            console.log(this.newSystem)
+          }
+        }
       }
     }
   }
