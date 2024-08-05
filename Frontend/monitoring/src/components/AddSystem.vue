@@ -77,14 +77,12 @@
                 hidden>
                 Вид связи
               </option>
-              <option value="Питомник">Питомник</option>
-              <option value="Отец-одиночка">Отец-одиночка</option>
-              <option value="Лулу">Лулу</option>
-              <option value="Бобер">Бобер</option>
-              <option value="Комар">Комар</option>
-              <option value="Васин ёж">Васин ёж</option>
-              <option value="40 градусов">40 градусов</option>
-              <option value="Зубатый собачник">Зубатый собачник</option>
+              <option
+                v-for="(item, index) in configPayloadArr"
+                :key="'payload' + index"
+                :value="item">
+                {{ item }}
+              </option>
             </select>
             <img
               src="../assets/plus.svg"
@@ -198,6 +196,7 @@
         kmuInput: false,
         omuInput: false,
         isRemove: false,
+        configPayloadArr: Config.payloadArr,
         newSystem: {
           pin: '',
           number: '',

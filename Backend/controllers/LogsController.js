@@ -71,6 +71,24 @@ class LogsController {
       res.status(500).json(e.message)
     }
   }
+  async deleteSelectLog(req, res) {
+    try {
+      const { username, password, selectLogArr } = req.body
+      const user = await User.findOne({ username })
+      const validPassword = bcrypt.compareSync(password, user.password)
+      if (!validPassword) {
+        return res.status(400).json("Введен неверный пароль")
+      }
+      await Logs.deleteMany({
+        _id: {
+          $in: selectLogArr,
+        },
+      })
+      res.status(200).json("Записи удалены")
+    } catch (e) {
+      res.status(500).json(e.message)
+    }
+  }
 }
 
 export default new LogsController()

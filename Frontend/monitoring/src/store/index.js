@@ -79,6 +79,14 @@ export default createStore({
     clearLog(state) {
       state.dataLogs = undefined
     },
+    deleteSelectLog(state, value) {
+      value.forEach((sendID) => {
+        let index = state.dataLogs.findIndex((el) => el._id === sendID)
+        if (index !== -1) {
+          state.dataLogs.splice(index, 1)
+        }
+      })
+    },
     /* Парсинг токена */
     parseUsername(state, value) {
       state.username = value

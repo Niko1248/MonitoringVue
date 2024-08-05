@@ -179,7 +179,7 @@
           })
           this.$store.dispatch('sendLog', {
             type: 'Info',
-            message: `СП ${this.systemData.systemNumber} изменено примечание на: ${this.systemInfo.note}`
+            message: `СП ${this.systemData.systemNumber}. Примечание: ${response.data.note}. Активная трасса: ${response.data.selectedNameTract}`
           })
           this.success = 'Изменения приняты'
         } catch (e) {

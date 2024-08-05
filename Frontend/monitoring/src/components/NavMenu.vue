@@ -69,9 +69,11 @@
         this.isSettingItems = !this.isSettingItems
       },
       showLog() {
-        if (!this.$store.state.popups.popupLog === true) {
+        if (!this.$store.state.popups.popupLog) {
           this.$store.commit('showPopupLog')
           this.getLogs()
+        } else {
+          this.$store.commit('showPopupLog')
         }
       },
       updateInput() {

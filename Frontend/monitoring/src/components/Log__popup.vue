@@ -11,13 +11,18 @@
         <div class="flex-left">
           <ol class="log__list">
             <li
-              v-for="({ type, subunit, username, message, createdAt }, index) in filteredLogs"
+              v-for="(item, index) in filteredLogs"
               :key="'else' + index"
               class="log__item">
-              <div class="log__time">{{ createdAt }}</div>
-              <div class="log__subunit">{{ subunit }}</div>
-              <div class="log__username">{{ ' (' + username + ')  :' }}</div>
-              <div class="log__message">{{ message }}</div>
+              <input
+                v-if="typeReset"
+                type="checkbox"
+                @click="selectLog(item)"
+                :style="{ marginRight: '5px' }" />
+              <div class="log__time">{{ item.createdAt }}</div>
+              <div class="log__subunit">{{ item.subunit }}</div>
+              <div class="log__username">{{ ' (' + item.username + ')  :' }}</div>
+              <div class="log__message">{{ item.message }}</div>
             </li>
           </ol>
         </div>
@@ -48,6 +53,7 @@
             @click="resetFilters">
             Сбросить фильтры
           </div>
+
           <!-- Удаление лога только для админа -->
           <div
             class="log__btn"
@@ -55,8 +61,36 @@
             @click="toggleResetLogPopup">
             Удалить лог
           </div>
+          <div class="checkbox-wrapper-35">
+            <input
+              value="private"
+              name="switch"
+              id="switch"
+              type="checkbox"
+              class="switch"
+              v-model="typeReset"
+              @click="sendData.selectLogArr = []" />
+            <label for="switch">
+              <span class="switch-x-text">Удаление лога: </span>
+              <span class="switch-x-toggletext">
+                <span class="switch-x-unchecked"><span class="switch-x-hiddenlabel">Unchecked: </span>Полное</span>
+                <span class="switch-x-checked"><span class="switch-x-hiddenlabel">Checked: </span>Выборочное</span>
+              </span>
+            </label>
+          </div>
+          <p
+            class="success"
+            v-if="success">
+            {{ success }}
+          </p>
+          <p
+            class="error"
+            v-if="error">
+            {{ error }}
+          </p>
         </div>
       </div>
+
       <div class="log__instrument">
         <div class="log__time-filter">
           <label
@@ -88,7 +122,7 @@
         <input
           type="password"
           class="type__input"
-          v-model="activeUser.password" />
+          v-model="sendData.password" />
 
         <div
           class="log__btn"
@@ -97,13 +131,8 @@
         </div>
         <p
           class="error"
-          v-if="error">
-          {{ error }}
-        </p>
-        <p
-          class="success"
-          v-if="success">
-          {{ success }}
+          v-if="errorPopup">
+          {{ errorPopup }}
         </p>
       </div>
     </div>
@@ -138,10 +167,13 @@
         selectFilter: '',
         searchQuery: '',
         resetLog__popup: false,
-        activeUser: {
+        sendData: {
           username: this.$store.state.username,
-          password: ''
+          password: '',
+          selectLogArr: []
         },
+        typeReset: false,
+        errorPopup: '',
         error: '',
         success: ''
       }
@@ -149,6 +181,13 @@
     components: {},
     methods: {
       toggleResetLogPopup() {
+        if (this.typeReset && this.sendData.selectLogArr.length === 0) {
+          this.error = 'Нет выбранных записей'
+          return
+        }
+        if (!this.resetLog__popup) {
+          this.error = ''
+        }
         this.resetLog__popup = !this.resetLog__popup
       },
       showPopupLog() {
@@ -159,6 +198,14 @@
           this.sortedTime({ target: { innerText: this.selectFilter } })
         } else {
           this.logs = newLogs
+        }
+      },
+      selectLog(value) {
+        let index = this.sendData.selectLogArr.findIndex((el) => el === value._id)
+        if (index === -1) {
+          this.sendData.selectLogArr.push(value._id)
+        } else {
+          this.sendData.selectLogArr.splice(index, 1)
         }
       },
       sortedTime() {
@@ -227,21 +274,44 @@
         this.selectFilter = ''
       },
       async deleteLogs() {
-        this.error = ''
+        this.errorPopup = ''
         this.success = ''
-        try {
-          const response = await axios.delete(`${Config.SERVER_URL}/api/logs/deleteLogs`, {
-            data: this.activeUser,
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-          })
-          this.$store.state.dataLogs = []
-          this.success = response.data
-          this.activeUser.password = ''
-        } catch (e) {
-          this.error = e.response.data
-          console.log(e)
+        // Если активно выборочное удаление лога
+        if (this.typeReset) {
+          try {
+            const response = await axios.delete(`${Config.SERVER_URL}/api/logs/deleteSelectLog`, {
+              data: this.sendData,
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+              }
+            })
+            this.$store.commit('deleteSelectLog', this.sendData.selectLogArr)
+            this.success = response.data
+            this.sendData.selectLogArr = []
+            this.sendData.password = ''
+            this.resetLog__popup = false
+            this.typeReset = false
+          } catch (e) {
+            this.errorPopup = e.response.data
+            console.log(e)
+          }
+        } else {
+          //Если активно полное удаление лога
+          try {
+            const response = await axios.delete(`${Config.SERVER_URL}/api/logs/deleteLogs`, {
+              data: this.sendData,
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+              }
+            })
+            this.$store.state.dataLogs = []
+            this.success = response.data
+            this.sendData.password = ''
+            this.resetLog__popup = false
+          } catch (e) {
+            this.errorPopup = e.response.data
+            console.log(e)
+          }
         }
       }
     },
@@ -394,7 +464,7 @@
   form {
     display: flex;
     flex-direction: column;
-    margin-top: 3vw;
+    margin-top: 10px;
   }
   .log__btn {
     background-color: #2e3541;
@@ -406,7 +476,7 @@
     color: white;
     font-size: 16px;
     padding: 0.7vw;
-    margin-top: 2vw;
+    margin-top: 15px;
     z-index: 2;
   }
   .reset__popup {
@@ -447,5 +517,126 @@
   .success {
     color: green;
     margin-top: 1vw;
+  }
+  /* From Uiverse.io by Bodyhc */
+  .checkbox-wrapper-35 .switch {
+    display: none;
+  }
+
+  .checkbox-wrapper-35 .switch + label {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #78768d;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 20px;
+  }
+
+  .checkbox-wrapper-35 .switch + label::before,
+  .checkbox-wrapper-35 .switch + label::after {
+    content: '';
+    display: block;
+  }
+
+  .checkbox-wrapper-35 .switch + label::before {
+    background-color: #05012c;
+    border-radius: 500px;
+    height: 17px;
+    margin-right: 8px;
+    -webkit-transition: background-color 0.125s ease-out;
+    transition: background-color 0.125s ease-out;
+    width: 35px;
+    border: 1px solid white;
+  }
+
+  .checkbox-wrapper-35 .switch + label::after {
+    background-color: #fff;
+    border-radius: 13px;
+    box-shadow: 0 3px 1px 0 rgba(37, 34, 71, 0.05), 0 2px 2px 0 rgba(37, 34, 71, 0.1),
+      0 3px 3px 0 rgba(37, 34, 71, 0.05);
+    height: 16px;
+    left: 1px;
+    position: absolute;
+    top: 1px;
+    -webkit-transition: -webkit-transform 0.125s ease-out;
+    transition: -webkit-transform 0.125s ease-out;
+    transition: transform 0.125s ease-out;
+    transition: transform 0.125s ease-out, -webkit-transform 0.125s ease-out;
+    width: 16px;
+  }
+
+  .checkbox-wrapper-35 .switch + label .switch-x-text {
+    display: block;
+    margin-right: 7px;
+  }
+
+  .checkbox-wrapper-35 .switch + label .switch-x-toggletext {
+    display: block;
+    font-weight: bold;
+    height: 15px;
+    position: relative;
+    width: auto;
+  }
+
+  .checkbox-wrapper-35 .switch + label .switch-x-unchecked,
+  .checkbox-wrapper-35 .switch + label .switch-x-checked {
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transition: opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+    transition: opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+    transition: transform 0.125s ease-out, opacity 0.125s ease-out;
+    transition: transform 0.125s ease-out, opacity 0.125s ease-out, -webkit-transform 0.125s ease-out;
+  }
+
+  .checkbox-wrapper-35 .switch + label .switch-x-unchecked {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  .checkbox-wrapper-35 .switch + label .switch-x-checked {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  .checkbox-wrapper-35 .switch + label .switch-x-hiddenlabel {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .checkbox-wrapper-35 .switch:checked + label::before {
+    background-color: #34c759;
+  }
+
+  .checkbox-wrapper-35 .switch:checked + label::after {
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+  }
+
+  .checkbox-wrapper-35 .switch:checked + label .switch-x-unchecked {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .checkbox-wrapper-35 .switch:checked + label .switch-x-checked {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
   }
 </style>
