@@ -14,7 +14,7 @@ const routes = [
   {
     path: '/user',
     component: UserPage,
-    meta: { requiresAuth: true, role: ['USER', 'ADMIN', 'SUPERADMIN'] }
+    meta: { requiresAuth: true, role: ['USER', 'ADMIN'] }
   }
 ]
 
@@ -42,7 +42,7 @@ router.beforeEach(async (to, from, next) => {
       next('/')
       return
     } else {
-      if (to.path === '/' && (roles.includes('USER') || roles.includes('ADMIN') || roles.includes('SUPERADMIN'))) {
+      if (to.path === '/' && (roles.includes('USER') || roles.includes('ADMIN'))) {
         next('/user')
         return
       }

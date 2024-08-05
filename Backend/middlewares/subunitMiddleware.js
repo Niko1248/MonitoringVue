@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken"
 import Config from "../config/index.js"
 
-export default function (roles) {
+export default function (subunit) {
   return function (req, res, next) {
     if (req.method === "OPTIONS") {
       next()
@@ -12,16 +12,15 @@ export default function (roles) {
       if (!token) {
         return res.status(403).json({ message: "Пользователь не авторизован" })
       }
-      const { roles: userRoles } = jwt.verify(token, Config.secret)
-      let hasRole = false
-      console.log(roles)
-      console.log(userRoles)
-      userRoles.forEach((role) => {
-        if (roles.includes(role)) {
-          hasRole = true
+      const { subunit: userSubunit } = jwt.verify(token, Config.secret)
+
+      let hasSubunit = false
+      userSubunit.forEach((item) => {
+        if (subunit.includes(item)) {
+          hasSubunit = true
         }
       })
-      if (!hasRole) {
+      if (!hasSubunit) {
         return res.status(403).json({ message: "У вас нет доступа" })
       }
       next()

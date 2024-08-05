@@ -40,8 +40,12 @@ class LogsController {
     try {
       const token = parseToken(req)
       const checkSubunit = translateSubunit(token.subunit[0])
-      if (checkSubunit === "ЦС (СУС)") {
+      if (checkSubunit === "14 ГЦС") {
         const logs = await Logs.find()
+        const formattedLogs = formatDate(logs)
+        return res.json(formattedLogs)
+      } else if (checkSubunit === "ЦС (СУС)") {
+        const logs = await Logs.find({ subunit: { $in: ["ЦС (СУС)", "Колибри", "Брус", "Пеликан", "Унция"] } })
         const formattedLogs = formatDate(logs)
         return res.json(formattedLogs)
       } else {

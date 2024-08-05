@@ -1,116 +1,13 @@
 [{
   "_id": {
-    "$oid": "66531a3d2821a586fbbebf7c"
-  },
-  "pin": "1Колибри",
-  "number": "111",
-  "correspondent": "kol111",
-  "KMU": {
-    "type": "КМУ",
-    "number": "111"
-  },
-  "OMU": {
-    "type": "ОМУ",
-    "number": ""
-  },
-  "subunit": "Колибри",
-  "state": "Статус не определён",
-  "payload": [
-    {
-      "number": "111",
-      "correspondent": "111",
-      "type": "Бобер"
-    }
-  ],
-  "reserveList": [],
-  "note": "1111",
-  "createdAt": {
-    "$date": "2024-05-26T11:17:17.529Z"
-  },
-  "updatedAt": {
-    "$date": "2024-05-26T11:17:17.529Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "66531a4f2821a586fbbebf80"
+    "$oid": "66ae4281adf1ba0be2d277a0"
   },
   "pin": "2Колибри",
-  "number": "222",
-  "correspondent": "kol222",
+  "number": "1Kol",
+  "correspondent": "Тест",
   "KMU": {
     "type": "КМУ",
     "number": "22"
-  },
-  "OMU": {
-    "type": "ОМУ",
-    "number": ""
-  },
-  "subunit": "Колибри",
-  "state": "Авария",
-  "payload": [
-    {
-      "number": "222",
-      "correspondent": "222",
-      "type": "Отец-одиночка"
-    }
-  ],
-  "reserveList": [],
-  "note": "222222222",
-  "createdAt": {
-    "$date": "2024-05-26T11:17:35.100Z"
-  },
-  "updatedAt": {
-    "$date": "2024-06-26T19:16:52.485Z"
-  },
-  "__v": 0,
-  "tract": ""
-},
-{
-  "_id": {
-    "$oid": "66531a612821a586fbbebf84"
-  },
-  "pin": "3Колибри",
-  "number": "333",
-  "correspondent": "kol333",
-  "KMU": {
-    "type": "КМУ",
-    "number": "33"
-  },
-  "OMU": {
-    "type": "ОМУ",
-    "number": ""
-  },
-  "subunit": "Колибри",
-  "state": "Авария",
-  "payload": [
-    {
-      "number": "333",
-      "correspondent": "333",
-      "type": "40 градусов"
-    }
-  ],
-  "reserveList": [],
-  "note": "33333",
-  "createdAt": {
-    "$date": "2024-05-26T11:17:53.704Z"
-  },
-  "updatedAt": {
-    "$date": "2024-06-26T19:16:52.485Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "66531a772821a586fbbebf88"
-  },
-  "pin": "4Колибри",
-  "number": "444",
-  "correspondent": "kol444",
-  "KMU": {
-    "type": "КМУ",
-    "number": "44"
   },
   "OMU": {
     "type": "ОМУ",
@@ -120,63 +17,67 @@
   "state": "В работе",
   "payload": [
     {
-      "number": "444",
-      "correspondent": "444",
-      "type": "Васин ёж"
+      "number": "1234",
+      "correspondent": "4123",
+      "type": "Отец-одиночка"
+    },
+    {
+      "number": "13132",
+      "correspondent": "афыва",
+      "type": "Бобер"
     }
   ],
-  "reserveList": [],
-  "note": "44444",
+  "tracts": [
+    {
+      "tractName": "тест 1",
+      "startNode": "595Б",
+      "tractData": [
+        {
+          "node": "333К",
+          "section": "1134",
+          "line": "321"
+        },
+        {
+          "node": "555П",
+          "section": "41",
+          "line": "1231"
+        }
+      ]
+    },
+    {
+      "tractName": "тест 2",
+      "startNode": "595Б",
+      "tractData": [
+        {
+          "node": "414К",
+          "section": "12",
+          "line": "4234"
+        },
+        {
+          "node": "111А",
+          "section": "1",
+          "line": "3131"
+        }
+      ]
+    }
+  ],
+  "selectedNameTract": "тест 1",
+  "note": "тест",
   "createdAt": {
-    "$date": "2024-05-26T11:18:15.489Z"
+    "$date": "2024-08-03T14:45:21.347Z"
   },
   "updatedAt": {
-    "$date": "2024-05-26T12:14:40.771Z"
+    "$date": "2024-08-03T20:22:35.978Z"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "66531a9f2821a586fbbebf8c"
+    "$oid": "66ae42d6adf1ba0be2d277c6"
   },
-  "pin": "2Пеликан",
-  "number": "222pel",
-  "correspondent": "pel22",
-  "KMU": {
-    "type": "КМУ",
-    "number": "22"
-  },
-  "OMU": {
-    "type": "ОМУ",
-    "number": ""
-  },
-  "subunit": "Пеликан",
-  "state": "Авария",
-  "payload": [
-    {
-      "number": "23",
-      "correspondent": "32",
-      "type": "Васин ёж"
-    }
-  ],
-  "reserveList": [],
-  "note": "132124243243",
-  "createdAt": {
-    "$date": "2024-05-26T11:18:55.349Z"
-  },
-  "updatedAt": {
-    "$date": "2024-06-15T19:22:29.053Z"
-  },
-  "__v": 0,
-  "tract": ""
-},
-{
-  "_id": {
-    "$oid": "66531ab82821a586fbbebf90"
-  },
-  "pin": "3Пеликан",
-  "number": "33pel",
-  "correspondent": "pel333",
+  "pin": "3Колибри",
+  "number": "2Kol",
+  "correspondent": "Ноут",
   "KMU": {
     "type": "КМУ",
     "number": "33"
@@ -185,35 +86,58 @@
     "type": "ОМУ",
     "number": ""
   },
-  "subunit": "Пеликан",
-  "state": "Авария",
+  "subunit": "Колибри",
+  "state": "В работе",
   "payload": [
     {
-      "number": "33",
-      "correspondent": "33",
+      "number": "2131312",
+      "correspondent": "тест",
+      "type": "40 градусов"
+    },
+    {
+      "number": "23231",
+      "correspondent": "тест 2",
       "type": "Комар"
     }
   ],
-  "reserveList": [],
-  "note": "333",
+  "tracts": [
+    {
+      "tractName": "теdsdст 1",
+      "startNode": "595б",
+      "tractData": [
+        {
+          "node": "434а",
+          "section": "34",
+          "line": "ыфва"
+        },
+        {
+          "node": "434К",
+          "section": "22",
+          "line": "433"
+        }
+      ]
+    }
+  ],
+  "selectedNameTract": "тест 1",
+  "note": "Тест 2 кккк",
   "createdAt": {
-    "$date": "2024-05-26T11:19:20.524Z"
+    "$date": "2024-08-03T14:46:46.387Z"
   },
   "updatedAt": {
-    "$date": "2024-06-15T19:22:29.053Z"
+    "$date": "2024-08-04T09:57:29.319Z"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "66531ac62821a586fbbebf94"
+    "$oid": "66ae4360adf1ba0be2d27802"
   },
-  "pin": "4Пеликан",
-  "number": "44pel",
-  "correspondent": "pel444",
+  "pin": "2Пеликан",
+  "number": "1Pel",
+  "correspondent": "Вода",
   "KMU": {
     "type": "КМУ",
-    "number": "44"
+    "number": "222"
   },
   "OMU": {
     "type": "ОМУ",
@@ -223,18 +147,327 @@
   "state": "В работе",
   "payload": [
     {
-      "number": "44",
-      "correspondent": "444",
-      "type": "Бобер"
+      "number": "32423",
+      "correspondent": "ываыва",
+      "type": "Васин ёж"
+    },
+    {
+      "number": "1234",
+      "correspondent": "афвыа",
+      "type": "Отец-одиночка"
     }
   ],
-  "reserveList": [],
-  "note": "444",
+  "tracts": [
+    {
+      "tractName": "dsgf",
+      "startNode": "gfds",
+      "tractData": []
+    },
+    {
+      "tractName": "wer",
+      "startNode": "afds",
+      "tractData": []
+    }
+  ],
+  "selectedNameTract": "asfd",
+  "note": "Пеликан",
   "createdAt": {
-    "$date": "2024-05-26T11:19:34.803Z"
+    "$date": "2024-08-03T14:49:04.342Z"
   },
   "updatedAt": {
-    "$date": "2024-05-26T17:54:12.300Z"
+    "$date": "2024-08-04T09:56:46.675Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae438cadf1ba0be2d27816"
+  },
+  "pin": "3Пеликан",
+  "number": "2Pel",
+  "correspondent": "asdfa",
+  "KMU": {
+    "type": "КМУ",
+    "number": "332"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Пеликан",
+  "state": "В работе",
+  "payload": [
+    {
+      "number": "adfs",
+      "correspondent": "fasdf",
+      "type": "Отец-одиночка"
+    },
+    {
+      "number": "42134",
+      "correspondent": "fadsf",
+      "type": "40 градусов"
+    }
+  ],
+  "tracts": [
+    {
+      "tractName": "ewr",
+      "startNode": "432",
+      "tractData": [
+        {
+          "node": "324",
+          "section": "2",
+          "line": "3244"
+        },
+        {
+          "node": "555",
+          "section": "2",
+          "line": "342"
+        },
+        {
+          "node": "434",
+          "section": "3",
+          "line": "1234"
+        }
+      ]
+    }
+  ],
+  "selectedNameTract": "ewr",
+  "note": "dfasdfsd",
+  "createdAt": {
+    "$date": "2024-08-03T14:49:48.126Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:33:30.584Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae45e9adf1ba0be2d2790e"
+  },
+  "pin": "2Селигер",
+  "number": "1Sel",
+  "correspondent": "sdfsad",
+  "KMU": {
+    "type": "КМУ",
+    "number": "222"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Селигер",
+  "state": "В работе",
+  "payload": [
+    {
+      "number": "dwe123",
+      "correspondent": "asfd",
+      "type": "Лулу"
+    },
+    {
+      "number": "1113",
+      "correspondent": "fdasf",
+      "type": "40 градусов"
+    }
+  ],
+  "tracts": [
+    {
+      "tractName": "323",
+      "startNode": "123",
+      "tractData": [
+        {
+          "node": "444",
+          "section": "312",
+          "line": "312"
+        },
+        {
+          "node": "4312",
+          "section": "2",
+          "line": "2323"
+        }
+      ]
+    }
+  ],
+  "selectedNameTract": "323",
+  "note": "fasdf",
+  "createdAt": {
+    "$date": "2024-08-03T14:59:53.646Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T14:59:53.646Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae4c868b71531c8c88b3e2"
+  },
+  "pin": "3Селигер",
+  "number": "2Sel",
+  "correspondent": "2133",
+  "KMU": {
+    "type": "КМУ",
+    "number": "444"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Селигер",
+  "state": "В работе",
+  "payload": [],
+  "tracts": [
+    {
+      "tractName": "234",
+      "startNode": "e34",
+      "tractData": [
+        {
+          "node": "343",
+          "section": "424",
+          "line": "432"
+        },
+        {
+          "node": "434",
+          "section": "3",
+          "line": "434"
+        }
+      ]
+    }
+  ],
+  "selectedNameTract": "234",
+  "note": "",
+  "createdAt": {
+    "$date": "2024-08-03T15:28:06.252Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T15:28:06.252Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6426f1363720b98f1bd9"
+  },
+  "pin": "4Пеликан",
+  "number": "3pel",
+  "correspondent": "fsda",
+  "KMU": {
+    "type": "КМУ",
+    "number": ""
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": "321"
+  },
+  "subunit": "Пеликан",
+  "state": "В работе",
+  "payload": [],
+  "tracts": [],
+  "selectedNameTract": "",
+  "note": "",
+  "createdAt": {
+    "$date": "2024-08-03T17:08:54.493Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T20:31:00.244Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae65002e63ea0b80677adb"
+  },
+  "pin": "8Пеликан",
+  "number": "82134",
+  "correspondent": "fasd",
+  "KMU": {
+    "type": "КМУ",
+    "number": "351"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Пеликан",
+  "state": "В работе",
+  "payload": [
+    {
+      "number": "111",
+      "correspondent": "sdfav",
+      "type": "Лулу"
+    },
+    {
+      "number": "323",
+      "correspondent": "sdfafsd",
+      "type": "40 градусов"
+    }
+  ],
+  "tracts": [
+    {
+      "tractName": "dsaf",
+      "startNode": "334",
+      "tractData": [
+        {
+          "node": "423",
+          "section": "3",
+          "line": "fasd"
+        }
+      ]
+    }
+  ],
+  "selectedNameTract": "dsaf",
+  "note": "dfsad",
+  "createdAt": {
+    "$date": "2024-08-03T17:12:32.725Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:34:27.708Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6d3c078b0653cc2498a6"
+  },
+  "pin": "12Пеликан",
+  "number": "312",
+  "correspondent": "фаф",
+  "KMU": {
+    "type": "КМУ",
+    "number": "32423"
+  },
+  "OMU": {
+    "type": "ОМУ",
+    "number": ""
+  },
+  "subunit": "Пеликан",
+  "state": "В работе",
+  "payload": [],
+  "tracts": [
+    {
+      "tractName": "4321",
+      "startNode": "323",
+      "tractData": [
+        {
+          "node": "421",
+          "section": "2",
+          "line": "123"
+        },
+        {
+          "node": "23",
+          "section": "цку",
+          "line": "цйку"
+        }
+      ]
+    }
+  ],
+  "selectedNameTract": "4321",
+  "note": "",
+  "createdAt": {
+    "$date": "2024-08-03T17:47:40.880Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:48:15.256Z"
   },
   "__v": 0
 }]

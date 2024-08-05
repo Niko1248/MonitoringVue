@@ -107,7 +107,7 @@
           //Event по работе с Ардуино...состояние пинов + статус ардуино
           const data = JSON.parse(event.data)
           if (data.arduinoStateListFlag) {
-            //это обрабатывает все данные с ардуино, только для Superadmin (На бэке для суперадмина вешается флаг arduinoStateListFlag)
+            //это обрабатывает все данные с ардуино, только для Superadmin (На бэке для админа вешается флаг arduinoStateListFlag)
             let index = this.arduinoStateList.findIndex((el) => el.subunit === data.subunit)
             if (index === -1) {
               this.arduinoStateList.push(data)
@@ -115,7 +115,7 @@
               this.arduinoStateList[index] = data
             }
           } else {
-            //Если не Superadmin то бэк отправляет только данные по этому пользователю (events/index.js)
+            //Если не admin то бэк отправляет только данные по этому пользователю (events/index.js)
             if (data.message === 'Соединение с Ардуино активно.' && data.subunit === this.$store.state.subunitRu) {
               this.$store.commit('enableArduino') //Меняю картинку состояния ардуино на активную
             } else if (

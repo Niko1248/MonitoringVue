@@ -48,10 +48,10 @@
             @click="resetFilters">
             Сбросить фильтры
           </div>
-          <!-- Удаление лога только для суперадмина -->
+          <!-- Удаление лога только для админа -->
           <div
             class="log__btn"
-            v-if="this.$store.state.roles === 'SUPERADMIN'"
+            v-if="this.$store.state.roles === 'ADMIN'"
             @click="toggleResetLogPopup">
             Удалить лог
           </div>

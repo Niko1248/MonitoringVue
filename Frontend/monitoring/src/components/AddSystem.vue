@@ -43,7 +43,7 @@
 
             <select
               v-model="newSystem.subunit"
-              v-if="this.$store.state.subunit === 'cskp'">
+              v-if="this.$store.state.subunit === 'cskp' || this.$store.state.subunit === 'gcs'">
               <option
                 value=""
                 disabled
@@ -52,9 +52,9 @@
                 Подразделение
               </option>
               <option
-                v-for="(subunit, index) in this.$store.state.subunitList.slice(1)"
+                v-for="(subunit, index) in this.$store.state.subunitList.slice(2)"
                 :key="index"
-                :value="Object.values(subunit)[0]">
+                :value="Object.keys(subunit)[0]">
                 {{ Object.values(subunit)[0] }}
               </option>
             </select>
@@ -130,19 +130,17 @@
           </p>
         </div>
         <div class="form__right">
-          <img
-            src="../assets/img/settings/Kolibri2.png"
-            width="80%"
-            alt="Лого" />
           <h2>Линейный тракт</h2>
           <div class="select__tract">
             <select
+              v-model="newSystem.selectedNameTract"
               name=""
               id="">
               <option
-                v-for="item in newSystem.tracts"
-                :value="Object.keys(item)[0]">
-                {{ Object.keys(item)[0] }}
+                v-for="(item, index) in newSystem.tracts"
+                :key="'name' + index"
+                :value="item.tractName">
+                {{ item.tractName }}
               </option>
             </select>
             <img
@@ -152,6 +150,29 @@
               height="20px"
               style="cursor: pointer"
               alt="add" />
+            <img
+              v-if="newSystem.selectedNameTract !== ''"
+              class="remove__ico"
+              src="../components/ico/trash_bin_icon-icons.com_67981.svg"
+              @click="removeTract" />
+            <div
+              class="tract__wrapper"
+              v-if="selectedTract">
+              <div class="node">
+                {{ selectedTract.startNode }}
+              </div>
+              <div
+                class="tract__item"
+                v-for="(item, index) in selectedTract.tractData"
+                :key="index">
+                <div class="line">
+                  <div class="line__name">{{ item.line }}</div>
+                  <div class="line__middle"></div>
+                  <div class="line__section">{{ item.section }}</div>
+                </div>
+                <div class="node">{{ item.node }}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -181,7 +202,7 @@
           pin: '',
           number: '',
           correspondent: '',
-          tracts: [],
+
           KMU: {
             type: 'КМУ',
             number: ''
@@ -191,9 +212,14 @@
             number: ''
           },
           payload: [],
+          selectedNameTract: '',
+          tracts: [],
           note: '',
           state: 'В работе',
-          subunit: this.$store.state.subunit === 'cskp' ? '' : String(this.$store.state.subunit)
+          subunit:
+            this.$store.state.subunit === 'cskp' || this.$store.state.subunit === 'gcs'
+              ? ''
+              : String(this.$store.state.subunit)
         },
         payload_obj: {
           number: '',
@@ -234,6 +260,15 @@
       addObjTract(objTract) {
         this.newSystem.tracts.push(objTract)
       },
+      removeTract() {
+        const tractIndex = this.newSystem.tracts.findIndex(
+          (tract) => tract.tractName === this.newSystem.selectedNameTract
+        )
+        if (tractIndex !== -1) {
+          this.newSystem.tracts.splice(tractIndex, 1)
+          this.newSystem.selectedNameTract = this.newSystem.tracts.length ? this.newSystem.tracts[0].tractName : ''
+        }
+      },
       offInput(inputType) {
         if (inputType == 'KMU') {
           this.omuInput = false
@@ -243,11 +278,40 @@
           this.newSystem.KMU.number = ''
         }
       },
+      resetForm() {
+        ;(this.newSystem = {
+          pin: '',
+          number: '',
+          correspondent: '',
+          KMU: {
+            type: 'КМУ',
+            number: ''
+          },
+          OMU: {
+            type: 'ОМУ',
+            number: ''
+          },
+          payload: [],
+          tracts: [],
+          selectedNameTract: '',
+          note: '',
+          state: 'В работе',
+          subunit:
+            this.$store.state.subunit === 'cskp' || this.$store.state.subunit === 'gcs'
+              ? ''
+              : String(this.$store.state.subunit)
+        }),
+          (this.payload_obj = {
+            number: '',
+            correspondent: '',
+            type: ''
+          })
+        console.log(this.newSystem.tracts)
+      },
       async addSystem() {
         this.error = ''
         this.success = ''
         try {
-          this.newSystem.pin = this.newSystem.pin + this.newSystem.subunit
           const response = await axios.post(`${Config.SERVER_URL}/api/systems/addSystem`, this.newSystem, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -258,28 +322,7 @@
             type: 'Info',
             message: `СП ${this.newSystem.number} успешно добавлена`
           })
-          ;(this.newSystem = {
-            pin: '',
-            number: '',
-            correspondent: '',
-            KMU: {
-              type: 'КМУ',
-              number: ''
-            },
-            OMU: {
-              type: 'ОМУ',
-              number: ''
-            },
-            payload: [],
-            note: '',
-            state: 'В работе',
-            subunit: this.$store.state.subunit === 'cskp' ? '' : String(this.$store.state.subunit)
-          }),
-            (this.payload_obj = {
-              number: '',
-              correspondent: '',
-              type: ''
-            })
+          this.resetForm()
           this.success = response.data.message
         } catch (e) {
           this.error = e.response.data.message
@@ -296,15 +339,23 @@
         required: false
       }
     },
+    mounted() {
+      this.resetForm()
+    },
     watch: {
       objTract: {
-        immediate: true,
         handler(obj) {
           if (obj) {
             this.addObjTract(obj)
-            console.log(this.newSystem)
+            this.newSystem.selectedNameTract = obj.tractName
           }
         }
+      }
+    },
+    computed: {
+      selectedTract() {
+        const tract = this.newSystem.tracts.find((tract) => tract.tractName === this.newSystem.selectedNameTract)
+        return tract || null
       }
     }
   }
@@ -340,6 +391,7 @@
     max-width: 96%;
     height: 96%;
     justify-content: space-between;
+    align-items: center;
   }
   .form-left {
     max-width: 63%;
@@ -352,6 +404,7 @@
     flex-direction: column;
     align-items: center;
     padding-right: 1vw;
+    width: 32%;
   }
   h1,
   h2 {
@@ -424,6 +477,9 @@
     padding: 0.6vw 0.6vw 0.6vw 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+  .select__tract {
+    width: 90%;
   }
   .ico {
     width: 20px;
@@ -573,5 +629,58 @@
     transition: 0.2s ease;
     filter: drop-shadow(0px 0px 20px #000);
     transform: scale(0.7) translate(-20vw, 10vw);
+  }
+  .tract__wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .tract__item {
+    display: flex;
+    align-items: center;
+  }
+  .node {
+    border-radius: 50%;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .line {
+    display: flex;
+    flex-direction: column;
+  }
+  .line__name,
+  .line__section {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+  }
+  .line__middle {
+    width: 50px;
+    height: 1px;
+    margin: 2px 0px 3px;
+    background: #fff;
+  }
+  .remove__ico {
+    width: 1.5vw;
+    margin-left: 15px;
+    transition: 0.2s;
+    cursor: pointer;
+    &:hover {
+      filter: drop-shadow(0 0 10px #fff);
+      stroke: #fff;
+      transition: 0.2s;
+    }
+
+    &:active {
+      filter: drop-shadow(0 0 10px #000);
+      stroke: #fff;
+      transition: 0.2s;
+    }
   }
 </style>

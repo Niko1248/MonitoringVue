@@ -25,9 +25,9 @@ function sendErrorToClients(message, subunit, arduinoURL) {
   const comboData = { message, subunit, arduinoURL }
   const comboDataAdmin = { message, subunit, arduinoURL, arduinoStateListFlag: true }
   clients.forEach((client) => {
-    if (client.reqParams.username === subunit && client.reqParams.roles !== "SUPERADMIN") {
+    if (client.reqParams.username === subunit && client.reqParams.roles !== "ADMIN") {
       client.res.write(`data: ${JSON.stringify(comboData)}\n\n`)
-    } else if (client.reqParams.roles === "SUPERADMIN") {
+    } else if (client.reqParams.roles === "ADMIN") {
       client.res.write(`data: ${JSON.stringify(comboDataAdmin)}\n\n`)
     }
   })
@@ -37,9 +37,9 @@ function sendSuccessToClients(message, subunit, arduinoURL) {
   const comboData = { message, subunit, arduinoURL }
   const comboDataAdmin = { message, subunit, arduinoURL, arduinoStateListFlag: true }
   clients.forEach((client) => {
-    if (client.reqParams.username === subunit && client.reqParams.roles !== "SUPERADMIN") {
+    if (client.reqParams.username === subunit && client.reqParams.roles !== "ADMIN") {
       client.res.write(`data: ${JSON.stringify(comboData)}\n\n`)
-    } else if (client.reqParams.roles === "SUPERADMIN") {
+    } else if (client.reqParams.roles === "ADMIN") {
       client.res.write(`data: ${JSON.stringify(comboDataAdmin)}\n\n`)
     }
   })
@@ -47,7 +47,7 @@ function sendSuccessToClients(message, subunit, arduinoURL) {
 function sendArduinoStatusToClients(message, subunit, arduinoURL) {
   const comboData = { message, subunit, arduinoURL, arduinoStateListFlag: true }
   clients.forEach((client) => {
-    if (client.reqParams.roles === "SUPERADMIN") {
+    if (client.reqParams.roles === "ADMIN") {
       client.res.write(`data: ${JSON.stringify(comboData)}\n\n`)
     }
   })

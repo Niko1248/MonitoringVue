@@ -32,14 +32,24 @@
         <EditSystem
           class="popup"
           :system-data="systemData"
+          :tractToEditSystem="tractToEditSystem"
+          @send-selectTract="editSelectTract"
           v-if="this.$store.state.popups.popupEditSP" />
       </transition-group>
 
       <transition-group name="add-XY">
         <AddTract
           @send-tract="addTractObject"
+          @send-tract-edit="addTractToEditSystem"
           class="popup"
           v-if="this.$store.state.popups.popupAddTract" />
+      </transition-group>
+
+      <transition-group name="add-XY">
+        <EditTract
+          class="popup"
+          :selectTract="selectTract"
+          v-if="this.$store.state.popups.popupEditTract" />
       </transition-group>
 
       <transition-group name="add">
@@ -80,12 +90,15 @@
   import EditSystem from './EditSystem.vue'
   import ArduinoMenu from './ArduinoMenu.vue'
   import ActiveUsers from './ActiveUsers.vue'
+  import EditTract from './EditTract.vue'
 
   export default {
     data() {
       return {
         systemData: {},
-        objTract: undefined
+        objTract: undefined,
+        selectTract: undefined,
+        tractToEditSystem: undefined
       }
     },
     components: {
@@ -97,7 +110,8 @@
       AddTract,
       EditSystem,
       ArduinoMenu,
-      ActiveUsers
+      ActiveUsers,
+      EditTract
     },
     props: {
       systems: {
@@ -117,9 +131,11 @@
       }
     },
     methods: {
+      editSelectTract(data) {
+        this.selectTract = data
+      },
       addTractObject(obj) {
         this.objTract = obj
-        console.log(this.objTract)
       },
       onWheel(e) {
         if (!this.isPopupOpen) {
@@ -133,6 +149,10 @@
       },
       receiveDataFromItem(data) {
         this.systemData = data
+      },
+      addTractToEditSystem(data) {
+        console.log(data)
+        this.tractToEditSystem = data
       }
     }
   }

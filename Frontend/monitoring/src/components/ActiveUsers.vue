@@ -41,7 +41,7 @@
 
 <script>
   import axios from 'axios'
-  import { formatDistanceToNow } from 'date-fns'
+  import { formatDistanceToNow, nextDay } from 'date-fns'
   import { ru } from 'date-fns/locale'
   import Config from '../../config'
   import translateSubunit from '../utils/translateSubunit.js'
@@ -69,7 +69,9 @@
         this.$store.commit('closePopupActiveUsers')
       },
       formatLastActive(lastActive) {
-        if (lastActive !== '') {
+        if (!lastActive) {
+          return 'Пользователь еще не был активен'
+        } else {
           return formatDistanceToNow(lastActive, { addSuffix: true, locale: ru })
         }
       }

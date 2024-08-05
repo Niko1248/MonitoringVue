@@ -11,7 +11,7 @@
       </div>
       <div class="Sp__wrapper-header">
         <h1 class="systemNumber">{{ systemData.systemNumber }}</h1>
-        <h1 class="systemCorrespondent">Колибри - {{ systemData.systemCorrespondent }}</h1>
+        <h1 class="systemCorrespondent">{{ systemData.systemSubunit }} - {{ systemData.systemCorrespondent }}</h1>
         <p
           class="systemState"
           :style="{
@@ -24,9 +24,7 @@
           }">
           {{ systemData.systemState }}
         </p>
-        <div
-          class="remove_wrapper"
-          v-if="this.$store.state.roles !== 'USER'">
+        <div class="remove_wrapper">
           <img
             class="remove__ico"
             src="../components/ico/trash_bin_icon-icons.com_67981.svg"
@@ -47,9 +45,7 @@
             </div>
           </transition>
         </div>
-        <div
-          class="remove_wrapper"
-          v-if="this.$store.state.roles !== 'USER'">
+        <div class="remove_wrapper">
           <img
             class="edit__ico"
             src="../components/ico/edit.svg"
@@ -65,6 +61,7 @@
             <div class="item__wrapper">
               <img
                 v-if="payload.type"
+                :title="payload.type"
                 :src="viewIco(payload.type)"
                 alt=""
                 class="ico" />
@@ -80,8 +77,37 @@
             v-model="systemInfo.note">
           </textarea>
         </div>
-        <div class="Sp__tract">
-          <select></select>
+        <div class="select__tract">
+          <select
+            v-model="systemInfo.activeTract"
+            name=""
+            @change="test"
+            id="">
+            <option
+              v-for="(item, index) in systemInfo.tracts"
+              :key="index"
+              :value="item.tractName">
+              {{ item.tractName }}
+            </option>
+          </select>
+          <div
+            class="tract__wrapper"
+            v-if="selectedTract">
+            <div class="node">
+              {{ selectedTract.startNode }}
+            </div>
+            <div
+              class="tract__item"
+              v-for="(item, index) in selectedTract.tractData"
+              :key="index">
+              <div class="line">
+                <div class="line__name">{{ item.line }}</div>
+                <div class="line__middle"></div>
+                <div class="line__section">{{ item.section }}</div>
+              </div>
+              <div class="node">{{ item.node }}</div>
+            </div>
+          </div>
         </div>
       </div>
       <p
@@ -113,7 +139,8 @@
         isRemove: false,
         systemInfo: {
           note: this.systemData.systemNote,
-          tract: '',
+          tracts: this.systemData.systemReserve,
+          activeTract: this.systemData.systemActiveTract,
           _id: this.systemData.systemID
         },
         error: '',
@@ -139,14 +166,16 @@
         this.error = ''
         this.success = ''
         try {
-          await axios.put(`${Config.SERVER_URL}/api/systems/editSystemInfo`, this.systemInfo, {
+          const response = await axios.put(`${Config.SERVER_URL}/api/systems/editSystemInfo`, this.systemInfo, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }
           })
-          this.$store.commit('updateSystemNote', {
-            _id: this.systemInfo._id,
-            value: this.systemInfo.note
+
+          this.$store.commit('updateSystemInfo', {
+            _id: response.data._id,
+            note: response.data.note,
+            activeTract: response.data.selectedNameTract
           })
           this.$store.dispatch('sendLog', {
             type: 'Info',
@@ -174,6 +203,16 @@
         } catch (e) {
           console.log(e)
         }
+      }
+    },
+    computed: {
+      selectedTract() {
+        return this.systemInfo.tracts.find((tract) => tract.tractName === this.systemInfo.activeTract)
+      }
+    },
+    mounted() {
+      if (!this.selectedTract) {
+        this.systemInfo.activeTract = this.systemInfo.tracts.length ? this.systemInfo.tracts[0].tractName : ''
       }
     },
     props: {
@@ -484,5 +523,41 @@
   }
   .success {
     color: green;
+  }
+  .tract__wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .tract__item {
+    display: flex;
+    align-items: center;
+  }
+  .node {
+    border-radius: 50%;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .line {
+    display: flex;
+    flex-direction: column;
+  }
+  .line__name,
+  .line__section {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+  }
+  .line__middle {
+    width: 50px;
+    height: 1px;
+    margin: 2px 0px 3px;
+    background: #fff;
   }
 </style>

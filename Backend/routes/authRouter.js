@@ -2,9 +2,10 @@ import { Router } from "express"
 import { check } from "express-validator"
 import AuthController from "../controllers/AuthController.js"
 import roleMiddleware from "../middlewares/roleMiddleware.js"
+import subunitMiddleware from "../middlewares/subunitMiddleware.js"
 
 const authRouter = new Router()
-authRouter.get("/activeUsers", roleMiddleware(["ADMIN", "SUPERADMIN"]), AuthController.getActiveUsers)
+authRouter.get("/activeUsers", subunitMiddleware(["gcs", "cskp"]), AuthController.getActiveUsers)
 authRouter.post(
   "/registration",
   [
@@ -12,7 +13,7 @@ authRouter.post(
     check("password", "Пароль должен быть больше 4 и меньше 10 символов").trim().isLength({ min: 4, max: 10 }),
     check("roles", "Не выбрана роль").notEmpty(),
     check("subunit", "Не выбрано подразделение").notEmpty(),
-    roleMiddleware(["ADMIN", "SUPERADMIN"]),
+    roleMiddleware(["ADMIN"]),
   ],
   AuthController.registration
 )

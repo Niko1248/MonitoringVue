@@ -1,29 +1,16 @@
 <template lang="html">
   <div class="auth">
     <!-- Этот попап только для суперадмина, отслеживает все ардуины -->
-    <!-- <div
-      class=""
-      v-if="this.$store.state.subunit === 'cskp'">
-      <img
-        src="../assets/img/settings/arduino-on.jpg"
-        class="arduino"
-        @click="showPopupArduinoState" />
-    </div>
     <img
       src="../assets/img/settings/arduino-on.jpg"
-      v-else-if="this.$store.state.arduino && this.$store.state.subunit != 'cskp'"
+      v-if="this.$store.state.arduino && ['cskp', 'gcs'].indexOf(this.$store.state.subunit) === -1"
       class="arduino"
       :title="'Соединение активно.'" />
     <img
       src="../assets/img/settings/arduino-off.png"
-      v-else
+      v-else-if="!this.$store.state.arduino && ['cskp', 'gcs'].indexOf(this.$store.state.subunit) === -1"
       class="arduino"
       :title="'Соединение отсутствует.'" />
-    <img
-      src="../assets/userList.png"
-      class="userList"
-      alt="Пользователи"
-      @click="showPopupActiveUsers" /> -->
     <div
       class="auth__ico"
       @click="showAuthItems">

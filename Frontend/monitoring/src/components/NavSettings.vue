@@ -33,9 +33,7 @@
             >Неисправные</label
           >
         </div>
-        <div
-          @click="showPopupAddSP"
-          v-if="this.$store.state.roles !== 'USER'">
+        <div @click="showPopupAddSP">
           <p
             class="plus__ico"
             style="transform: translateX(-5px); cursor: pointer">
@@ -47,7 +45,7 @@
             Добавить СП
           </p>
         </div>
-        <div v-if="this.$store.state.roles !== 'USER'">
+        <div v-if="this.$store.state.roles === 'ADMIN'">
           <img
             src="./../assets/img/nav/nodes.png"
             alt="nodes-ico"
@@ -59,7 +57,7 @@
             Узлы сети
           </p>
         </div>
-        <div v-if="this.$store.state.roles !== 'USER'">
+        <div v-if="this.$store.state.subunit === 'gcs' || this.$store.state.subunit === 'cskp'">
           <img
             src="./../assets/img/nav/users.png"
             alt="nodes-ico"

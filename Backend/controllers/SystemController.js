@@ -43,6 +43,10 @@ class SystemController {
 
   async update(req, res) {
     try {
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ message: errors.errors[0].msg, errors })
+      }
       const updatedSystem = await SystemService.update(req.body)
       return res.json(updatedSystem)
     } catch (e) {

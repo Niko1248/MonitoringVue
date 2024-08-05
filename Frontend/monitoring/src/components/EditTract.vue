@@ -4,7 +4,7 @@
       <div class="addTract popup">
         <div
           class="close"
-          @click="showAddTract">
+          @click="showEditTract">
           <img
             src="./../assets/img/nav/close.svg"
             alt="закрыть"
@@ -14,13 +14,13 @@
         <input
           type="text"
           placeholder="Введите название тракта"
-          v-model="sendData.tractName"
+          v-model="selectTract.tractName"
           class="tract__name" />
         <div class="content__wrapper">
           <div class="node">
             <input
               type="text"
-              v-model="sendData.startNode" />
+              v-model="selectTract.startNode" />
           </div>
           <transition-group name="add">
             <div
@@ -30,19 +30,19 @@
                 <div class="line__name">
                   <input
                     type="text"
-                    v-model="sendData.tractData[index].line" />
+                    v-model="selectTract.tractData[index].line" />
                 </div>
                 <div class="line__middle"></div>
                 <div class="line__section">
                   <input
                     type="text"
-                    v-model="sendData.tractData[index].section" />
+                    v-model="selectTract.tractData[index].section" />
                 </div>
               </div>
               <div class="node">
                 <input
                   type="text"
-                  v-model="sendData.tractData[index].node" />
+                  v-model="selectTract.tractData[index].node" />
                 <div
                   class="removeBtn"
                   @click="removeItem(index)">
@@ -57,16 +57,12 @@
           <img
             src="../assets/plus.svg"
             @click="addItem"
+            v-if="plus"
             width="20px"
             height="20px"
             style="cursor: pointer; margin: 0px 10px; transition: 0.2s easy"
             alt="add" />
         </div>
-        <p
-          class="success"
-          v-if="success">
-          {{ success }}
-        </p>
         <p
           class="error"
           v-if="error">
@@ -87,10 +83,10 @@
   export default {
     data() {
       return {
+        plus: true,
         checkTract: false,
         error: '',
-        success: '',
-        nodeLength: 0,
+        nodeLength: this.selectTract.tractData.length,
         sendData: {
           tractName: '',
           startNode: '',
@@ -99,56 +95,43 @@
       }
     },
     methods: {
-      showAddTract() {
-        if (this.$store.state.popups.popupAddTract === true) this.$store.commit('showPopupAddTract')
+      showEditTract() {
+        if (this.$store.state.popups.popupEditTract === true) this.$store.commit('showPopupEditTract')
         document.querySelector('.Sp__wrapper').classList.remove('Sp__wrapper--close')
       },
       addItem() {
-        this.sendData.tractData[this.nodeLength] = { node: '', section: '', line: '' }
+        this.selectTract.tractData[this.nodeLength] = { node: '', section: '', line: '' }
         this.nodeLength++
       },
       removeItem(index) {
-        this.sendData.tractData.splice(index, 1)
+        this.selectTract.tractData.splice(index, 1)
         this.nodeLength--
       },
-      checkTractFunc(sendData) {
+      checkTractFunc(selectTract) {
         this.checkTract = false
-        this.success = ''
-        this.error = ''
-        if (sendData.tractName === '' || sendData.startNode === '') {
+        if (selectTract.tractName === '' || selectTract.startNode === '') {
           this.error = 'Заполните все поля'
           return
         }
         outerLoop: {
-          for (let element of sendData.tractData) {
+          for (let element of selectTract.tractData) {
             if (element.node === '' || element.line === '' || element.section === '') {
               this.error = 'Заполните все поля'
               break outerLoop
             }
           }
           this.checkTract = true
-          this.success = 'Сохранено'
+          this.error = ''
+          this.showEditTract()
         }
       },
       parseData() {
-        this.checkTractFunc(this.sendData)
-        if (this.checkTract) {
-          this.emitEvent()
-          this.nodeLength = 0
-          this.sendData = {
-            tractName: '',
-            startNode: '',
-            tractData: []
-          }
-        }
-      },
-      emitEvent() {
-        if (this.$store.state.popups.popupAddSP) {
-          this.$emit('send-tract', this.sendData)
-        } else if (this.$store.state.popups.popupEditSP) {
-          console.log('send-tract-edit send')
-          this.$emit('send-tract-edit', this.sendData)
-        }
+        this.checkTractFunc(this.selectTract)
+      }
+    },
+    props: {
+      selectTract: {
+        type: Object
       }
     }
   }
@@ -318,9 +301,6 @@
   }
   .error {
     color: red;
-  }
-  .success {
-    color: green;
   }
   .save {
     background: #053429;

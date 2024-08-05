@@ -21,7 +21,6 @@
         <div>{{ system.OMU.type }}</div>
         <div class="KMU">{{ system.OMU.number }}</div>
       </div>
-      <div class="traces">{{ system.tract }}</div>
     </div>
   </div>
 </template>
@@ -76,7 +75,8 @@
           systemSubunit: this.system.subunit,
           systemKMU: this.system.KMU,
           systemOMU: this.system.OMU,
-          systemTraces: this.system.tract,
+          systemReserve: this.system.tracts,
+          systemActiveTract: this.system.selectedNameTract,
           systemState: this.system.state,
           systemID: this.system._id,
           systemNote: this.system.note,

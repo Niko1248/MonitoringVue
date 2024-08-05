@@ -1,11 +1,6 @@
 import axios from "axios"
 import { compareState } from "../utils/compareState.js"
-import {
-  sendStatesToClients,
-  sendErrorToClients,
-  sendSuccessToClients,
-  sendArduinoStatusToClients,
-} from "../events/index.js"
+import { sendStatesToClients, sendErrorToClients, sendSuccessToClients } from "../events/index.js"
 import System from "../schemas/System.js"
 
 const arduinoList = {}
@@ -20,10 +15,6 @@ async function readPinInfo(arduino) {
   }
   try {
     const response = await axios.get(`${arduinoURL}/readPinInfo`)
-    // if (!arduinoList[arduinoSubunit]) {
-    //   arduinoList[arduinoSubunit] = true
-    //   sendArduinoStatusToClients("Соединение с Ардуино активно.", arduinoSubunit[0], arduinoURL[0])
-    // }
     sendSuccessToClients("Соединение с Ардуино активно.", arduinoSubunit[0], arduinoURL[0])
 
     let stateSystems = response.data
@@ -53,17 +44,12 @@ async function readPinInfo(arduino) {
     }
   } catch (e) {
     if (e.code === "ETIMEDOUT") {
-      // if (arduinoList[arduinoSubunit]) {
-      //   arduinoList[arduinoSubunit] = false
-      //   sendArduinoStatusToClients(`Соединение с Ардуино отсутствует.`, arduinoSubunit[0], arduinoURL[0])
-      // }
       sendErrorToClients(`Соединение с Ардуино отсутствует.`, arduinoSubunit[0], arduinoURL[0])
       console.log(`Соединение с Ардуино по IP-адресу ${e.address}:${e.port} отсутствует.`)
     } else {
       console.log(e)
     }
   }
-  // console.log(arduinoList)
 }
 
 export { readPinInfo, arduinoList }

@@ -28,6 +28,7 @@ export default createStore({
       popupPayload: false,
       popupLog: false,
       popupAddTract: false,
+      popupEditTract: false,
       popupArduinoState: false,
       popupActiveUsers: false
     },
@@ -50,7 +51,7 @@ export default createStore({
       state.systems = []
     },
     updateSystem(state, value) {
-      const systemIndex = state.systems.findIndex((system) => system._id === value._id)
+      const systemIndex = state.systems.findIndex((system) => system.pin === value.pin)
       if (systemIndex !== -1) {
         state.systems.splice(systemIndex, 1, value)
       }
@@ -61,10 +62,11 @@ export default createStore({
         state.systems[systemIndex].state = newState
       }
     },
-    updateSystemNote(state, { _id, value }) {
+    updateSystemInfo(state, { _id, note, activeTract }) {
       const systemIndex = state.systems.findIndex((system) => system._id === _id)
       if (systemIndex !== -1) {
-        state.systems[systemIndex].note = value
+        state.systems[systemIndex].note = note
+        state.systems[systemIndex].selectedNameTract = activeTract
       }
     },
     // Лог
@@ -118,6 +120,9 @@ export default createStore({
     },
     showPopupAddTract(state) {
       state.popups.popupAddTract = !state.popups.popupAddTract
+    },
+    showPopupEditTract(state) {
+      state.popups.popupEditTract = !state.popups.popupEditTract
     },
     PopupPayload(state) {
       state.popups.popupAddTract = !state.popups.popupAddTract

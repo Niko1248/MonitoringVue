@@ -43,16 +43,15 @@
 
             <select
               v-model="editSystem.subunit"
-              v-if="this.$store.state.subunit === 'cskp'">
+              v-if="this.$store.state.subunit === 'cskp' || this.$store.state.subunit === 'gcs'">
               <option
                 value=""
                 disabled
-                selected
                 hidden>
                 Подразделение
               </option>
               <option
-                v-for="(subunit, index) in this.$store.state.subunitList"
+                v-for="(subunit, index) in this.$store.state.subunitList.slice(2)"
                 :key="index"
                 :value="Object.keys(subunit)[0]">
                 {{ Object.values(subunit)[0] }}
@@ -95,7 +94,7 @@
               alt="" />
           </div>
           <div class="payload__list">
-            <p v-if="editSystem.payload.length == 0">Добавить нагрузку</p>
+            <p v-if="payloadArr.length == 0">Добавить нагрузку</p>
             <div
               v-else
               v-for="(payload__item, index) in payloadArr"
@@ -130,16 +129,18 @@
           </p>
         </div>
         <div class="form__right">
-          <img
-            src="../assets/img/settings/Kolibri2.png"
-            width="80%"
-            alt="Лого" />
           <h2>Линейный тракт</h2>
           <div class="select__tract">
             <select
+              v-model="editSystem.activeTract"
               name=""
               id="">
-              <option value="">Основной линейный тракт</option>
+              <option
+                v-for="(item, index) in editSystem.tracts"
+                :key="index"
+                :value="item.tractName">
+                {{ item.tractName }}
+              </option>
             </select>
             <img
               src="../assets/plus.svg"
@@ -148,6 +149,36 @@
               height="20px"
               style="cursor: pointer"
               alt="add" />
+            <img
+              src="../components/ico/edit.svg"
+              @click="showEditTract"
+              width="20px"
+              height="20px"
+              style="cursor: pointer"
+              alt="edit" />
+            <img
+              v-if="editSystem.activeTract !== ''"
+              class="remove__ico"
+              src="../components/ico/trash_bin_icon-icons.com_67981.svg"
+              @click="removeTract" />
+            <div
+              class="tract__wrapper"
+              v-if="selectedTract">
+              <div class="node">
+                {{ selectedTract.startNode }}
+              </div>
+              <div
+                class="tract__item"
+                v-for="(item, index) in selectedTract.tractData"
+                :key="index">
+                <div class="line">
+                  <div class="line__name">{{ item.line }}</div>
+                  <div class="line__middle"></div>
+                  <div class="line__section">{{ item.section }}</div>
+                </div>
+                <div class="node">{{ item.node }}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -185,8 +216,13 @@
           OMU: this.systemData.systemOMU,
           payload: this.systemData.systemPayload,
           note: this.systemData.systemNote,
-          state: 'Статус не определён',
-          subunit: this.$store.state.subunit === 'cskp' ? '' : String(this.$store.state.subunit)
+          tracts: this.systemData.systemReserve,
+          activeTract: this.systemData.systemActiveTract,
+          state: 'В работе',
+          subunit:
+            this.$store.state.subunit === 'cskp' || this.$store.state.subunit === 'gcs'
+              ? ''
+              : String(this.$store.state.subunit)
         },
         payload_obj: {
           number: '',
@@ -200,13 +236,16 @@
       showPopupEditSp() {
         this.$store.commit('showPopupEditSp')
       },
+      showEditTract() {
+        if (!this.$store.state.popups.popupEditTract === true) this.$store.commit('showPopupEditTract')
+        document.querySelector('.Sp__wrapper').classList.add('Sp__wrapper--close')
+        this.$emit('send-selectTract', this.selectedTract)
+      },
       showAddTract() {
         if (!this.$store.state.popups.popupAddTract === true) this.$store.commit('showPopupAddTract')
         document.querySelector('.Sp__wrapper').classList.add('Sp__wrapper--close')
       },
       removePayload(index) {
-        console.log(this.editSystem.payload)
-        console.log(index)
         this.payloadArr.splice(index, 1)
       },
       addPayload() {
@@ -235,49 +274,81 @@
           this.newKMU.number = ''
         }
       },
+      removeTract() {
+        const tractIndex = this.editSystem.tracts.findIndex((tract) => tract.tractName === this.editSystem.activeTract)
+        console.log(tractIndex)
+        if (tractIndex !== -1) {
+          this.editSystem.tracts.splice(tractIndex, 1)
+          this.editSystem.activeTract = this.editSystem.tracts.length ? this.editSystem.tracts[0].tractName : ''
+        }
+      },
+      resetForm() {
+        ;(this.editSystem = {
+          pin: '',
+          number: '',
+          correspondent: '',
+          KMU: {
+            type: 'КМУ',
+            number: ''
+          },
+          OMU: {
+            type: 'ОМУ',
+            number: ''
+          },
+          payload: [],
+          note: '',
+          state: 'В работе',
+          subunit:
+            this.$store.state.subunit === 'cskp' || this.$store.state.subunit === 'gcs'
+              ? ''
+              : String(this.$store.state.subunit)
+        }),
+          (this.payload_obj = {
+            number: '',
+            correspondent: '',
+            type: ''
+          })
+      },
       async updateSystem() {
         this.error = ''
         this.success = ''
         try {
-          this.editSystem.pin = this.editSystem.pin + this.editSystem.subunit
           this.editSystem.payload = this.payloadArr
           this.editSystem.KMU = this.newKMU
           this.editSystem.OMU = this.newOMU
+          console.log(this.editSystem)
           const response = await axios.put(`${Config.SERVER_URL}/api/systems/editSystem`, this.editSystem, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }
           })
-          this.$store.commit('updateSystem', this.editSystem)
+          console.log('далее' + response.data)
+          this.$store.commit('updateSystem', response.data)
           this.$store.dispatch('sendLog', {
             type: 'Info',
             message: `СП ${this.editSystem.number} была отредактирована`
           })
-          ;(this.editSystem = {
-            pin: '',
-            number: '',
-            correspondent: '',
-            KMU: {
-              type: 'КМУ',
-              number: ''
-            },
-            OMU: {
-              type: 'ОМУ',
-              number: ''
-            },
-            payload: [],
-            note: '',
-            state: 'Статус не определён',
-            subunit: this.$store.state.subunit === 'cskp' ? '' : String(this.$store.state.subunit)
-          }),
-            (this.payload_obj = {
-              number: '',
-              correspondent: '',
-              type: ''
-            })
+          this.resetForm()
           this.showPopupEditSp()
         } catch (e) {
+          this.error = e.response.data.message
           console.log(e)
+        }
+      }
+    },
+    computed: {
+      selectedTract() {
+        return this.editSystem.tracts.find((tract) => tract.tractName === this.editSystem.activeTract)
+      }
+    },
+    watch: {
+      tractToEditSystem: {
+        deep: true, // Глубокое наблюдение за объектами
+        handler(newVal) {
+          if (newVal) {
+            this.editSystem.tracts.push(newVal)
+            this.editSystem.activeTract = newVal.tractName
+          }
         }
       }
     },
@@ -285,6 +356,9 @@
       systemData: {
         type: Object,
         default: () => ({})
+      },
+      tractToEditSystem: {
+        type: Object
       }
     }
   }
@@ -332,6 +406,7 @@
     flex-direction: column;
     align-items: center;
     padding-right: 1vw;
+    width: 30%;
   }
   h1,
   h2 {
@@ -552,5 +627,60 @@
     transition: 0.2s ease;
     filter: drop-shadow(0px 0px 20px #000);
     transform: scale(0.7) translate(-20vw, 10vw);
+  }
+  .tract__wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .select__tract {
+    width: 100%;
+  }
+  .tract__item {
+    display: flex;
+    align-items: center;
+  }
+  .node {
+    border-radius: 50%;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .line {
+    display: flex;
+    flex-direction: column;
+  }
+  .line__name,
+  .line__section {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+  }
+  .line__middle {
+    width: 50px;
+    height: 1px;
+    margin: 2px 0px 3px;
+    background: #fff;
+  }
+  .remove__ico {
+    width: 1.5vw;
+    margin-left: 15px;
+    transition: 0.2s;
+    cursor: pointer;
+    &:hover {
+      filter: drop-shadow(0 0 10px #fff);
+      stroke: #fff;
+      transition: 0.2s;
+    }
+
+    &:active {
+      filter: drop-shadow(0 0 10px #000);
+      stroke: #fff;
+      transition: 0.2s;
+    }
   }
 </style>

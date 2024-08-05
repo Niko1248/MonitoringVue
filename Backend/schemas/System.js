@@ -10,8 +10,8 @@ const SystemSchema = new Schema(
     subunit: { type: String },
     state: { type: String },
     payload: { type: Array },
-    tract: { type: String },
-    reserveList: { type: Array },
+    tracts: { type: Array },
+    selectedNameTract: { type: String },
     note: { type: String },
   },
   {

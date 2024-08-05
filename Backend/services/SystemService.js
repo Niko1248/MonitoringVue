@@ -3,14 +3,23 @@ import { translateSubunit } from "../utils/translateSubunit.js"
 
 class SystemService {
   async create(system) {
+    const regex = /^[А-Яа-яЁё]+$/
+    const isOnlyRussianLetters = regex.test(system.subunit)
+    if (!isOnlyRussianLetters) {
+      system.subunit = translateSubunit(system.subunit)
+    }
+    system.pin = system.pin + system.subunit
     const createdSystem = await System.create(system)
     return createdSystem
   }
 
   async getAll(token) {
     const checkSubunit = translateSubunit(token.subunit[0])
-    if (checkSubunit === "ЦС (СУС)") {
+    if (checkSubunit === "14 ГЦС") {
       const systems = await System.find()
+      return systems
+    } else if (checkSubunit === "ЦС (СУС)") {
+      const systems = await System.find({ subunit: { $in: ["Колибри", "Брус", "Пеликан", "Унция"] } })
       return systems
     } else {
       const systems = await System.find({ subunit: `${checkSubunit}` })
@@ -30,7 +39,15 @@ class SystemService {
     if (!system._id) {
       throw new Error("Не указан ID")
     }
+    console.log(system)
+    const regex = /^[А-Яа-яЁё]+$/
+    const isOnlyRussianLetters = regex.test(system.subunit)
+    if (!isOnlyRussianLetters) {
+      system.subunit = translateSubunit(system.subunit)
+    }
+    system.pin = system.pin + system.subunit
     const updatedSystem = await System.findByIdAndUpdate(system._id, system, { new: true })
+    console.log(updatedSystem)
     return updatedSystem
   }
   async updateInfo(system) {
@@ -39,7 +56,7 @@ class SystemService {
     }
     const updatedSystem = await System.findByIdAndUpdate(
       system._id,
-      { note: system.note, tract: system.tract },
+      { note: system.note, selectedNameTract: system.activeTract },
       { new: true }
     )
     return updatedSystem

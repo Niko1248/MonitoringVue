@@ -1,0 +1,4512 @@
+[{
+  "_id": {
+    "$oid": "66531a3d2821a586fbbebf7e"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 111 успешно добавлена",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-05-26T11:17:17.556Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T11:17:17.556Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531a4f2821a586fbbebf82"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 222 успешно добавлена",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-05-26T11:17:35.122Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T11:17:35.122Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531a612821a586fbbebf86"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 333 успешно добавлена",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-05-26T11:17:53.726Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T11:17:53.726Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531a772821a586fbbebf8a"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 444 успешно добавлена",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-05-26T11:18:15.511Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T11:18:15.511Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531a9f2821a586fbbebf8e"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 222pel успешно добавлена",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-05-26T11:18:55.374Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T11:18:55.374Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531ab82821a586fbbebf92"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 33pel успешно добавлена",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-05-26T11:19:20.548Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T11:19:20.548Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66531ac62821a586fbbebf96"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 44pel успешно добавлена",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-05-26T11:19:34.826Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T11:19:34.826Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653276088c656a58ae34a72"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:13:20.705Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:13:20.705Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653276088c656a58ae34a74"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:13:20.710Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:13:20.710Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653276a88c656a58ae34a7a"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:13:30.692Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:13:30.692Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653276f88c656a58ae34a7f"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 44pel Пеликан - pel444",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:13:35.698Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:13:35.698Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653277488c656a58ae34a86"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:13:40.702Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:13:40.702Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653277488c656a58ae34a88"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 44pel Пеликан - pel444",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:13:40.704Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:13:40.704Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665327a188c656a58ae34a8f"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:14:25.761Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:14:25.761Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665327a688c656a58ae34a93"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:14:30.775Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:14:30.775Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665327ab88c656a58ae34a99"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 444 Колибри - kol444",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:14:35.783Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:14:35.783Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665327ab88c656a58ae34a9b"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:14:35.785Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:14:35.785Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665327b088c656a58ae34a9f"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 444 Колибри - kol444",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:14:40.785Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:14:40.785Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665327b588c656a58ae34aa3"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:14:45.795Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:14:45.795Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665328a309d56a1ff2ba9c2f"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:18:43.096Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:18:43.096Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665328c609d56a1ff2ba9c34"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:19:18.108Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:19:18.108Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532909c3ca74cc287f5dc5"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:20:25.858Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:20:25.858Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532929c3ca74cc287f5dc9"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 222 изменено примечание на: 222222222",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-05-26T12:20:57.554Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:20:57.554Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665329b271ce9291b5a416f6"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:23:14.701Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:23:14.701Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532a4d712eb4fc02493e96"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:25:49.512Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:25:49.512Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532a57712eb4fc02493e9b"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:25:59.514Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:25:59.514Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532a6b712eb4fc02493ea3"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:26:19.555Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:26:19.555Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532a6b712eb4fc02493ea5"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:26:19.557Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:26:19.557Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532b88712eb4fc02493eab"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:31:04.991Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:31:04.991Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532ed1a75f6496552b710c"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:45:05.777Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:45:05.777Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532efea75f6496552b7113"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:45:50.824Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:45:50.824Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532f71a75f6496552b7146"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:47:45.993Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:47:45.993Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66532f71a75f6496552b7148"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:47:45.995Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:47:45.995Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66533036a75f6496552b714c"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T12:51:02.076Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T12:51:02.076Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537174865b921861eb00f5"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:29:24.645Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:29:24.645Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537174865b921861eb00f7"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:29:24.652Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:29:24.652Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537174865b921861eb00f9"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:29:24.655Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:29:24.655Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665371a1865b921861eb0100"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:30:09.699Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:30:09.699Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665371a1865b921861eb0103"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:30:09.707Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:30:09.707Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653727d865b921861eb010e"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:33:49.987Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:33:49.987Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537282865b921861eb0113"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:33:54.999Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:33:54.999Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665372a6865b921861eb011a"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:34:30.060Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:34:30.060Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665372a6865b921861eb011c"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:34:30.063Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:34:30.063Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665372b5865b921861eb0124"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:34:45.076Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:34:45.076Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665372b5865b921861eb0127"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:34:45.079Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:34:45.079Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665372c9865b921861eb012e"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:35:05.102Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:35:05.102Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665372c9865b921861eb0130"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:35:05.104Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:35:05.104Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537343bf7016f691dc98ff"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:37:07.796Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:37:07.796Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537343bf7016f691dc9901"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:37:07.801Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:37:07.801Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653735cbf7016f691dc9909"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:37:32.647Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:37:32.647Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537361bf7016f691dc990e"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:37:37.650Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:37:37.650Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653743fe3941f64aa4c7147"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:41:19.843Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:41:19.843Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653743fe3941f64aa4c7149"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:41:19.847Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:41:19.847Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653743fe3941f64aa4c714b"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:41:19.850Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:41:19.850Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537497e832798469459741"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:42:47.694Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:42:47.694Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537497e832798469459743"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:42:47.700Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:42:47.700Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537497e832798469459746"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:42:47.705Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:42:47.705Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537538a5c8ba71367fcdff"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:45:28.701Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:45:28.701Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537538a5c8ba71367fce01"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:45:28.706Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:45:28.706Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537627391162b9304f9f99"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:49:27.735Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:49:27.735Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537627391162b9304f9f9b"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:49:27.740Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:49:27.740Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537672391162b9304f9f9f"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:50:42.817Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:50:42.817Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537681391162b9304f9fa4"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:50:57.823Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:50:57.823Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537690391162b9304f9fab"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:51:12.850Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:51:12.850Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66537690391162b9304f9fad"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:51:12.853Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:51:12.853Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665376d153b8e13c81b4cac9"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:52:17.217Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:52:17.217Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665376d153b8e13c81b4cacb"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:52:17.221Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:52:17.221Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665376d653b8e13c81b4cad0"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:52:22.187Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:52:22.187Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665376d653b8e13c81b4cad2"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:52:22.190Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:52:22.190Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653772153b8e13c81b4cada"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:53:37.282Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:53:37.282Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653772153b8e13c81b4cadc"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:53:37.283Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:53:37.283Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653772b53b8e13c81b4cae3"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:53:47.295Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:53:47.295Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653772b53b8e13c81b4cae5"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:53:47.297Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:53:47.297Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653773053b8e13c81b4caea"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:53:52.295Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:53:52.295Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653773053b8e13c81b4caec"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:53:52.296Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:53:52.296Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653773a53b8e13c81b4caf3"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 44pel Пеликан - pel444",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:02.309Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:02.309Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653773a53b8e13c81b4caf5"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 44pel Пеликан - pel444",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:02.311Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:02.311Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653773a53b8e13c81b4caf7"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:02.312Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:02.312Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653774453b8e13c81b4cafe"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 44pel Пеликан - pel444",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:12.316Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:12.316Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653774453b8e13c81b4cb00"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:12.317Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:12.317Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653775353b8e13c81b4cb09"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:27.341Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:27.341Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653775353b8e13c81b4cb0b"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:27.342Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:27.342Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653775353b8e13c81b4cb0d"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:27.343Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:27.343Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653775d53b8e13c81b4cb13"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:37.360Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:37.360Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653775d53b8e13c81b4cb16"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:37.364Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:37.364Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653776c53b8e13c81b4cb1b"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:52.380Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:52.380Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653776c53b8e13c81b4cb1f"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:52.386Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:52.386Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653777153b8e13c81b4cb25"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:57.393Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:57.393Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6653777153b8e13c81b4cb29"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-05-26T17:54:57.406Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:54:57.406Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665377b653b8e13c81b4cb2d"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 222pel изменено примечание на: 132124243243",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-05-26T17:56:06.792Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-26T17:56:06.792Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6665ca76d2610a63243f6d8a"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь ttt Роль: SUPERADMIN Подразделение: cskp успешно создан\"",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-06-09T15:29:58.860Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-09T15:29:58.860Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6665cab2d2610a63243f6d93"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь dev Роль: SUPERADMIN Подразделение: cskp успешно создан\"",
+  "username": "ttt",
+  "createdAt": {
+    "$date": "2024-06-09T15:30:58.382Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-09T15:30:58.382Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6665cab9d2610a63243f6d98"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь dusttt Роль: ADMIN Подразделение: kolibri успешно создан\"",
+  "username": "ttt",
+  "createdAt": {
+    "$date": "2024-06-09T15:31:05.613Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-09T15:31:05.613Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6665cac6d2610a63243f6d9d"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь pelikan Роль: ADMIN Подразделение: pelikan успешно создан\"",
+  "username": "ttt",
+  "createdAt": {
+    "$date": "2024-06-09T15:31:18.510Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-09T15:31:18.510Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6665dd50cc2353f305de4c65"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь test Роль: SUPERADMIN Подразделение: cskp успешно создан\"",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-06-09T16:50:24.308Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-09T16:50:24.308Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6665ddb48aa95668f13e09a8"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь dev Роль: SUPERADMIN Подразделение: cskp успешно создан\"",
+  "username": "test",
+  "createdAt": {
+    "$date": "2024-06-09T16:52:04.199Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-09T16:52:04.199Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6665ddbc8aa95668f13e09ad"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь dusttt Роль: ADMIN Подразделение: kolibri успешно создан\"",
+  "username": "test",
+  "createdAt": {
+    "$date": "2024-06-09T16:52:12.860Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-09T16:52:12.860Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6665e81e9640626b17168ed1"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь test Роль: SUPERADMIN Подразделение: cskp успешно создан\"",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-06-09T17:36:30.218Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-09T17:36:30.218Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dbc7b6e1d375f107267ee"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь pelikan Роль: ADMIN Подразделение: pelikan успешно создан\"",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-06-15T16:08:27.285Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-15T16:08:27.285Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666dc0fb6e1d375f10726807"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь TeRa Роль: USER Подразделение: kolibri успешно создан\"",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-06-15T16:27:39.668Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-15T16:27:39.668Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666de9f0ba6cbb427616eca4"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-15T19:22:24.105Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-15T19:22:24.105Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666de9f0ba6cbb427616eca6"
+  },
+  "type": "Success",
+  "subunit": "Пеликан",
+  "message": "В работе: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-15T19:22:24.108Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-15T19:22:24.108Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666de9f5ba6cbb427616ecab"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 222pel Пеликан - pel22",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-15T19:22:29.067Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-15T19:22:29.067Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666de9f5ba6cbb427616ecae"
+  },
+  "type": "Warning",
+  "subunit": "Пеликан",
+  "message": "Авария: СП 33pel Пеликан - pel333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-15T19:22:29.071Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-15T19:22:29.071Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ec3306cb82caf44d4328e"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-16T10:49:20.885Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-16T10:49:20.885Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ec3356cb82caf44d43292"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-16T10:49:25.854Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-16T10:49:25.854Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ec33a6cb82caf44d4329a"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-16T10:49:30.870Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-16T10:49:30.870Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "666ec33a6cb82caf44d4329d"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-16T10:49:30.877Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-16T10:49:30.877Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667717de786f12a519ddd338"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-22T18:28:46.772Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-22T18:28:46.772Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66771e63a7293385725e1b60"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь date Роль: SUPERADMIN Подразделение: cskp успешно создан\"",
+  "username": "dev",
+  "createdAt": {
+    "$date": "2024-06-22T18:56:35.048Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-22T18:56:35.048Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667735aae4a97b37dc91d85d"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь dev Роль: SUPERADMIN Подразделение: cskp успешно создан\"",
+  "username": "date",
+  "createdAt": {
+    "$date": "2024-06-22T20:35:54.156Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-22T20:35:54.156Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667735b9e4a97b37dc91d86b"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь dusttt Роль: ADMIN Подразделение: kolibri успешно создан\"",
+  "username": "date",
+  "createdAt": {
+    "$date": "2024-06-22T20:36:09.779Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-22T20:36:09.779Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667735c2e4a97b37dc91d876"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь pelikan Роль: ADMIN Подразделение: pelikan успешно создан\"",
+  "username": "date",
+  "createdAt": {
+    "$date": "2024-06-22T20:36:18.998Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-22T20:36:18.998Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c68acec6f73a3a4d25417"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:14:52.333Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:14:52.333Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c68bbec6f73a3a4d25421"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:15:07.349Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:15:07.349Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c68cfec6f73a3a4d2542d"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:15:27.396Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:15:27.396Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c68deec6f73a3a4d25437"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:15:42.412Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:15:42.412Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c68e3ec6f73a3a4d2543e"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:15:47.436Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:15:47.436Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c68e8ec6f73a3a4d25446"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:15:52.445Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:15:52.445Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c68e8ec6f73a3a4d25449"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:15:52.449Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:15:52.449Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c691fec6f73a3a4d25465"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:16:47.505Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:16:47.505Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c691fec6f73a3a4d25468"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:16:47.512Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:16:47.512Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c6924ec6f73a3a4d2546f"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:16:52.500Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:16:52.500Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667c6924ec6f73a3a4d25472"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-06-26T19:16:52.511Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-26T19:16:52.511Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a6330f8d229e68999e959c"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:01:19.182Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:01:19.182Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a633148d229e68999e95a2"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:01:24.164Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:01:24.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a633198d229e68999e95aa"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:01:29.193Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:01:29.193Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a633198d229e68999e95ac"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:01:29.195Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:01:29.195Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a633838d229e68999e95db"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 555kol успешно добавлена",
+  "username": "date",
+  "createdAt": {
+    "$date": "2024-07-28T12:03:15.517Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:03:15.517Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a6338c8d229e68999e95e5"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 555kol Колибри - dfdf",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:03:24.382Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:03:24.382Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a633ab8d229e68999e95f7"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:03:55.426Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:03:55.426Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a633c88d229e68999e960d"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 555kol Колибри - dfdf",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:04:24.487Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:04:24.487Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a633cd8d229e68999e9613"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 555kol Колибри - dfdf",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:04:29.501Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:04:29.501Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a634008d229e68999e962b"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 555kol Колибри - dfdf",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:05:20.407Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:05:20.407Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a634018d229e68999e9631"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:05:21.586Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:05:21.586Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a6342d8d229e68999e9648"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 555kol Колибри - dfdf",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:06:05.414Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:06:05.414Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a6342d8d229e68999e964a"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:06:05.415Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:06:05.415Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a634828d229e68999e9671"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 666kol успешно добавлена",
+  "username": "date",
+  "createdAt": {
+    "$date": "2024-07-28T12:07:30.686Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:07:30.686Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a6349f8d229e68999e9682"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 555kol Колибри - dfdf",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:07:59.836Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:07:59.836Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a634a98d229e68999e968a"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 666kol Колибри - fsdf",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:08:09.856Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:08:09.856Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a634ae8d229e68999e9690"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 555kol Колибри - dfdf",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:08:14.863Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:08:14.863Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a634e08d229e68999e96a9"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 555kol Колибри - dfdf",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:09:04.945Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:09:04.945Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a635078d229e68999e96be"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 777kol успешно добавлена",
+  "username": "date",
+  "createdAt": {
+    "$date": "2024-07-28T12:09:43.348Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:09:43.348Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a635278d229e68999e96cf"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 777kol Колибри - das",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:10:15.082Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:10:15.082Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a635e68d229e68999e9720"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 111 удалена",
+  "username": "date",
+  "createdAt": {
+    "$date": "2024-07-28T12:13:26.576Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:13:26.576Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a63a978d229e68999e990b"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 777kol Колибри - das",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:33:27.223Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:33:27.223Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a63aa18d229e68999e9913"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 777kol Колибри - das",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T12:33:37.232Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T12:33:37.232Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671a7d33565ba2279c644"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:28:23.534Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:28:23.534Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671a7d33565ba2279c646"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 777kol Колибри - das",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:28:23.538Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:28:23.538Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671acd33565ba2279c64c"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 777kol Колибри - das",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:28:28.516Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:28:28.516Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671b1d33565ba2279c652"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:28:33.528Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:28:33.528Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671cfd33565ba2279c662"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:29:03.585Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:29:03.585Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671d4d33565ba2279c668"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:29:08.602Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:29:08.602Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671e3d33565ba2279c673"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 777kol Колибри - das",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:29:23.627Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:29:23.627Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671e3d33565ba2279c676"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:29:23.631Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:29:23.631Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671e8d33565ba2279c67d"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:29:28.639Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:29:28.639Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a671e8d33565ba2279c680"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 333 Колибри - kol333",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:29:28.650Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:29:28.650Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a67256d33565ba2279c6b2"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:31:18.793Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:31:18.793Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a6725bd33565ba2279c6b8"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:31:23.792Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:31:23.792Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a67265d33565ba2279c6c0"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:31:33.800Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:31:33.800Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a6726ad33565ba2279c6c6"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:31:38.803Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:31:38.803Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a67279d33565ba2279c6d0"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:31:53.836Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:31:53.836Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a6727ed33565ba2279c6d6"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:31:58.849Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:31:58.849Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a672b0d33565ba2279c6f0"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:32:48.923Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:32:48.923Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a672b5d33565ba2279c6f6"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 222 Колибри - kol222",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-07-28T16:32:53.915Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-28T16:32:53.915Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad0c9a2743308ac3ee152b"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "Пользователь DPNGCS Роль: USER Подразделение: gcs успешно создан",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-02T16:43:06.557Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-02T16:43:06.557Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad0cad2743308ac3ee1536"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "Пользователь DPNCS Роль: ADMIN Подразделение: cskp успешно создан",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-02T16:43:25.999Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-02T16:43:25.999Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad0ce42743308ac3ee1550"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь dusttt Роль: USER Подразделение: kolibri успешно создан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-02T16:44:20.908Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-02T16:44:20.908Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad0d122743308ac3ee1567"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь pelikan Роль: USER Подразделение: pelikan успешно создан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-02T16:45:06.723Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-02T16:45:06.723Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad0d1c2743308ac3ee1570"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь Unciya Роль: USER Подразделение: unciya успешно создан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-02T16:45:16.044Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-02T16:45:16.044Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad0d302743308ac3ee157d"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь pulsator Роль: USER Подразделение: pulsator успешно создан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-02T16:45:36.573Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-02T16:45:36.573Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad0d382743308ac3ee1586"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "Пользователь seliger Роль: USER Подразделение: seliger успешно создан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-02T16:45:44.080Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-02T16:45:44.080Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad1ed975f7bffd984e259d"
+  },
+  "type": "Info",
+  "subunit": "14 ГЦС",
+  "message": "СП 11sel успешно добавлена",
+  "username": "dpngcs",
+  "createdAt": {
+    "$date": "2024-08-02T18:00:57.184Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-02T18:00:57.184Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ade5e8c390efb7780bdc3b"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 8kol успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T08:10:16.828Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T08:10:16.828Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ade6a1c390efb7780bdc8a"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 8kol удалена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T08:13:21.145Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T08:13:21.145Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ade714c390efb7780bdcbe"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 8kol успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T08:15:16.793Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T08:15:16.793Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ade73fc390efb7780bdcd3"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 8kol удалена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T08:15:59.644Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T08:15:59.644Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66adf6f5adf1ba0be2d25f1f"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 8kol успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T09:23:01.751Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T09:23:01.751Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66adf87dadf1ba0be2d25fc1"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 532 успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T09:29:33.528Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T09:29:33.528Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66adf88dadf1ba0be2d25fca"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 532 удалена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T09:29:49.639Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T09:29:49.639Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae3d11adf1ba0be2d27564"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 423 успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T14:22:09.879Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T14:22:09.879Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae3ed6adf1ba0be2d27622"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 888 успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T14:29:42.528Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T14:29:42.528Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae4281adf1ba0be2d277a2"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Kol успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T14:45:21.370Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T14:45:21.370Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae42d6adf1ba0be2d277c8"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 2Kol успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T14:46:46.407Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T14:46:46.407Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae4360adf1ba0be2d27804"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T14:49:04.362Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T14:49:04.362Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae438cadf1ba0be2d27818"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 2Pel успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T14:49:48.149Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T14:49:48.149Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae45e9adf1ba0be2d27910"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Sel успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T14:59:53.665Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T14:59:53.665Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae4c868b71531c8c88b3e4"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 2Sel успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T15:28:06.279Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T15:28:06.279Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae53ef8b71531c8c88b6e9"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T15:59:43.685Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T15:59:43.685Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae55598b71531c8c88b76c"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T16:05:45.181Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:05:45.181Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae56848b71531c8c88b7e7"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 2Kol была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T16:10:44.580Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:10:44.580Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae58dc8b71531c8c88b827"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 3pel успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T16:20:44.085Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:20:44.085Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae58f58b71531c8c88b834"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 3pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T16:21:09.252Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:21:09.252Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae5b6b8b71531c8c88b8d1"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T16:31:39.574Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:31:39.574Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae5b6b8b71531c8c88b8d4"
+  },
+  "type": "Success",
+  "subunit": "pelikan",
+  "message": "В работе: СП 1Pel pelikan - Вода",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-08-03T16:31:39.583Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:31:39.583Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae5cc48b71531c8c88b969"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 213 успешно добавлена",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T16:37:24.399Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:37:24.399Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae5d358b71531c8c88b99f"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 2Kol Колибри - Ноут",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-08-03T16:39:17.525Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:39:17.525Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae5d3f8b71531c8c88b9aa"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 2Kol Колибри - Ноут",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-08-03T16:39:27.531Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:39:27.531Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae5d3f8b71531c8c88b9ad"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 1Kol Колибри - Тест",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-08-03T16:39:27.535Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:39:27.535Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae5d6d8b71531c8c88b9c3"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "СП dhg успешно добавлена",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-03T16:40:13.856Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:40:13.856Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae5db88b71531c8c88b9e7"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "СП 534 успешно добавлена",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-03T16:41:28.609Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:41:28.609Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae5f33e8c17e3b10e6a4d6"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "СП 333 успешно добавлена",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-03T16:47:47.386Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:47:47.386Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6007e8c17e3b10e6a510"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "СП 66kol успешно добавлена",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-03T16:51:19.260Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:51:19.260Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae604cf1363720b98f1a99"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "СП 423 успешно добавлена",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-03T16:52:28.438Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:52:28.438Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6195f1363720b98f1b0d"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T16:57:57.015Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T16:57:57.015Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6251f1363720b98f1b37"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 5632 успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T17:01:05.620Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:01:05.620Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6426f1363720b98f1bdb"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 3pel успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T17:08:54.514Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:08:54.514Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae644bf1363720b98f1bee"
+  },
+  "type": "Info",
+  "subunit": "14 ГЦС",
+  "message": "СП fasd успешно добавлена",
+  "username": "dpngcs",
+  "createdAt": {
+    "$date": "2024-08-03T17:09:31.548Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:09:31.548Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae65002e63ea0b80677add"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 82134 успешно добавлена",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:12:32.749Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:12:32.749Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae657f29185257a8a3e11f"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП fasd была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:14:39.301Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:14:39.301Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae667429185257a8a3e186"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 82134 была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:18:44.318Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:18:44.318Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae66df29185257a8a3e1b7"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 82134 была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:20:31.366Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:20:31.366Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae66f8a5f3502d8fb42098"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП fasdы была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:20:56.908Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:20:56.908Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae676f9ebaef987058f029"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП fasdы удалена",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:22:55.224Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:22:55.224Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae67b46fd229ae4ebb178d"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 3pel была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:24:04.589Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:24:04.589Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae67d46fd229ae4ebb179e"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 82134 была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:24:36.623Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:24:36.623Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae680f6fd229ae4ebb17b7"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 3pel была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:25:35.456Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:25:35.456Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae681f6fd229ae4ebb17c2"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 3pel была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:25:51.811Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:25:51.811Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae68716fd229ae4ebb17e7"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 82134 была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:27:13.966Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:27:13.966Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae68ee6fd229ae4ebb181e"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 82134 была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:29:18.783Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:29:18.783Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae69d06fd229ae4ebb1881"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 3pel была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:33:04.602Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:33:04.602Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae69ea6fd229ae4ebb1890"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 2Pel была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:33:30.606Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:33:30.606Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6a236fd229ae4ebb18ab"
+  },
+  "type": "Info",
+  "subunit": "Пеликан",
+  "message": "СП 82134 была отредактирована",
+  "username": "pelikan",
+  "createdAt": {
+    "$date": "2024-08-03T17:34:27.731Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:34:27.731Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6cf6078b0653cc249885"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 312 успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T17:46:30.116Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:46:30.116Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6d23078b0653cc24989a"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 312 удалена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T17:47:15.591Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:47:15.591Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6d3c078b0653cc2498a8"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 312 успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T17:47:40.902Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:47:40.902Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6d5f078b0653cc2498b9"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 312 была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T17:48:15.288Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:48:15.288Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6d91078b0653cc2498d3"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 1Kol Колибри - Тест",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-08-03T17:49:05.719Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:49:05.719Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6d91078b0653cc2498d5"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 2Kol Колибри - Ноут",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-08-03T17:49:05.720Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:49:05.720Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6d96078b0653cc2498dc"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 2Kol Колибри - Ноут",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-08-03T17:49:10.725Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:49:10.725Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae6d96078b0653cc2498df"
+  },
+  "type": "Warning",
+  "subunit": "Колибри",
+  "message": "Авария: СП 1Kol Колибри - Тест",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-08-03T17:49:10.734Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T17:49:10.734Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae90b33a7883b504e4e0d5"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "СП 1Kol была отредактирована",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-03T20:18:59.224Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T20:18:59.224Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae90f83a7883b504e4e0f4"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "СП 1Kol была отредактирована",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-03T20:20:08.920Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T20:20:08.920Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae918ccf645ccac2434af4"
+  },
+  "type": "Info",
+  "subunit": "Колибри",
+  "message": "СП 1Kol была отредактирована",
+  "username": "dusttt",
+  "createdAt": {
+    "$date": "2024-08-03T20:22:36.016Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T20:22:36.016Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae9384c81ef7d550047032"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 3pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T20:31:00.279Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T20:31:00.279Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae93ee4bb9304314a3b480"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T20:32:46.516Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T20:32:46.516Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ae9571c8b935ac8eacad9a"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-03T20:39:13.669Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T20:39:13.669Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af2e28626308392ef179c6"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T07:30:48.502Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T07:30:48.502Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af2eb1626308392ef179fb"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 2Kol была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T07:33:05.258Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T07:33:05.258Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af2eb1626308392ef179fe"
+  },
+  "type": "Success",
+  "subunit": "Колибри",
+  "message": "В работе: СП 2Kol Колибри - Ноут",
+  "username": "",
+  "createdAt": {
+    "$date": "2024-08-04T07:33:05.264Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T07:33:05.264Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af3fa7626308392ef180d1"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T08:45:27.398Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T08:45:27.398Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af3fca626308392ef180e2"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T08:46:02.685Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T08:46:02.685Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4008626308392ef180fd"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T08:47:04.072Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T08:47:04.072Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4247626308392ef181e9"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 132 успешно добавлена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T08:56:39.394Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T08:56:39.394Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4254626308392ef181f2"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 132 удалена",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T08:56:52.431Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T08:56:52.431Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4529626308392ef18315"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:08:57.422Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:08:57.422Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af484f626308392ef1845c"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:22:23.682Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:22:23.682Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af498ce2376d9cf11e0e97"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:27:40.106Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:27:40.106Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af49c3e2376d9cf11e0eb1"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:28:35.350Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:28:35.350Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4a90e2376d9cf11e0f05"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:32:00.482Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:32:00.482Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4ab5e2376d9cf11e0f18"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:32:37.018Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:32:37.018Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4b53e2376d9cf11e0f5d"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:35:15.837Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:35:15.837Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4b75e2376d9cf11e0f6e"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:35:49.918Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:35:49.918Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4b82e2376d9cf11e0f75"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:36:02.530Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:36:02.530Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4cb6e2376d9cf11e0ff6"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:41:10.677Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:41:10.677Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4cbae2376d9cf11e0ff9"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:41:14.777Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:41:14.777Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4cc3e2376d9cf11e1000"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:41:23.119Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:41:23.119Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4cdce2376d9cf11e100d"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:41:48.740Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:41:48.740Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4d05e2376d9cf11e1022"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:42:29.083Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:42:29.083Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4d0fe2376d9cf11e1029"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:42:39.596Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:42:39.596Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4d2ae2376d9cf11e1038"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:43:06.131Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:43:06.131Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4d3de2376d9cf11e1043"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:43:25.277Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:43:25.277Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4d41e2376d9cf11e1048"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:43:29.512Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:43:29.512Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4d4ce2376d9cf11e104f"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:43:40.270Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:43:40.270Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4d5fe2376d9cf11e105a"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:43:59.665Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:43:59.665Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4d70e2376d9cf11e1063"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:44:16.312Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:44:16.312Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4dfae2376d9cf11e109f"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:46:34.348Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:46:34.348Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4e1ae2376d9cf11e10b0"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:47:06.500Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:47:06.500Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4e33e2376d9cf11e10bd"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:47:31.737Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:47:31.737Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4e3ae2376d9cf11e10c4"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel изменено примечание на: Пеликан",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:47:38.214Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:47:38.214Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4e44e2376d9cf11e10cb"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:47:48.545Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:47:48.545Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4e94e2376d9cf11e10ee"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:49:08.336Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:49:08.336Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4ea4e2376d9cf11e10f7"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:49:24.280Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:49:24.280Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4ee7e2376d9cf11e1116"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:50:31.091Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:50:31.091Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4f18e2376d9cf11e112d"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:51:20.412Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:51:20.412Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4f53e2376d9cf11e1148"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:52:19.729Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:52:19.729Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4f69e2376d9cf11e1155"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:52:41.404Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:52:41.404Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4fd0e2376d9cf11e1184"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:54:24.607Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:54:24.607Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af4ff0e2376d9cf11e1193"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:54:56.681Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:54:56.681Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af504de2376d9cf11e11bc"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:56:29.751Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:56:29.751Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af505ee2376d9cf11e11c5"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 1Pel была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:56:46.709Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:56:46.709Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66af5089e2376d9cf11e11da"
+  },
+  "type": "Info",
+  "subunit": "ЦС (СУС)",
+  "message": "СП 2Kol была отредактирована",
+  "username": "dpncs",
+  "createdAt": {
+    "$date": "2024-08-04T09:57:29.347Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T09:57:29.347Z"
+  },
+  "__v": 0
+}]

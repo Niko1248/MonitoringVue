@@ -1,20 +1,5 @@
 [{
   "_id": {
-    "$oid": "66771e63a7293385725e1b5e"
-  },
-  "username": "date",
-  "password": "$2a$07$3QAiffGJH3Jo.q9kRhwRW.BLCace7j4sThaONqirRIO0m9ToihmGu",
-  "roles": [
-    "SUPERADMIN"
-  ],
-  "subunit": [
-    "cskp"
-  ],
-  "lastActive": "Sat Jul 06 2024 23:57:34 GMT+0300 (Москва, стандартное время)",
-  "__v": 0
-},
-{
-  "_id": {
     "$oid": "667735aae4a97b37dc91d85b"
   },
   "username": "dev",
@@ -25,36 +10,108 @@
   "subunit": [
     "cskp"
   ],
-  "lastActive": "Wed Jun 26 2024 22:11:31 GMT+0300 (Москва, стандартное время)",
+  "lastActive": "Fri Aug 02 2024 20:33:30 GMT+0300 (Москва, стандартное время)",
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "667735b9e4a97b37dc91d869"
+    "$oid": "66ad0c9a2743308ac3ee1529"
   },
-  "username": "dusttt",
-  "password": "$2a$07$bwmM3pJMnUGdVcsSagjKK.bD7q3EE23UsCrpr/.yRPEJvssiZgMiS",
+  "username": "dpngcs",
+  "password": "$2a$07$MJeRhH2jHlBuseX/r/V3EeOqhLhiZhNrE5AK1Hi51.2NhNuX1PpJW",
+  "roles": [
+    "USER"
+  ],
+  "subunit": [
+    "gcs"
+  ],
+  "__v": 0,
+  "lastActive": "Sat Aug 03 2024 20:42:20 GMT+0300 (Москва, стандартное время)"
+},
+{
+  "_id": {
+    "$oid": "66ad0cad2743308ac3ee1534"
+  },
+  "username": "dpncs",
+  "password": "$2a$07$Qss9oESvAuF9saR1drH1POnpDg9Pmocgbnfz8sy13NBfHy6..QEFy",
   "roles": [
     "ADMIN"
+  ],
+  "subunit": [
+    "cskp"
+  ],
+  "__v": 0,
+  "lastActive": "Sun Aug 04 2024 12:58:27 GMT+0300 (Москва, стандартное время)"
+},
+{
+  "_id": {
+    "$oid": "66ad0ce42743308ac3ee154e"
+  },
+  "username": "dusttt",
+  "password": "$2a$07$zRfOqGRnBK2ppLHu8u8/guLHSnDbHEzcAQD7JeQQ0OB3pDSMr3UXC",
+  "roles": [
+    "USER"
   ],
   "subunit": [
     "kolibri"
   ],
-  "lastActive": "Sun Jun 23 2024 00:16:33 GMT+0300 (Москва, стандартное время)",
-  "__v": 0
+  "__v": 0,
+  "lastActive": "Sat Aug 03 2024 23:23:38 GMT+0300 (Москва, стандартное время)"
 },
 {
   "_id": {
-    "$oid": "667735c2e4a97b37dc91d874"
+    "$oid": "66ad0d122743308ac3ee1565"
   },
   "username": "pelikan",
-  "password": "$2a$07$9.AYZ609Dxk0d7j.98o.quEQXrPx887JJxfHci3fMEeB97ta5.zse",
+  "password": "$2a$07$8Pi1x9a/S8t5zUYUy823heq2U4dx5bMZOwk5ZIZte.JZV2Tstbt0q",
   "roles": [
-    "ADMIN"
+    "USER"
   ],
   "subunit": [
     "pelikan"
   ],
-  "lastActive": "Sat Jun 22 2024 23:37:58 GMT+0300 (Москва, стандартное время)",
+  "__v": 0,
+  "lastActive": "Sat Aug 03 2024 20:39:02 GMT+0300 (Москва, стандартное время)"
+},
+{
+  "_id": {
+    "$oid": "66ad0d1c2743308ac3ee156e"
+  },
+  "username": "unciya",
+  "password": "$2a$07$lwKM7tQO2S39nmGT2keyjeMBmZPpiX/JHmZlgW3pl71W/b5KTTiZS",
+  "roles": [
+    "USER"
+  ],
+  "subunit": [
+    "unciya"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad0d302743308ac3ee157b"
+  },
+  "username": "pulsator",
+  "password": "$2a$07$k2mpfxELSdTghDXb0Gd3BOaHU94p.XNTbJcFLjcoMjscIKx.OQ1R.",
+  "roles": [
+    "USER"
+  ],
+  "subunit": [
+    "pulsator"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ad0d382743308ac3ee1584"
+  },
+  "username": "seliger",
+  "password": "$2a$07$gfKWgbAysSqTNlwGKfYOF.NTRQ6OzlpoZNgqnEEKpL0p42EjDq06G",
+  "roles": [
+    "USER"
+  ],
+  "subunit": [
+    "seliger"
+  ],
   "__v": 0
 }]
